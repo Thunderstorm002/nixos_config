@@ -214,6 +214,12 @@
         "$mainMod SHIFT, Z, hy3:movewindow, l, once"
         "$mainMod SHIFT, X, hy3:movewindow, r, once"
         "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/bin/rofi-power-menu"
+
+        # bind for hyprscrolling
+        "$mainMod, S, layoutmsg, move +col"
+        "$mmainMod, A, layoutmsg, move -col"
+        "$mmainMod SHIFT, S, layoutmsg, movewindowto r"
+        "$mmainMod SHIFT, A, layoutmsg, movewindowto l"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
