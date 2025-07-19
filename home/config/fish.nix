@@ -112,9 +112,15 @@
     '';
     shellAliases = {
       ls = "ls -lh";
-      nixupdate = "sudo nixos-rebuild switch --flake /home/roshan/nixos_config#nixos-laptop";
+      nixswitch = "sudo nixos-rebuild switch --flake /home/roshan/nixos_config#nixos-laptop";
       nixbuild = "sudo nixos-rebuild build --flake /home/roshan/nixos_config#nixos-laptop";
       nixtest = "sudo nixos-rebuild test --flake /home/roshan/nixos_config#nixos-laptop";
+      gaa = "git add --all";
+      gcm = "git commit -m 'custom changes'";
+      gac = "git add --all && git commit -m 'custom changes'";
+      gst = "git status";
+      gpu = "git push";
+      gpull = "git pull";
     };
   };
 }
