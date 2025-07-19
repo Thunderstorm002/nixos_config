@@ -95,6 +95,7 @@
   # Neovim
   imports = [
     inputs.kickstart-nixvim.homeManagerModules.default
+    ./podman.nix
     ./config/hyprland_config.nix
     ./config/hyprpaper.nix
     ./config/waybar.nix

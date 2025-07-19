@@ -142,16 +142,5 @@
   # and various virtual filesystems (e.g., trash, sftp, mtp)
   services.gvfs.enable = true;
 
-  services.libinput = {
-    touchpad = {
-      #disableWhileTyping = true; # Optional: Disables touchpad while typing
-      additionalOptions = ''
-        Option "Tapping" "off"
-        Option "DisableWhileTyping" "on"
-        Option "DeviceEnabled" "off" # This disables the touchpad entirely
-      '';
-    };
-  };
-
   system.stateVersion = "25.05";
 }
