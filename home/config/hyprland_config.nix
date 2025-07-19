@@ -196,7 +196,7 @@
         "$mainMod, X, hy3:movefocus, r"
         "$mainMod SHIFT, Z, hy3:movewindow, l, once"
         "$mainMod SHIFT, X, hy3:movewindow, r, once"
-        "$mainMod SHIFT, N, exec, rofi -show p -modi p:/usr/bin/rofi-power-menu"
+        "$mainMod SHIFT, N, exec, rofi -show p -modi p:/home/roshan/.local/bin/rofi-power-menu"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
