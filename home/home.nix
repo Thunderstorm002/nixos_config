@@ -100,7 +100,7 @@
     ./config/hyprpaper.nix
     ./config/waybar.nix
     ./config/fish.nix
-    ./config/podman.nix
+    ./podman.nix
     #    ./config/rofi.nix
   ];
 
