@@ -53,6 +53,7 @@
     nerd-fonts.fira-code
     nerd-fonts._0xproto
     nerd-fonts.noto
+    papirus-icon-theme
 
     #Rust utilities
     ripgrep
@@ -95,11 +96,12 @@
   # Neovim
   imports = [
     inputs.kickstart-nixvim.homeManagerModules.default
-    ./podman.nix
     ./config/hyprland_config.nix
     ./config/hyprpaper.nix
     ./config/waybar.nix
     ./config/fish.nix
+    ./config/podman.nix
+    ./config/rofi.nix
   ];
 
   programs.nixvim.enable = true;
