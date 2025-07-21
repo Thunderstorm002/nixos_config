@@ -101,7 +101,7 @@
     ./config/waybar.nix
     ./config/fish.nix
     ./config/podman.nix
-    #    ./config/rofi.nix
+    ./config/rofi.nix
   ];
 
   programs.nixvim.enable = true;
