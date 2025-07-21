@@ -148,7 +148,7 @@
         "$mainMod SHIFT, O, exec, librewolf"
         "$mainMod, P, exec, ebook-viewer"
         "$mainMod, N, exec, neovide"
-        "$mainMod, Y, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod, Y, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
         "$mainMod SHIFT, Y, exec, cliphist wipe"
         "$mainMod, F, fullscreen, 0"
         "$mainMod, F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
