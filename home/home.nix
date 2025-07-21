@@ -72,6 +72,8 @@
     jujutsu
   ];
 
+  fonts.fontconfig.enable = true;
+
   # GTK settings
   gtk = {
     enable = true;
