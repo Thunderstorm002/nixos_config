@@ -14,7 +14,7 @@
       monitor = [ ",preferred,auto,auto" ];
 
       # Variables
-      "$terminal" = "wezterm";
+      "$terminal" = "ghostty";
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
       "$mainMod" = "SUPER";

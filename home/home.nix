@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     # Terminal & Shell
     wezterm
+    ghostty
     fish
 
     # GUI Apps
@@ -66,6 +67,9 @@
 
     adw-gtk3
     adwaita-qt
+
+    # git replacement
+    jujutsu
   ];
 
   # GTK settings
