@@ -192,6 +192,7 @@
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod, Tab, workspace, previous"
         #", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
+        ", Super_L, exec, pkill -SIGUSR1 waybar"
         #"$mainMod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$mainMod SHIFT, W, exec, ${config.xdg.configHome}/waybar/launch.sh"
         "$mainMod, W, exec, ${config.xdg.configHome}/waybar/toggle.sh"
