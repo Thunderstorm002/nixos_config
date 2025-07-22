@@ -490,7 +490,8 @@
       #!/bin/sh
       if [ -f ${config.home.homeDirectory}/.cache/waybar-toggled ] ;then
         rm ${config.home.homeDirectory}/.cache/waybar-toggled
-        pkill -SIGUSR1 waybar
+        killall waybar
+        pkill waybar
       else
         touch ${config.home.homeDirectory}/.cache/waybar-toggled
         ${pkgs.waybar}/bin/waybar &
