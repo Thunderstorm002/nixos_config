@@ -44,6 +44,7 @@
 
     #Camera
     droidcam
+    android-tools # For USB connection via adb  libinput
 
     #Browsers
     tor
