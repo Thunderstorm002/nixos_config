@@ -17,7 +17,7 @@
       # Variables
       "$terminal" = "alacritty";
       "$fileManager" = "thunar";
-      "$menu" = "rofi -show drun"
+      "$menu" = "rofi -show drun";
       "$mainMod" = "SUPER";
 
       #Autostart
