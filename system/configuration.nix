@@ -6,25 +6,6 @@
 }:
 
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
-  # Define the v4l2loopback-dc kernel module for DroidCam
-  v4l2loopback-dc = config.boot.kernelPackages.callPackage (
-    pkgs.fetchFromGitHub {
-      owner = "aramg";
-      repo = "droidcam";
-      rev = "v1.9.2"; # Latest version as of July 2025, verify on GitHub
-      sha256 = "sha256-Z/6Y2b0E6u0e6W0oY+2Qz5LKB1M2Qz5LKB1M2Qz5LKB="; # Replace with actual sha256
-    }
-    + "/linux/v4l2loopback"
-  ) { };
-
-in
-{
   imports = [
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
@@ -40,14 +21,6 @@ in
     enable = true;
   };
   services.xserver.videoDrivers = [ "intel" ]; # Or "nvidia", "amdgpu"
-
-  boot.extraModulePackages = [ v4l2loopback-dc ];
-
-  # Ensure v4l2loopback module is loaded with correct parameters
-  boot.kernelModules = [ "v4l2loopback-dc" ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback-dc width=1280 height=720
-  '';
 
   # Nix Settings
   nix = {
@@ -135,6 +108,7 @@ in
     wev
     wtype
     unzip
+    nix-prefetch-github
     #droidcam # Already included in home.nix, but can be added here for system-wide access
     #android-tools # For USB connection via adb  libinput
   ];
