@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   ...
 }:
 
@@ -488,15 +487,12 @@
   home.file.".config/waybar/toggle.sh" = {
     text = ''
       #!/bin/sh
-      if [ -f ${config.home.homeDirectory}/.cache/waybar-toggled ] ;then
-        rm ${config.home.homeDirectory}/.cache/waybar-toggled
-        killall waybar
-        pkill waybar
+      if [ -f ~/.cache/waybar-disabled ] ;then
+        rm ~/.cache/waybar-disabled
       else
-        touch ${config.home.homeDirectory}/.cache/waybar-toggled
-        ${pkgs.waybar}/bin/waybar &
+        touch ~/.cache/waybar-disabled
       fi
-      #${config.home.homeDirectory}/.config/waybar/launch.sh &
+      ~/.config/waybar/launch.sh &
     '';
     executable = true;
   };
