@@ -3,11 +3,5 @@
   programs.rofi = {
     enable = true;
     theme = "${config.xdg.configHome}/rofi/themes/themes/Monokai.rasi";
-    extraConfig = {
-      modi = "drun,run,window";
-      font = "FiraCode Nerd Font Med 10";
-      show-icons = true;
-      icon-theme = "Papirus";
-    };
   };
 }
