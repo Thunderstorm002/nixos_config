@@ -142,6 +142,10 @@
         "$mainMod, F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
+      bindr = [
+        "SUPER, exec, pkill -SIGUSR1 waybar || waybar"
+      ];
+
       bind = [
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, Q, killactive,"
