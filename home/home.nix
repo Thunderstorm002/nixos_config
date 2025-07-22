@@ -42,6 +42,9 @@
     wireplumber
     keepassxc
 
+    #Camera
+    droidcam
+
     #Browsers
     tor
     tor-browser
