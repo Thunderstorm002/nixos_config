@@ -487,12 +487,14 @@
   home.file.".config/waybar/toggle.sh" = {
     text = ''
       #!/bin/sh
-      if [ -f ~/.cache/waybar-disabled ] ;then
-        rm ~/.cache/waybar-disabled
+      if [ -f ~/.cache/waybar-hidden ] ;then
+        rm ~/.cache/waybar-hidden
+        ${pkgs.waybar}/bin/waybar &
       else
         touch ~/.cache/waybar-disabled
+        pkill -SIGUSR1 waybar
       fi
-      ~/.config/waybar/launch.sh &
+      #~/.config/waybar/launch.sh &
     '';
     executable = true;
   };

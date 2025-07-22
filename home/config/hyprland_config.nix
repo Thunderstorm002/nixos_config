@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 
@@ -16,7 +17,7 @@
       # Variables
       "$terminal" = "alacritty";
       "$fileManager" = "thunar";
-      "$menu" = "rofi -show drun";
+      "$menu" = "rofi -show drun"
       "$mainMod" = "SUPER";
 
       #Autostart
@@ -186,17 +187,15 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod, Tab, workspace, previous"
-        ", Super_L, exec, pkill -SIGUSR1 waybar"
-        "$mainMod, Super_L, exec, pkill -SIGUSR1 waybar"
-        "$mainMod SHIFT, W, exec, pkill -SIGUSR1 waybar"
-        "$mainMod, W, exec, ${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
+        ", Super_L, exec, ${config.home.homeDirectory}/.config/waybar/toggle.sh"
+        "$mainMod, W, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/.config/waybar/launch.sh"
         "$mainMod, T, hy3:makegroup, tab"
         "$mainMod SHIFT, U, hy3:makegroup, h"
         "$mainMod, Z, hy3:movefocus, l"
         "$mainMod, X, hy3:movefocus, r"
         "$mainMod SHIFT, Z, hy3:movewindow, l, once"
         "$mainMod SHIFT, X, hy3:movewindow, r, once"
-        "$mainMod SHIFT, N, exec, rofi -show p -modi p:~/nixos_config/home/config/rofi-power-menu"
+        "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/home/config/rofi-power-menu"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
