@@ -5,19 +5,6 @@
   ...
 }:
 
-let
-  # Define the v4l2loopback-dc kernel module for DroidCam
-  v4l2loopback-dc = config.boot.kernelPackages.callPackage (
-    pkgs.fetchFromGitHub {
-      owner = "dev47apps";
-      repo = "droidcam-linux-client";
-      rev = "a001daf9f883610cb3394d5c080332d008e3df6a";
-      sha256 = "sha256-z/SteW3jYR/VR+HffvTetdGs5oz4qWBNkaqLYiP1V8c=";
-    }
-    + "/linux/v4l2loopback"
-  ) { };
-
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -29,19 +16,25 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot = {
+    # Make v4l2loopback kernel module available to NixOS.
+    extraModulePackages = with config.boot.kernelPackages; [
+      v4l2loopback
+    ];
+    # Activate kernel module(s).
+    kernelModules = [
+      # Virtual camera.
+      "v4l2loopback"
+      # Virtual Microphone. Custom DroidCam v4l2loopback driver needed for audio.
+      #    "snd-aloop"
+    ];
+  };
+
   # Graphics Drivers (Corrected)
   hardware.graphics = {
     enable = true;
   };
   services.xserver.videoDrivers = [ "intel" ]; # Or "nvidia", "amdgpu"
-
-  boot.extraModulePackages = [ v4l2loopback-dc ];
-
-  # Ensure v4l2loopback module is loaded with correct parameters
-  boot.kernelModules = [ "v4l2loopback-dc" ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback-dc width=1280 height=720
-  '';
 
   # Nix Settings
   nix = {
@@ -130,6 +123,7 @@ in
     wtype
     unzip
     nix-prefetch-github
+    v4l-utils
     #droidcam # Already included in home.nix, but can be added here for system-wide access
     #android-tools # For USB connection via adb  libinput
   ];

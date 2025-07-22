@@ -19,7 +19,9 @@
     "ahci"
     "nvme"
     "usb_storage"
+    "usbhid"
     "sd_mod"
+    "sr_mod"
     "rtsx_usb_sdmmc"
   ];
   boot.initrd.kernelModules = [ ];
