@@ -143,7 +143,7 @@
       ];
 
       bindr = [
-        "SUPER, exec, pkill -SIGUSR1 waybar || waybar"
+        "SUPER, exec, pkill -SIGUSR1 waybar"
       ];
 
       bind = [
