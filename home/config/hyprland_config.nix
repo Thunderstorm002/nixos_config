@@ -136,15 +136,6 @@
       };
 
       # Keyboard shortcuts
-      bindi = [
-        ", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-      ];
-
-      bindr = [
-        ", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-      ];
-
-      # Keyboard shortcuts
       bind = [
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, Q, killactive,"
@@ -198,9 +189,8 @@
         "$mainMod, Tab, workspace, previous"
         #", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         #"$mainMod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-        #"$mainMod SHIFT, W, exec, pkill -SIGUSR1 waybar"
-        "$mainMod SHIFT, W, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-        "$mainMod, W, exec, ${pkgs.bash}/bin/bash ${config.xdg.configHome}/waybar/launch.sh"
+        "$mainMod SHIFT, W, exec, ${config.xdg.configHome}/waybar/launch.sh"
+        "$mainMod, W, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$mainMod, T, hy3:makegroup, tab"
         "$mainMod SHIFT, U, hy3:makegroup, h"
         "$mainMod, Z, hy3:movefocus, l"
