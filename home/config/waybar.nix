@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -487,14 +488,14 @@
   home.file.".config/waybar/toggle.sh" = {
     text = ''
       #!/bin/sh
-      if [ -f ~/.cache/waybar-hidden ] ;then
-        rm ~/.cache/waybar-hidden
-        ${pkgs.waybar}/bin/waybar &
-      else
-        touch ~/.cache/waybar-hidden
+      if [ -f ${config.home.homeDirectory}/.cache/waybar-toggled ] ;then
+        rm ${config.home.homeDirectory}/.cache/waybar-toggled
         pkill -SIGUSR1 waybar
+      else
+        touch ${config.home.homeDirectory}/.cache/waybar-toggled
+        ${pkgs.waybar}/bin/waybar &
       fi
-      #~/.config/waybar/launch.sh &
+      #${config.home.homeDirectory}/.config/waybar/launch.sh &
     '';
     executable = true;
   };
@@ -504,7 +505,7 @@
     # Placeholder: Add your mediaplayer.py script here
     # See https://github.com/Alexays/Waybar/wiki/Module:-Custom for examples
   '';
-  home.file."~/.config/waybar/power_menu.xml".text = ''
+  home.file.".config/waybar/power_menu.xml".text = ''
     <menu>
       <item id="shutdown">Shutdown</item>
       <item id="reboot">Reboot</item>
