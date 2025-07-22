@@ -9,6 +9,16 @@
   home.homeDirectory = "/home/roshan";
   home.stateVersion = "25.05";
 
+  imports = [
+    inputs.kickstart-nixvim.homeManagerModules.default
+    ./config/hyprland_config.nix
+    ./config/hyprpaper.nix
+    ./config/waybar.nix
+    ./config/fish.nix
+    ./config/podman.nix
+    ./config/rofi.nix
+  ];
+
   # User Packages
   home.packages = with pkgs; [
     # Terminal & Shell
@@ -106,15 +116,6 @@
   };
 
   # Neovim
-  imports = [
-    inputs.kickstart-nixvim.homeManagerModules.default
-    ./config/hyprland_config.nix
-    ./config/hyprpaper.nix
-    ./config/waybar.nix
-    ./config/fish.nix
-    ./config/podman.nix
-  ];
-
   programs.nixvim.enable = true;
 
   # Shell configurations
