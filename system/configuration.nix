@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./droidcam.nix
     ../modules/desktop/hyprland.nix
     ../modules/system/bluetooth.nix
   ];
