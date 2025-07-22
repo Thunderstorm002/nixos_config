@@ -136,6 +136,13 @@
       };
 
       # Keyboard shortcuts
+      bindr = [
+        # Show Waybar on Super key press, hide on release
+        "SUPER, Super_L, exec, ${config.xdg.configHome}/waybar/show-waybar.sh"
+        "SUPER, Super_L, exec, ${config.xdg.configHome}/waybar/hide-waybar.sh, release"
+      ];
+
+      # Keyboard shortcuts
       bind = [
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, Q, killactive,"
@@ -187,8 +194,8 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod, Tab, workspace, previous"
-        ", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-        "$mainMod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
+        #", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
+        #"$mainMod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$mainMod SHIFT, W, exec, pkill -SIGUSR1 waybar"
         "$mainMod, W, exec, ${pkgs.bash}/bin/bash ${config.xdg.configHome}/waybar/launch.sh"
         "$mainMod, T, hy3:makegroup, tab"

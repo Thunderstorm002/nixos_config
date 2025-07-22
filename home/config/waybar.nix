@@ -499,6 +499,31 @@
     executable = true;
   };
 
+  # Waybar scripts
+  home.file.".config/waybar/show-waybar.sh" = {
+    text = ''
+      #!/bin/sh
+      # Remove flag to indicate Waybar should be shown
+      rm -f ~/.cache/waybar-disabled
+      # Launch Waybar if not already running
+      if ! pgrep -x waybar > /dev/null; then
+        ${pkgs.waybar}/bin/waybar &
+      fi
+    '';
+    executable = true;
+  };
+
+  home.file.".config/waybar/hide-waybar.sh" = {
+    text = ''
+      #!/bin/sh
+      # Create flag to indicate Waybar should be hidden
+      touch ~/.cache/waybar-disabled
+      # Send SIGUSR1 to hide Waybar
+      pkill -SIGUSR1 waybar
+    '';
+    executable = true;
+  };
+
   # Placeholder for mediaplayer.py and power_menu.xml
   home.file.".config/waybar/mediaplayer.py".text = ''
     # Placeholder: Add your mediaplayer.py script here
