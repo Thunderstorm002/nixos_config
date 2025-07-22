@@ -491,35 +491,10 @@
         rm ~/.cache/waybar-hidden
         ${pkgs.waybar}/bin/waybar &
       else
-        touch ~/.cache/waybar-disabled
+        touch ~/.cache/waybar-hidden
         pkill -SIGUSR1 waybar
       fi
       #~/.config/waybar/launch.sh &
-    '';
-    executable = true;
-  };
-
-  # Waybar scripts
-  home.file.".config/waybar/show-waybar.sh" = {
-    text = ''
-      #!/bin/sh
-      # Remove flag to indicate Waybar should be shown
-      rm -f ~/.cache/waybar-disabled
-      # Launch Waybar if not already running
-      if ! pgrep -x waybar > /dev/null; then
-        ${pkgs.waybar}/bin/waybar &
-      fi
-    '';
-    executable = true;
-  };
-
-  home.file.".config/waybar/hide-waybar.sh" = {
-    text = ''
-      #!/bin/sh
-      # Create flag to indicate Waybar should be hidden
-      touch ~/.cache/waybar-disabled
-      # Send SIGUSR1 to hide Waybar
-      pkill -SIGUSR1 waybar
     '';
     executable = true;
   };

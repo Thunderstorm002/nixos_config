@@ -138,8 +138,8 @@
       # Keyboard shortcuts
       # Example volume button that allows press and hold, volume limited to 150%
       binde = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "$mainMod, F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        "$mainMod, F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
       bind = [
@@ -158,8 +158,6 @@
         "$mainMod, Y, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
         "$mainMod SHIFT, Y, exec, cliphist wipe"
         "$mainMod, F, fullscreen, 0"
-        #"$mainMod, F3, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-        #"$mainMod, F4, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         "$mainMod, F6, exec, brightnessctl set 5%-"
         "$mainMod, F7, exec, brightnessctl set 5%+"
         "$mainMod, E, exec, emacsclient -nc"
@@ -193,7 +191,7 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod, Tab, workspace, previous"
-        #", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
+        ", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         #"$mainMod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$mainMod SHIFT, W, exec, ${config.xdg.configHome}/waybar/launch.sh"
         "$mainMod, W, exec, ${config.xdg.configHome}/waybar/toggle.sh"
