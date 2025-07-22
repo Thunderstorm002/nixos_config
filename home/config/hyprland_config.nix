@@ -136,10 +136,9 @@
       };
 
       # Keyboard shortcuts
-      bindr = [
+      bindi = [
         # Show Waybar on Super key press, hide on release
-        "SUPER, Super_L, exec, ${config.xdg.configHome}/waybar/show-waybar.sh"
-        "SUPER, Super_L, exec, ${config.xdg.configHome}/waybar/hide-waybar.sh, release"
+        ", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
       ];
 
       # Keyboard shortcuts
