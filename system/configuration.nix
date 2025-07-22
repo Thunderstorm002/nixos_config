@@ -16,10 +16,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Disable SDDM
+  services.displayManager.sddm.enable = false;
+  # Ensure the system boots into a multi-user target (text mode)
+  systemd.services.display-manager.enable = false;
+
   # Graphics Drivers (Corrected)
   hardware.graphics = {
     enable = true;
-    # The 'driSupport' and 'driSupport32Bit' options are deprecated and have been removed.
   };
   services.xserver.videoDrivers = [ "intel" ]; # Or "nvidia", "amdgpu"
 

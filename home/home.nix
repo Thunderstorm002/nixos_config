@@ -14,6 +14,8 @@
     # Terminal & Shell
     wezterm
     ghostty
+    alacritty
+    alacritty-theme
     fish
 
     # GUI Apps
