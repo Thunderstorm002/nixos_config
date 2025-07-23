@@ -142,7 +142,6 @@
   # Define systemd service
   systemd.user.services.batterywarning = {
     enable = true;
-    after = [ "network.target" ];
     wantedBy = [ "default.target" ];
     description = "Battery Warning Service";
     serviceConfig = {
