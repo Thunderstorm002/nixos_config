@@ -140,7 +140,7 @@
   };
 
   # Define systemd service
-  systemd.user.services.battery-warning = {
+  systemd.user.services.batterywarning = {
     #description = "Battery Warning Service";
     serviceConfig = {
       ExecStart = "../bin/battery-warning";
@@ -149,13 +149,13 @@
   };
 
   # Define systemd timer
-  systemd.user.timers.battery-warning = {
+  systemd.user.timers.batterywarning = {
     #description = "Run battery warning check every 5 minutes";
     wantedBy = [ "timers.target" ]; # Automatically start on boot
     timerConfig = {
       OnBootSec = "5min"; # Start 5 minutes after boot
       OnUnitActiveSec = "5min"; # Run every 5 minutes after the last run
-      Unit = "battery-warning.service";
+      Unit = "batterywarning.service";
     };
   };
 
