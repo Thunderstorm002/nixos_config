@@ -38,7 +38,6 @@
       "compress=zstd"
       "noatime"
       "nofail"
-      "uid=1000,gid=100"
     ];
   };
 
