@@ -1,6 +1,7 @@
 {
   specialArgs,
   config,
+  options,
   lib,
   inputs,
   pkgs ? import <nixpkgs> { },
