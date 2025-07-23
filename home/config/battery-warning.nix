@@ -1,5 +1,6 @@
 {
-  pkgs,
+  inputs,
+  pkgs ? import <nixpkgs> { },
 }:
 
 pkgs.writeScriptBin {
