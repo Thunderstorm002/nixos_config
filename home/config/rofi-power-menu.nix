@@ -1,14 +1,5 @@
 {
-  specialArgs,
-  config,
-  options,
-  modulesPath,
-  _class,
-  _prefix,
-  nixosConfig,
-  lib,
-  inputs,
-  pkgs ? import <nixpkgs> { },
+  pkgs,
 }:
 
 pkgs.writeScriptBin {
