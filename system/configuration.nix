@@ -1,12 +1,10 @@
 {
   config,
   pkgs,
+  batteryWarning,
   ...
 }:
 
-let
-  batteryWarning = pkgs.callPackage ./modules/system/battery-warning.nix { };
-in
 {
   imports = [
     ./hardware-configuration.nix
