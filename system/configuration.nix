@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
     ../modules/system/bluetooth.nix
-    ../modules/system/battery-warning.nix
   ];
 
   # Bootloader
