@@ -141,7 +141,10 @@
 
   # Define systemd service
   systemd.user.services.batterywarning = {
-    description = [ "Battery Warning Service" ];
+    enable = true;
+    after = [ "network.target" ];
+    wantedBy = [ "default.target" ];
+    description = "Battery Warning Service";
     serviceConfig = {
       ExecStart = "${pkgs.writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning)}/bin/battery-warning";
       Type = "oneshot"; # Suitable for scripts that run and exit
@@ -150,6 +153,7 @@
 
   # Define systemd timer
   systemd.user.timers.batterywarning = {
+    enable = true;
     description = "Run battery warning check every 5 minutes";
     wantedBy = [ "timers.target" ]; # Automatically start on boot
     timerConfig = {
