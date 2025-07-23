@@ -4,6 +4,9 @@
   ...
 }:
 
+let
+  batteryWarning = pkgs.callPackage ./modules/system/battery-warning.nix { };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -160,7 +163,7 @@
     #android-tools # For USB connection via adb  libinput
 
     #battery Warning
-    (pkgs.callPackage ./modules/system/battery-warning.nix { })
+    batteryWarning
     upower
     libnotify
     util-linux
@@ -184,7 +187,7 @@
     description = "Battery warning script";
     wantedBy = [ "graphical-session.target" ]; # Start when graphical session is available
     serviceConfig = {
-      ExecStart = "${pkgs.callPackage ./modules/system/battery-warning.nix { }}/bin/battery-warning"; # Path to your script
+      ExecStart = "${batteryWarning}/bin/battery-warning"; # Path to your script
       Type = "oneshot";
     };
   };
