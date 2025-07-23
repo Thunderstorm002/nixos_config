@@ -30,6 +30,18 @@
     ];
   };
 
+  fileSystems."/mnt" = {
+    device = "/dev/disk/by-uuid/d5ba396c-7117-49eb-82c3-496e174f8984";
+    fsType = "btrfs";
+    options = [
+      "subvol=@ext"
+      "compress=zstd"
+      "noatime"
+      "nofail"
+      "uid=1000,gid=100"
+    ];
+  };
+
   # Graphics Drivers (Corrected)
   hardware.graphics = {
     enable = true;

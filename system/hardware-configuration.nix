@@ -58,16 +58,6 @@
     ];
   };
 
-  #  fileSystems."/mnt" = {
-  #     device = "/dev/disk/by-uuid/d5ba396c-7117-49eb-82c3-496e174f8984";
-  #      fsType = "btrfs";
-  #    options = [
-  #      "subvol=@mnt"
-  #      "compress=zstd"
-  #      "noatime"
-  #    ];
-  #  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2E05-3E04";
     fsType = "vfat";
