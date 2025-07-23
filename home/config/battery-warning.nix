@@ -2,6 +2,7 @@
   lib,
   config,
   options,
+  modulesPath,
   specialArgs,
   inputs,
   pkgs ? import <nixpkgs> { },
