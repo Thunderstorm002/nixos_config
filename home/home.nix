@@ -32,9 +32,6 @@
     rofi
     xfce.thunar
     mako # notification client
-    upower
-    libnotify
-    #(writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning))
     battery-warning
     gammastep
     cliphist

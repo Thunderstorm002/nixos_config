@@ -4,214 +4,281 @@
   ...
 }:
 
+let
+  batteryWarning = pkgs.callPackage ./battery-warning.nix { };
+  #let
+  #  # Import your battery-warning script
+  #  # Adjust the path if your script is located elsewhere
+  #  batteryWarning = import ../modules/system/battery-warning.nix {
+  #    inherit pkgs; # Pass pkgs to the imported file
+  #  };
+in
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../modules/desktop/hyprland.nix
-    ../modules/system/bluetooth.nix
-    ../modules/system/battery-warning.nix
-  ];
+  # Other system configurations go here...
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot = {
-    # Make v4l2loopback kernel module available to NixOS.
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
-    # Activate kernel module(s).
-    kernelModules = [
-      # Virtual camera.
-      "v4l2loopback"
-      # Virtual Microphone. Custom DroidCam v4l2loopback driver needed for audio.
-      #    "snd-aloop"
-    ];
-  };
-
-  fileSystems."/mnt" = {
-    device = "/dev/disk/by-uuid/d5ba396c-7117-49eb-82c3-496e174f8984";
-    fsType = "btrfs";
-    options = [
-      "subvol=@ext"
-      "compress=zstd"
-      "noatime"
-      "nofail"
-    ];
-  };
-
-  # Graphics Drivers (Corrected)
-  hardware.graphics = {
-    enable = true;
-  };
-  services.xserver.videoDrivers = [ "intel" ]; # Or "nvidia", "amdgpu"
-
-  # Nix Settings
-  nix = {
-    package = pkgs.nixVersions.stable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  # Networking
-  networking.hostName = "nixos-laptop";
-  networking.networkmanager.enable = true;
-  services.tailscale.enable = true;
-
-  # Virtualization with Podman
-  virtualisation.containers.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
-  };
-
-  # Time & Language
-  time.timeZone = "Asia/Kolkata";
-  i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "us";
-
-  # Sound
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
-  # Laptop-specific services
-  services.libinput.enable = true;
-  #services.power-profiles-daemon.enable = true;
-  services.logind.extraConfig = ''
-    HandleLidSwitch=ignore
-    HandleLidSwitchExternalPower=ignore
-    HandleLidSwitchDocked=ignore
-  '';
-
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
-
-      #Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 20; # 20 and below it starts to charge
-      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
-
-    };
-  };
-
-  # Fish Shell (Corrected)
-  programs.fish.enable = true;
-
-  # User Account
-  users.users.roshan = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "podman"
-      "networkmanager"
-      "video"
-    ];
-    shell = pkgs.fish;
-  };
-
-  # System-wide Packages
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    neovim
-    git
-    libgcc
-    llvmPackages_20.clang-unwrapped
-    curl
-    htop
-    dive
-    podman-tui
-    podman-compose
-    gnome-themes-extra
-    adw-gtk3
-    adwaita-qt # Dark Qt theme
-    libsForQt5.qt5ct # Qt5 configuration tool
-    kdePackages.qt6ct # Qt6 configuration tool
-    brightnessctl
-    wl-clipboard
-    mate.engrampa
-    zathura
-    papers
-    #xbindkeys
-    wev
-    wtype
-    unzip
-    nix-prefetch-github
-    v4l-utils
-    #droidcam # Already included in home.nix, but can be added here for system-wide access
-    #android-tools # For USB connection via adb  libinput
+    # Include the battery-warning script in your system's PATH
+    batteryWarning
+
+    # Ensure dependencies for the script are available
+    upower # For 'upower' command
+    libnotify # For 'notify-send' command
   ];
 
-  environment.sessionVariables = {
-    # Hint to apps to prefer dark theme
-    GTK_THEME = "adw-gtk3-dark";
-    QT_STYLE_OVERRIDE = "adwaita-dark";
-    # Wayland-specific dark mode hints
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-  };
-
-  # Services
-  services.openssh.enable = true;
-
-  # Define systemd service
-  systemd.user.services.batterywarning = {
+  # You might also want to set up a cron job or systemd timer
+  # to run this script periodically.
+  # Here's an example for a systemd timer (recommended for NixOS):
+  systemd.user.services.battery-warning = {
     enable = true;
-    wantedBy = [ "default.target" ];
-    description = "Battery Warning Service";
+    description = "Battery warning script";
+    wantedBy = [ "graphical-session.target" ]; # Start when graphical session is available
     serviceConfig = {
-      ExecStart = "/bin/battery-warning";
-      Type = "oneshot"; # Suitable for scripts that run and exit
+      ExecStart = "${batteryWarning}/bin/battery-warning"; # Path to your script
+      Type = "oneshot";
     };
   };
 
-  # Define systemd timer
-  systemd.user.timers.batterywarning = {
-    enable = true;
-    description = "Run battery warning check every 5 minutes";
+  systemd.user.timers.battery-warning = {
+    description = "Run battery warning script every 5 minutes";
     wantedBy = [ "timers.target" ]; # Automatically start on boot
     timerConfig = {
-      OnBootSec = "5min"; # Start 5 minutes after boot
-      OnUnitActiveSec = "5min"; # Run every 5 minutes after the last run
-      Unit = "batterywarning.service";
+      onBoot = true;
+      onUnitActiveSec = "5min";
+      unit = "battery-warning.service";
     };
   };
-
-  # Firewall Configuration
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      22
-      80
-      443
-    ];
-  };
-
-  # Enable udisks2 for disk management and auto-mounting
-  services.udisks2.enable = true;
-
-  # Enable gvfs for better integration with GTK-based file managers
-  # and various virtual filesystems (e.g., trash, sftp, mtp)
-  services.gvfs.enable = true;
-
-  system.stateVersion = "25.05";
+  #  # Define systemd service
+  #  systemd.user.services.batterywarning = {
+  #    enable = true;
+  #    wantedBy = [ "default.target" ];
+  #    description = "Battery Warning Service";
+  #    serviceConfig = {
+  #      ExecStart = "/bin/battery-warning";
+  #      Type = "oneshot"; # Suitable for scripts that run and exit
+  #    };
+  #  };
+  #
+  #  # Define systemd timer
+  #  systemd.user.timers.batterywarning = {
+  #    enable = true;
+  #    description = "Run battery warning check every 5 minutes";
+  #    wantedBy = [ "timers.target" ]; # Automatically start on boot
+  #    timerConfig = {
+  #      OnBootSec = "5min"; # Start 5 minutes after boot
+  #      OnUnitActiveSec = "5min"; # Run every 5 minutes after the last run
+  #      Unit = "batterywarning.service";
+  #    };
+  #  };
 }
+
+  {
+    imports = [
+      ./hardware-configuration.nix
+      ../modules/desktop/hyprland.nix
+      ../modules/system/bluetooth.nix
+      ../modules/system/battery-warning.nix
+    ];
+
+    # Bootloader
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
+
+    boot = {
+      # Make v4l2loopback kernel module available to NixOS.
+      extraModulePackages = with config.boot.kernelPackages; [
+        v4l2loopback
+      ];
+      # Activate kernel module(s).
+      kernelModules = [
+        # Virtual camera.
+        "v4l2loopback"
+        # Virtual Microphone. Custom DroidCam v4l2loopback driver needed for audio.
+        #    "snd-aloop"
+      ];
+    };
+
+    fileSystems."/mnt" = {
+      device = "/dev/disk/by-uuid/d5ba396c-7117-49eb-82c3-496e174f8984";
+      fsType = "btrfs";
+      options = [
+        "subvol=@ext"
+        "compress=zstd"
+        "noatime"
+        "nofail"
+      ];
+    };
+
+    # Graphics Drivers (Corrected)
+    hardware.graphics = {
+      enable = true;
+    };
+    services.xserver.videoDrivers = [ "intel" ]; # Or "nvidia", "amdgpu"
+
+    # Nix Settings
+    nix = {
+      package = pkgs.nixVersions.stable;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+    };
+
+    # Networking
+    networking.hostName = "nixos-laptop";
+    networking.networkmanager.enable = true;
+    services.tailscale.enable = true;
+
+    # Virtualization with Podman
+    virtualisation.containers.enable = true;
+    virtualisation.podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+    # Time & Language
+    time.timeZone = "Asia/Kolkata";
+    i18n.defaultLocale = "en_US.UTF-8";
+    console.keyMap = "us";
+
+    # Sound
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+
+    # Laptop-specific services
+    services.libinput.enable = true;
+    #services.power-profiles-daemon.enable = true;
+    services.logind.extraConfig = ''
+      HandleLidSwitch=ignore
+      HandleLidSwitchExternalPower=ignore
+      HandleLidSwitchDocked=ignore
+    '';
+
+    services.tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 20;
+
+        #Optional helps save long term battery health
+        START_CHARGE_THRESH_BAT0 = 20; # 20 and below it starts to charge
+        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+
+      };
+    };
+
+    # Fish Shell (Corrected)
+    programs.fish.enable = true;
+
+    # User Account
+    users.users.roshan = {
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "podman"
+        "networkmanager"
+        "video"
+      ];
+      shell = pkgs.fish;
+    };
+
+    # System-wide Packages
+    environment.systemPackages = with pkgs; [
+      vim
+      wget
+      neovim
+      git
+      libgcc
+      llvmPackages_20.clang-unwrapped
+      curl
+      htop
+      dive
+      podman-tui
+      podman-compose
+      gnome-themes-extra
+      adw-gtk3
+      adwaita-qt # Dark Qt theme
+      libsForQt5.qt5ct # Qt5 configuration tool
+      kdePackages.qt6ct # Qt6 configuration tool
+      brightnessctl
+      wl-clipboard
+      mate.engrampa
+      zathura
+      papers
+      #xbindkeys
+      wev
+      wtype
+      unzip
+      nix-prefetch-github
+      v4l-utils
+      #droidcam # Already included in home.nix, but can be added here for system-wide access
+      #android-tools # For USB connection via adb  libinput
+    ];
+
+    environment.sessionVariables = {
+      # Hint to apps to prefer dark theme
+      GTK_THEME = "adw-gtk3-dark";
+      QT_STYLE_OVERRIDE = "adwaita-dark";
+      # Wayland-specific dark mode hints
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
+    };
+
+    # Services
+    services.openssh.enable = true;
+
+    #  # Define systemd service
+    #  systemd.user.services.batterywarning = {
+    #    enable = true;
+    #    wantedBy = [ "default.target" ];
+    #    description = "Battery Warning Service";
+    #    serviceConfig = {
+    #      ExecStart = "/bin/battery-warning";
+    #      Type = "oneshot"; # Suitable for scripts that run and exit
+    #    };
+    #  };
+    #
+    #  # Define systemd timer
+    #  systemd.user.timers.batterywarning = {
+    #    enable = true;
+    #    description = "Run battery warning check every 5 minutes";
+    #    wantedBy = [ "timers.target" ]; # Automatically start on boot
+    #    timerConfig = {
+    #      OnBootSec = "5min"; # Start 5 minutes after boot
+    #      OnUnitActiveSec = "5min"; # Run every 5 minutes after the last run
+    #      Unit = "batterywarning.service";
+    #    };
+    #  };
+
+    # Firewall Configuration
+    networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        22
+        80
+        443
+      ];
+    };
+
+    # Enable udisks2 for disk management and auto-mounting
+    services.udisks2.enable = true;
+
+    # Enable gvfs for better integration with GTK-based file managers
+    # and various virtual filesystems (e.g., trash, sftp, mtp)
+    services.gvfs.enable = true;
+
+    system.stateVersion = "25.05";
+  }
