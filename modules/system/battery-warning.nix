@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 let
   battery-warning = pkgs.writeScriptBin "battery-warning" ''
