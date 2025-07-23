@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  batteryWarning,
   ...
 }:
 
@@ -161,7 +160,6 @@
     #android-tools # For USB connection via adb  libinput
 
     #battery Warning
-    batteryWarning
     upower
     libnotify
     util-linux
@@ -185,7 +183,7 @@
     description = "Battery warning script";
     wantedBy = [ "graphical-session.target" ]; # Start when graphical session is available
     serviceConfig = {
-      ExecStart = "${batteryWarning}/bin/battery-warning"; # Path to your script
+      ExecStart = "${config.home.homeDirectory}/nixos_config/bin/battery-warning"; # Path to your script
       Type = "oneshot";
     };
   };

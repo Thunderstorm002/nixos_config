@@ -10,7 +10,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland?submodules=1&ref=v0.49.0";
+      url = "github:hyprwm/Hyprland?submoudules=1&ref=v0.49.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,6 +25,7 @@
     };
 
     kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
+
   };
 
   outputs =
@@ -38,13 +39,12 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      batteryWarning = pkgs.callPackage ./modules/system/battery-warning.nix { };
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs batteryWarning; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
@@ -52,13 +52,11 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs batteryWarning; };
-              users.roshan = import ./home/home.nix;
+              extraSpecialArgs = { inherit inputs; };
+              users.roshan = import ./home/home.nix; # Simplified import
             };
           }
         ];
       };
-
-      packages.${system}.battery-warning = batteryWarning;
     };
 }
