@@ -5,6 +5,7 @@
   modulesPath,
   _class,
   _prefix,
+  nixosConfig,
   specialArgs,
   inputs,
   pkgs ? import <nixpkgs> { },
