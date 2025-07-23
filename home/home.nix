@@ -17,8 +17,6 @@
     ./config/fish.nix
     ./config/podman.nix
     ./config/rofi.nix
-    ./config/rofi-power-menu.nix
-    ./config/battery-warning.nix
   ];
 
   # User Packages
