@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 pkgs.writeScriptBin {
   name = "rofi-power-menu";
@@ -21,7 +23,7 @@ pkgs.writeScriptBin {
       all=(shutdown reboot suspend hibernate logout lockscreen)
       
       # By default, show all (i.e., just copy the array)
-      show=("${all[@]}")
+      show=("$\{all[@]}")
       
       declare -A texts
       texts[lockscreen]="lock screen"
@@ -43,9 +45,9 @@ pkgs.writeScriptBin {
       icons[cancel]="\Uf0156"
       
       declare -A actions
-      actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+      actions[lockscreen]="loginctl lock-session $\{XDG_SESSION_ID-}"
       #actions[switchuser]="???"
-      actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+      actions[logout]="loginctl terminate-session $\{XDG_SESSION_ID-}"
       actions[suspend]="systemctl suspend"
       actions[hibernate]="systemctl hibernate"
       actions[reboot]="systemctl reboot"
@@ -62,9 +64,9 @@ pkgs.writeScriptBin {
       function check_valid {
           option="$1"
           shift 1
-          for entry in "${@}"
+          for entry in "$\{@}"
           do
-              if [ -z "${actions[$entry]+x}" ]
+              if [ -z "$\{actions[$entry]+x}" ]
               then
                   echo "Invalid choice in $1: $entry" >&2
                   exit 1
@@ -126,12 +128,12 @@ pkgs.writeScriptBin {
                   ;;
               "--confirm")
                   IFS='/' read -ra confirmations <<< "$2"
-                  check_valid "$1" "${confirmations[@]}"
+                  check_valid "$1" "$\{confirmations[@]}"
                   shift 2
                   ;;
               "--choices")
                   IFS='/' read -ra show <<< "$2"
-                  check_valid "$1" "${show[@]}"
+                  check_valid "$1" "$\{show[@]}"
                   shift 2
                   ;;
               "--choose")
@@ -181,11 +183,11 @@ pkgs.writeScriptBin {
       # configure them in the future.
       
       function write_message {
-          if [ -z ${symbols_font+x} ];
+          if [ -z $\{symbols_font+x} ];
           then
               icon="<span font_size=\"medium\">$1</span>"
           else
-              icon="<span font=\"${symbols_font}\" font_size=\"medium\">$1</span>"
+              icon="<span font=\"$\{symbols_font}\" font_size=\"medium\">$1</span>"
           fi
           text="<span font_size=\"medium\">$2</span>"
           if [ "$showsymbols" = "true" ]
@@ -207,27 +209,27 @@ pkgs.writeScriptBin {
       
       declare -A messages
       declare -A confirmationMessages
-      for entry in "${all[@]}"
+      for entry in "$\{all[@]}"
       do
-          messages[$entry]=$(write_message "${icons[$entry]}" "${texts[$entry]^}")
+          messages[$entry]=$(write_message "$\{icons[$entry]}" "$\{texts[$entry]^}")
       done
-      for entry in "${all[@]}"
+      for entry in "$\{all[@]}"
       do
           # Add zero-width space character (\u200b) to icon to ensure confirmation-
           # and regular messages never collide.
-          confirmationMessages[$entry]=$(write_message "${icons[$entry]}\u200b" "Yes, ${texts[$entry]}")
+          confirmationMessages[$entry]=$(write_message "$\{icons[$entry]}\u200b" "Yes, $\{texts[$entry]}")
       done
-      confirmationMessages[cancel]=$(write_message "${icons[cancel]}" "No, cancel")
+      confirmationMessages[cancel]=$(write_message "$\{icons[cancel]}" "No, cancel")
       
       if [ $# -gt 0 ]
       then
           # If arguments given, use those as the selection
-          selection="${@}"
+          selection="$\{@}"
       else
           # Otherwise, use the CLI passed choice if given
-          if [ -n "${selectionID+x}" ]
+          if [ -n "$\{selectionID+x}" ]
           then
-              selection="${messages[$selectionID]}"
+              selection="$\{messages[$selectionID]}"
           fi
       fi
       
@@ -236,34 +238,34 @@ pkgs.writeScriptBin {
       # Use markup
       echo -e "\0markup-rows\x1ftrue"
       
-      if [ -z "${selection+x}" ]
+      if [ -z "$\{selection+x}" ]
       then
           echo -e "\0prompt\x1fPower menu"
-          for entry in "${show[@]}"
+          for entry in "$\{show[@]}"
           do
-              echo -e "${messages[$entry]}\0icon\x1f${icons[$entry]}"
+              echo -e "$\{messages[$entry]}\0icon\x1f$\{icons[$entry]}"
           done
       else
-          for entry in "${show[@]}"
+          for entry in "$\{show[@]}"
           do
-              if [ "$selection" = "$(print_selection "${messages[$entry]}")" ]
+              if [ "$selection" = "$(print_selection "$\{messages[$entry]}")" ]
               then
                   # Check if the selected entry is listed in confirmation requirements
-                  for confirmation in "${confirmations[@]}"
+                  for confirmation in "$\{confirmations[@]}"
                   do
                       if [ "$entry" = "$confirmation" ]
                       then
                           # Ask for confirmation
                           echo -e "\0prompt\x1fAre you sure"
-                          echo -e "${confirmationMessages[$entry]}\0icon\x1f${icons[$entry]}"
-                          echo -e "${confirmationMessages[cancel]}\0icon\x1f${icons[cancel]}"
+                          echo -e "$\{confirmationMessages[$entry]}\0icon\x1f$\{icons[$entry]}"
+                          echo -e "$\{confirmationMessages[cancel]}\0icon\x1f$\{icons[cancel]}"
                           exit 0
                       fi
                   done
                   # If not, then no confirmation is required, so mark confirmed
-                  selection=$(print_selection "${confirmationMessages[$entry]}")
+                  selection=$(print_selection "$\{confirmationMessages[$entry]}")
               fi
-              if [ "$selection" = "$(print_selection "${confirmationMessages[$entry]}")" ]
+              if [ "$selection" = "$(print_selection "$\{confirmationMessages[$entry]}")" ]
               then
                   if [ $dryrun = true ]
                   then
@@ -271,11 +273,11 @@ pkgs.writeScriptBin {
                       echo "Selected: $entry" >&2
                   else
                       # Perform the action
-                      ${actions[$entry]}
+                      $\{actions[$entry]}
                   fi
                   exit 0
               fi
-              if [ "$selection" = "$(print_selection "${confirmationMessages[cancel]}")" ]
+              if [ "$selection" = "$(print_selection "$\{confirmationMessages[cancel]}")" ]
               then
                   # Do nothing
                   exit 0
@@ -285,5 +287,5 @@ pkgs.writeScriptBin {
           echo "Invalid selection: $selection" >&2
           exit 1
       fi
-          '';
+  '';
 }

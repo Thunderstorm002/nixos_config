@@ -17,7 +17,7 @@ pkgs.writeScriptBin {
 
     # Check if battery is discharging and below threshold
     if [[ "$STATE" == "discharging" && "$PERCENTAGE" -le "$THRESHOLD" ]]; then
-        notify-send -u critical "Low Battery Warning" "Battery is at ${PERCENTAGE}%! Please connect to a power source."
+        notify-send -u critical "Low Battery Warning" "Battery is at $\{PERCENTAGE}%! Please connect to a power source."
     fi
   '';
 }
