@@ -30,12 +30,12 @@
 
     # GUI Apps
     rofi
-    (writeScriptBin "rofi-power-menu" (builtins.readFile ../bin/rofi-power-menu)
+    (writeScriptBin "rofi-power-menu" (builtins.readFile ../bin/rofi-power-menu))
     xfce.thunar
     mako # notification client
     upower
     libnotify
-    (writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning)
+    (writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning))
     gammastep
     cliphist
     blueman
