@@ -31,7 +31,10 @@
     # GUI Apps
     rofi
     xfce.thunar
-    mako
+    mako # notification client
+    upower
+    libnotify
+    (writeScriptBin "battery-warning" (builtins.readFile ./config/battery-warning.nix)
     gammastep
     cliphist
     blueman
@@ -89,6 +92,8 @@
   ];
 
   fonts.fontconfig.enable = true;
+
+  services.mako.enable = true;
 
   # GTK settings
   gtk = {

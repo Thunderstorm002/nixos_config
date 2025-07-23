@@ -203,7 +203,7 @@
         "$mainMod, X, hy3:movefocus, r"
         "$mainMod SHIFT, Z, hy3:movewindow, l, once"
         "$mainMod SHIFT, X, hy3:movewindow, r, once"
-        "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/home/config/rofi-power-menu"
+        "$mainMod SHIFT, N, exec, rofi -show p -modi p:rofi-power-menu"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
