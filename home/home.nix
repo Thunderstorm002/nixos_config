@@ -30,11 +30,12 @@
 
     # GUI Apps
     rofi
+    (writeScriptBin "rofi-power-menu" (builtins.readFile ../bin/rofi-power-menu)
     xfce.thunar
     mako # notification client
     upower
     libnotify
-    (writeScriptBin "battery-warning" (builtins.readFile ./config/battery-warning.nix)
+    (writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning)
     gammastep
     cliphist
     blueman
@@ -135,6 +136,26 @@
     '';
     shellAliases = {
       ll = "ls -lh";
+    };
+  };
+
+  # Define systemd service
+  systemd.user.services.battery-warning = {
+    description = "Battery Warning Service";
+    serviceConfig = {
+      ExecStart = "../bin/battery-warning";
+      Type = "oneshot"; # Suitable for scripts that run and exit
+    };
+  };
+
+  # Define systemd timer
+  systemd.user.timers.battery-warning = {
+    description = "Run battery warning check every 5 minutes";
+    wantedBy = [ "timers.target" ]; # Automatically start on boot
+    timerConfig = {
+      OnBootSec = "5min"; # Start 5 minutes after boot
+      OnUnitActiveSec = "5min"; # Run every 5 minutes after the last run
+      Unit = "battery-warning.service";
     };
   };
 
