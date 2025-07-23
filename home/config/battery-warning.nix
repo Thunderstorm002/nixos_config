@@ -4,6 +4,7 @@
   options,
   modulesPath,
   _class,
+  _prefix,
   specialArgs,
   inputs,
   pkgs ? import <nixpkgs> { },
