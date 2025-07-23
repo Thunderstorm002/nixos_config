@@ -141,7 +141,7 @@
 
   # Define systemd service
   systemd.user.services.batterywarning = {
-    description = "Battery Warning Service";
+    description = [ "Battery Warning Service" ];
     serviceConfig = {
       ExecStart = "${pkgs.writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning)}/bin/battery-warning";
       Type = "oneshot"; # Suitable for scripts that run and exit
