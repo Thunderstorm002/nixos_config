@@ -182,7 +182,7 @@
     description = "Battery warning script";
     wantedBy = [ "graphical-session.target" ]; # Start when graphical session is available
     serviceConfig = {
-      ExecStart = "${config.home.homeDirectory}/nixos_config/bin/battery-warning"; # Path to your script
+      ExecStart = "/home/roshan/nixos_config/bin/battery-warning"; # Path to your script
       Type = "oneshot";
     };
   };
