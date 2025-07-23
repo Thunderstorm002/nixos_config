@@ -4,10 +4,6 @@
   ...
 }:
 
-let
-  batteryWarning = pkgs.callPackage ./battery-warning.nix { };
-
-in
 {
   imports = [
     ./hardware-configuration.nix
