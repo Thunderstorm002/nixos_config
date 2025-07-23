@@ -164,7 +164,7 @@ in
     #android-tools # For USB connection via adb  libinput
 
     #battery Warning
-    battery-warning
+    (pkgs.callPackage ./modules/system/battery-warning.nix { })
     upower
     libnotify
     util-linux
@@ -183,17 +183,17 @@ in
   # Services
   services.openssh.enable = true;
 
-  systemd.user.services.battery-warning = {
+  systemd.services.battery-warning = {
     enable = true;
     description = "Battery warning script";
     wantedBy = [ "graphical-session.target" ]; # Start when graphical session is available
     serviceConfig = {
-      ExecStart = "${batteryWarning}/bin/battery-warning"; # Path to your script
+      ExecStart = "${pkgs.callPackage ./modules/system/battery-warning.nix { }}/bin/battery-warning"; # Path to your script
       Type = "oneshot";
     };
   };
 
-  systemd.user.timers.battery-warning = {
+  systemd.timers.battery-warning = {
     description = "Run battery warning script every 5 minutes";
     wantedBy = [ "timers.target" ]; # Automatically start on boot
     timerConfig = {

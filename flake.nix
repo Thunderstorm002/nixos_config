@@ -58,5 +58,7 @@
           }
         ];
       };
+
+      packages.${system}.battery-warning = pkgs.callPackage ./modules/system/battery-warning.nix { };
     };
 }
