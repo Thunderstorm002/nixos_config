@@ -32,7 +32,6 @@
     rofi
     xfce.thunar
     mako # notification client
-    battery-warning
     gammastep
     cliphist
     blueman
