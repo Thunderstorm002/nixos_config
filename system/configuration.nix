@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
     ../modules/system/bluetooth.nix
+    ../modules/system/battery-warning.nix
   ];
 
   # Bootloader
@@ -178,7 +179,7 @@
     wantedBy = [ "default.target" ];
     description = "Battery Warning Service";
     serviceConfig = {
-      ExecStart = "${pkgs.writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning)}/bin/battery-warning";
+      ExecStart = "/bin/battery-warning";
       Type = "oneshot"; # Suitable for scripts that run and exit
     };
   };
