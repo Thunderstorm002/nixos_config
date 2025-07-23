@@ -3,6 +3,7 @@
   config,
   options,
   modulesPath,
+  _class,
   lib,
   inputs,
   pkgs ? import <nixpkgs> { },
