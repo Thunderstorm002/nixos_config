@@ -141,7 +141,7 @@
 
   # Define systemd service
   systemd.user.services.battery-warning = {
-    description = "Battery Warning Service";
+    #description = "Battery Warning Service";
     serviceConfig = {
       ExecStart = "../bin/battery-warning";
       Type = "oneshot"; # Suitable for scripts that run and exit
@@ -150,7 +150,7 @@
 
   # Define systemd timer
   systemd.user.timers.battery-warning = {
-    description = "Run battery warning check every 5 minutes";
+    #description = "Run battery warning check every 5 minutes";
     wantedBy = [ "timers.target" ]; # Automatically start on boot
     timerConfig = {
       OnBootSec = "5min"; # Start 5 minutes after boot
