@@ -83,7 +83,7 @@
 
   # Laptop-specific services
   services.libinput.enable = true;
-  services.power-profiles-daemon.enable = true;
+  #services.power-profiles-daemon.enable = true;
   services.logind.extraConfig = ''
     HandleLidSwitch=ignore
     HandleLidSwitchExternalPower=ignore
