@@ -139,29 +139,6 @@
     };
   };
 
-  # Define systemd service
-  systemd.user.services.batterywarning = {
-    enable = true;
-    wantedBy = [ "default.target" ];
-    description = "Battery Warning Service";
-    serviceConfig = {
-      ExecStart = "${pkgs.writeScriptBin "battery-warning" (builtins.readFile ../bin/battery-warning)}/bin/battery-warning";
-      Type = "oneshot"; # Suitable for scripts that run and exit
-    };
-  };
-
-  # Define systemd timer
-  systemd.user.timers.batterywarning = {
-    enable = true;
-    description = "Run battery warning check every 5 minutes";
-    wantedBy = [ "timers.target" ]; # Automatically start on boot
-    timerConfig = {
-      OnBootSec = "5min"; # Start 5 minutes after boot
-      OnUnitActiveSec = "5min"; # Run every 5 minutes after the last run
-      Unit = "batterywarning.service";
-    };
-  };
-
   # Git
   programs.git = {
     enable = true;
