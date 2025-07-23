@@ -484,19 +484,6 @@
     executable = true;
   };
 
-  home.file.".config/waybar/toggle.sh" = {
-    text = ''
-      #!/bin/sh
-      if [ -f ~/.cache/waybar-disabled ] ;then
-        rm ~/.cache/waybar-disabled
-      else
-        touch ~/.cache/waybar-disabled
-      fi
-      ~/.config/waybar/launch.sh &
-    '';
-    executable = true;
-  };
-
   # Placeholder for mediaplayer.py and power_menu.xml
   home.file.".config/waybar/mediaplayer.py".text = ''
     # Placeholder: Add your mediaplayer.py script here

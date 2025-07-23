@@ -138,8 +138,10 @@
       # Keyboard shortcuts
       # Example volume button that allows press and hold, volume limited to 150%
       binde = [
-        "$mainMod, F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        "$mainMod, F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "$mainMod, F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "$mainMod, F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        "$mainMod, F6, exec, brightnessctl set 5%-"
+        "$mainMod, F7, exec, brightnessctl set 5%+"
       ];
 
       bind = [
@@ -158,8 +160,6 @@
         "$mainMod, Y, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
         "$mainMod SHIFT, Y, exec, cliphist wipe"
         "$mainMod, F, fullscreen, 0"
-        "$mainMod, F6, exec, brightnessctl set 5%-"
-        "$mainMod, F7, exec, brightnessctl set 5%+"
         "$mainMod, E, exec, emacsclient -nc"
         "$mainMod, B, exec, blueman-manager"
         "$mainMod, left, hy3:movefocus, l"
