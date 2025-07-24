@@ -79,7 +79,7 @@
     ];
   };
 
-  environment.persistance."/persist" = {
+  environment.persistence."/persist" = {
     directories = [ "/var/lib/tailscale" ];
   };
 
