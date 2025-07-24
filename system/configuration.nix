@@ -62,7 +62,7 @@
   networking.wireless.enable = false;
 
   age.secrets.vpn-preauth = {
-    file = "${config.home.homeDirectory}/nixos_config/secrets/vpn-preauth.age";
+    file = "../secrets/vpn-preauth.age";
     owner = "roshan";
     mode = "440";
   };
