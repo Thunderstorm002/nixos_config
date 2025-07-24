@@ -168,6 +168,7 @@
 
     #Security
     sops
+    agenix
   ];
 
   environment.sessionVariables = {

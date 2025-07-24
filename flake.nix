@@ -27,6 +27,7 @@
     kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 
     sops-nix.url = "github:Mic92/sops-nix";
+    agenix.url = "github:ryantm/agenix";
 
   };
 
@@ -38,11 +39,12 @@
       hyprland,
       hy3,
       sops-nix,
+      agenix,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      #pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
@@ -60,6 +62,7 @@
             };
           }
           sops-nix.nixosModules.sops
+          agenix.nixosModules.default
         ];
       };
     };
