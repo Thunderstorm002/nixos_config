@@ -61,6 +61,12 @@
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
 
+  age.secrets.vpn-preauth = {
+    file = "${config.home.homeDirectory}/nixos_config/secrets/vpn-preauth.age";
+    owner = "roshan";
+    mode = "440";
+  };
+
   #  # Tailscale
   #   services.tailscale = {
   #      enable = true;
@@ -71,8 +77,6 @@
   #      "--accept-dns=false" # if its' a server you prolly dont need magicdns
   #    ];
   #  };
-
-  # age.secrets.vpn-preauth.file = ../secrets/vpn-preauth.age;
 
   # Virtualization with Podman
   virtualisation.containers.enable = true;
