@@ -533,16 +533,32 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1753331541,
-        "narHash": "sha256-+x81Bl70z5+7Hi0XhL2cKzMCAHw4z5dv4lZKyMUuE0Q=",
+        "lastModified": 1753333609,
+        "narHash": "sha256-mIv5Cbzw6FluU3AtCXmGms/bdjHJ79kMa28ledr1ocA=",
         "owner": "JMartJonesy",
         "repo": "kickstart.nixvim",
-        "rev": "64fa0ac0c2e09604fe9bd51fe3150afc581c7628",
+        "rev": "b82b1e73ab49830604a9792018108339a083c3a9",
         "type": "github"
       },
       "original": {
         "owner": "JMartJonesy",
         "repo": "kickstart.nixvim",
+        "type": "github"
+      }
+    },
+    "nix-mineral": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1752508011,
+        "narHash": "sha256-M0ewpPm1RS73tSm4d+SpmdT1B+lQ+6skprO6sbg+o7w=",
+        "owner": "cynicsketch",
+        "repo": "nix-mineral",
+        "rev": "c77904dddd2ebbc6e463e79a02454939f13db728",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cynicsketch",
+        "repo": "nix-mineral",
         "type": "github"
       }
     },
@@ -579,11 +595,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1752950548,
-        "narHash": "sha256-NS6BLD0lxOrnCiEOcvQCDVPXafX1/ek1dfJHX1nUIzc=",
+        "lastModified": 1753250450,
+        "narHash": "sha256-i+CQV2rPmP8wHxj0aq4siYyohHwVlsh40kV89f3nw1s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c87b95e25065c028d31a94f06a62927d18763fdf",
+        "rev": "fc02ee70efb805d3b2865908a13ddd4474557ecf",
         "type": "github"
       },
       "original": {
@@ -595,11 +611,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1752950548,
-        "narHash": "sha256-NS6BLD0lxOrnCiEOcvQCDVPXafX1/ek1dfJHX1nUIzc=",
+        "lastModified": 1753250450,
+        "narHash": "sha256-i+CQV2rPmP8wHxj0aq4siYyohHwVlsh40kV89f3nw1s=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c87b95e25065c028d31a94f06a62927d18763fdf",
+        "rev": "fc02ee70efb805d3b2865908a13ddd4474557ecf",
         "type": "github"
       },
       "original": {
@@ -703,6 +719,7 @@
         "hy3": "hy3",
         "hyprland": "hyprland",
         "kickstart-nixvim": "kickstart-nixvim",
+        "nix-mineral": "nix-mineral",
         "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix",
         "zen-browser": "zen-browser"
