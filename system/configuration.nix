@@ -192,6 +192,10 @@
     #vpn
     tailscale
 
+    #DNS
+    hickory-dns
+    crab-hole
+
     #Security
     sops
     inputs.agenix.packages.x86_64-linux.default
