@@ -62,7 +62,7 @@
             };
           }
           sops-nix.nixosModules.sops
-          agenix.nixosModules.agenix
+          agenix.nixosModules.default
         ];
       };
 
