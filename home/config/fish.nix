@@ -7,6 +7,7 @@
     enable = true;
     interactiveShellInit = ''
       set -g fish_greeting ""
+      set -gx EDITOR nvim
       # =============================================================================
       #
       # Utility functions for zoxide.
