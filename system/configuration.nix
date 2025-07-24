@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -168,7 +169,7 @@
 
     #Security
     sops
-    agenix.packages.x86_64-linux.default
+    inputs.agenix.packages.x86_64-linux.default
   ];
 
   environment.sessionVariables = {
