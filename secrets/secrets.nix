@@ -12,4 +12,6 @@ in
     user1
     user2
   ];
+
+  "vpn-preauth.age".publicKeys = users;
 }
