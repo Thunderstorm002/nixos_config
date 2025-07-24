@@ -195,6 +195,7 @@
     #DNS
     hickory-dns
     crab-hole
+    caddy
 
     #Security
     sops
