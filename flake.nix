@@ -59,7 +59,7 @@
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
               users.roshan = import ./home/home.nix; # Simplified import
-              lib.homeManagerConfiguration = {
+              homeManagerConfiguration = {
                 modules = [
                   agenix.nixosModules.default
                 ];
@@ -70,5 +70,12 @@
           agenix.nixosModules.default
         ];
       };
+
+      #      homeConfigurations."roshan" = home-manager.lib.homeManagerConfiguration {
+      #        inherit system;
+      #        modules = [
+      #          agenix.nixosModules.default
+      #        ];
+      #      };
     };
 }
