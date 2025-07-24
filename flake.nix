@@ -69,9 +69,6 @@
           sops-nix.nixosModules.sops
           agenix.nixosModules.default
         ];
-        imports = [
-          "${inputs.nix-mineral}/nix-mineral.nix"
-        ];
       };
 
       homeConfigurations."roshan" = home-manager.lib.homeManagerConfiguration {
