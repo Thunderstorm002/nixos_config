@@ -29,6 +29,11 @@
     sops-nix.url = "github:Mic92/sops-nix";
     agenix.url = "github:ryantm/agenix";
 
+    nix-mineral = {
+      url = "github:cynicsketch/nix-mineral"; # Refers to the main branch and is updated to the latest commit when you use "nix flake update"
+      flake = false;
+    };
+
   };
 
   outputs =
@@ -63,6 +68,9 @@
           }
           sops-nix.nixosModules.sops
           agenix.nixosModules.default
+        ];
+        imports = [
+          "${inputs.nix-mineral}/nix-mineral.nix"
         ];
       };
 
