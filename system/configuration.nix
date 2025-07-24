@@ -69,7 +69,7 @@
 
   age.identityPaths = [
     "/home/roshan/.ssh/id_ed25519" # Adjust to your SSH private key path
-    # or "/root/.ssh/id_ed25519" if running as root
+    "/ect/ssh/ssh_host_ed_ed25519_key" # if running as root
     # or "/home/roshan/.age/key.txt" if using a dedicated age key
   ];
 
