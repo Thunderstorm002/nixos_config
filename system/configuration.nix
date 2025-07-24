@@ -62,7 +62,7 @@
   networking.wireless.enable = false;
 
   age.secrets.vpn-preauth = {
-    file = "../secrets/vpn-preauth.age";
+    file = ../secrets/vpn-preauth.age;
     owner = "roshan";
     mode = "440";
   };
