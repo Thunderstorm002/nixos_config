@@ -79,10 +79,6 @@
     ];
   };
 
-  environment.persistence."/persist" = {
-    directories = [ "/var/lib/tailscale" ];
-  };
-
   # Virtualization with Podman
   virtualisation.containers.enable = true;
   virtualisation.podman = {
