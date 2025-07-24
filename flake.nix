@@ -59,10 +59,15 @@
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
               users.roshan = import ./home/home.nix; # Simplified import
+              lib.homeManagerConfiguration = {
+                modules = [
+                  agenix.nixosModules.default
+                ];
+              };
             };
           }
           sops-nix.nixosModules.sops
-          agenix.nixosModules.agenix
+          agenix.nixosModules.default
         ];
       };
     };
