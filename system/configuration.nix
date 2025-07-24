@@ -57,6 +57,9 @@
   # Networking
   networking.hostName = "nixos-laptop";
   networking.networkmanager.enable = true;
+  networking.wireless.enable = false;
+
+  # Tailscale
   services.tailscale.enable = true;
 
   # Virtualization with Podman
@@ -162,6 +165,9 @@
     upower
     libnotify
     util-linux
+
+    #Security
+    sops
   ];
 
   environment.sessionVariables = {
@@ -200,6 +206,11 @@
   # Firewall Configuration
   networking.firewall = {
     enable = true;
+    trustedInterfaces = [
+      "tailscale0"
+      "wlp0s20f3"
+    ]; # Allow all traffic from the Tailscale interface
+    allowedUDPPorts = [ config.services.tailscale.port ];
     allowedTCPPorts = [
       22
       80

@@ -26,6 +26,8 @@
 
     kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
   };
 
   outputs =
@@ -35,6 +37,7 @@
       home-manager,
       hyprland,
       hy3,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -56,6 +59,7 @@
               users.roshan = import ./home/home.nix; # Simplified import
             };
           }
+          sops-nix.nixosModules.sops
         ];
       };
     };
