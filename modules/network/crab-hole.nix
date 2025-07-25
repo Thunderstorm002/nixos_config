@@ -17,11 +17,13 @@
         allow_list = [ "file:///home/roshan/.config/crab-hole/allowed.txt" ];
       };
 
-      downstream = {
-        protocol = "udp";
-        listen = "[::]";
-        port = 53;
-      };
+      downstream = [
+        {
+          protocol = "udp";
+          listen = "[::]";
+          port = 53;
+        }
+      ];
 
       upstream = {
         nameservers = [
