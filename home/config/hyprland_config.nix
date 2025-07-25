@@ -10,7 +10,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [ inputs.hy3.packages.${pkgs.system}.hy3 ]; # Add hy3 plugin here
+    plugins = [
+      inputs.hy3.packages.${pkgs.system}.hy3
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprsunset
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
+    ];
     settings = {
       monitor = [ ",preferred,auto,auto" ];
 
@@ -28,7 +32,6 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "mako"
-        "gammastep"
         "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
         #"bluetoothctl connect AC:80:0A:6F:44:47"
       ];

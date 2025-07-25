@@ -32,7 +32,6 @@
     rofi
     xfce.thunar
     mako # notification client
-    gammastep
     cliphist
     blueman
     inputs.zen-browser.packages.${pkgs.system}.default
