@@ -6,6 +6,7 @@
 }:
 
 {
+
   # Desktop Environment
   programs.hyprland = {
     enable = true;
@@ -208,7 +209,7 @@
         #", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         #", Super_L, exec, pkill -SIGUSR1 waybar"
         #"$mainMod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-        "$mainMod SHIFT, W, exec, /home/roshan/.config/waybar/launch.sh"
+        "$mainMod SHIFT, W, exec, ${config.xdg.configHome}/waybar/launch.sh"
         #"$mainMod, W, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$mainMod, W, exec, pkill -SIGUSR1 waybar"
         "$mainMod, T, hy3:makegroup, tab"
@@ -217,7 +218,7 @@
         "$mainMod, X, hy3:movefocus, r"
         "$mainMod SHIFT, Z, hy3:movewindow, l, once"
         "$mainMod SHIFT, X, hy3:movewindow, r, once"
-        "$mainMod SHIFT, N, exec, rofi -show p -modi p:/home/roshan/nixos_config/bin/rofi-power-menu"
+        "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/bin/rofi-power-menu"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"

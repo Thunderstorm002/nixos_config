@@ -8,7 +8,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../modules/desktop/hyprland.nix
     ../modules/system/bluetooth.nix
     "${inputs.nix-mineral}/nix-mineral.nix"
     ../modules/network/tailscale.nix

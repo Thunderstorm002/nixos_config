@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  config,
   ...
 }:
 
@@ -12,7 +11,7 @@
 
   imports = [
     inputs.kickstart-nixvim.homeManagerModules.default
-    ../modules/desktop/hyprland.nix
+    ../modules/desktop/hyprland_config.nix
     ./config/hyprpaper.nix
     ./config/waybar.nix
     ./config/fish.nix
