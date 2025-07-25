@@ -214,6 +214,7 @@
 
   # Services
   services.openssh.enable = true;
+  programs.ssh.startAgent = true;
 
   systemd.services.battery-warning = {
     enable = true;
