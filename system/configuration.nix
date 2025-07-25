@@ -235,6 +235,35 @@
     };
   };
 
+  # DNS
+  # Configure crab-hole service
+  services.crab-hole = {
+    enable = true;
+    configFile = "${config.xdg.configHome}/crab-hole/config.toml"; # Adjust path as needed
+  };
+
+  age.secrets.crab-hole-admin-key = {
+    file = ../secrets/crab-hole-admin-key.age;
+    owner = "roshan";
+    mode = "440";
+  };
+
+  systemd.services.crab-hole = {
+    description = "Crab-hole DNS server";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.crab-hole}/bin/crab-hole --config ${config.xdg.configHome}/crab-hole/config.toml";
+      Environment = "CRAB_HOLE_ADMIN_KEY=${config.age.secrets.crab-hole-admin-key.path}";
+      Restart = "always";
+      User = "roshan";
+      Group = "users";
+      DynamicUser = true;
+      WorkingDirectory = "/var/lib/crab-hole";
+      StateDirectory = "crab-hole";
+    };
+  };
+
   # Firewall Configuration
   networking.firewall = {
     enable = true;
@@ -242,11 +271,16 @@
       "tailscale0"
       "wlp0s20f3"
     ]; # Allow all traffic from the Tailscale interface
-    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedUDPPorts = [
+      config.services.tailscale.port
+      53
+      8055
+    ];
     allowedTCPPorts = [
       22
       80
       443
+      853
     ];
   };
 

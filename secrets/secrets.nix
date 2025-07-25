@@ -16,4 +16,5 @@ in
   ];
 
   "vpn-preauth.age".publicKeys = users;
+  "crab-hole-admin-key.age".publicKeys = users;
 }
