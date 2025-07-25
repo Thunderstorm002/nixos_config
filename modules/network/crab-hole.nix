@@ -31,28 +31,10 @@
             protocol = "udp";
             trust_nx_responses = false;
           }
-
-          #          {
-          #            socket_addr = "1.1.1.1:853";
-          #            protocol = "tls";
-          #            tls_dns_name = "1dot1dot1dot1.cloudflare-dns.com";
-          #            trust_nx_responses = false;
-          #          }
-          #          {
-          #            socket_addr = "1.0.0.1:853";
-          #            protocol = "tls";
-          #            tls_dns_name = "1dot1dot1dot1.cloudflare-dns.com";
-          #            trust_nx_responses = false;
-          #          }
         ];
       }; # upstream
     }; # settings
     #configFile = "/etc/crab-hole/config.toml"; # Adjust path as needed
   };
 
-  #  age.secrets.crab-hole-admin-key = {
-  #    file = ../../secrets/crab-hole-admin-key.age;
-  #    owner = "roshan";
-  #    mode = "440";
-  #  };
 }
