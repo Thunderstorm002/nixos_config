@@ -239,7 +239,7 @@
   # Configure crab-hole service
   services.crab-hole = {
     enable = true;
-    configFile = "${config.xdg.configHome}/crab-hole/config.toml"; # Adjust path as needed
+    configFile = "/etc/crab-hole/config.toml"; # Adjust path as needed
   };
 
   age.secrets.crab-hole-admin-key = {
@@ -253,7 +253,7 @@
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.crab-hole}/bin/crab-hole --config ${config.xdg.configHome}/crab-hole/config.toml";
+      ExecStart = "${pkgs.crab-hole}/bin/crab-hole --config /etc/crab-hole/config.toml";
       Environment = "CRAB_HOLE_ADMIN_KEY=${config.age.secrets.crab-hole-admin-key.path}";
       Restart = "always";
       User = "roshan";
