@@ -50,6 +50,7 @@
     rofi-power-menu
     wireplumber
     keepassxc
+    hyprsunset
 
     #Camera
     droidcam
