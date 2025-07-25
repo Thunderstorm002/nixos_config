@@ -26,7 +26,7 @@
       ];
 
       upstream = {
-        nameservers = [
+        name_servers = [
           {
             # dnscrypt-proxy2
             socket_addr = "127.0.0.1:5300";
