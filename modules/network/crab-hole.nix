@@ -50,9 +50,9 @@
     #configFile = "/etc/crab-hole/config.toml"; # Adjust path as needed
   };
 
-  age.secrets.crab-hole-admin-key = {
-    file = ../../secrets/crab-hole-admin-key.age;
-    owner = "roshan";
-    mode = "440";
-  };
+  #  age.secrets.crab-hole-admin-key = {
+  #    file = ../../secrets/crab-hole-admin-key.age;
+  #    owner = "roshan";
+  #    mode = "440";
+  #  };
 }
