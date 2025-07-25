@@ -140,6 +140,7 @@
 
   # System-wide Packages
   environment.systemPackages = with pkgs; [
+    libinput
     vim
     wget
     neovim
