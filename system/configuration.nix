@@ -239,6 +239,7 @@
   # Configure crab-hole service
   services.crab-hole = {
     enable = true;
+    settings = { };
     configFile = "/etc/crab-hole/config.toml"; # Adjust path as needed
   };
 
