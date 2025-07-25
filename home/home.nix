@@ -67,6 +67,7 @@
     font-awesome
     roboto
     noto-fonts-color-emoji
+    noto-fonts-emoji
     nerd-fonts.fira-code
     nerd-fonts._0xproto
     nerd-fonts.noto
@@ -92,30 +93,30 @@
 
   services.mako.enable = true;
 
-  # GTK settings
-  gtk = {
-    enable = true;
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-  };
-
-  # Qt settings
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
+  #  # GTK settings
+  #  gtk = {
+  #    enable = true;
+  #    theme = {
+  #      name = "adw-gtk3-dark";
+  #      package = pkgs.adw-gtk3;
+  #    };
+  #    gtk3.extraConfig = {
+  #      gtk-application-prefer-dark-theme = true;
+  #    };
+  #    gtk4.extraConfig = {
+  #      gtk-application-prefer-dark-theme = true;
+  #    };
+  #  };
+  #
+  #  # Qt settings
+  #  qt = {
+  #    enable = true;
+  #    platformTheme.name = "gtk";
+  #    style = {
+  #      name = "adwaita-dark";
+  #      package = pkgs.adwaita-qt;
+  #    };
+  #  };
 
   # Neovim
   programs.nixvim.enable = true;
