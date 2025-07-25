@@ -249,21 +249,21 @@
     mode = "440";
   };
 
-  systemd.services.crab-hole = {
-    description = "Crab-hole DNS server";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.crab-hole}/bin/crab-hole --config /etc/crab-hole/config.toml";
-      Environment = "CRAB_HOLE_ADMIN_KEY=${config.age.secrets.crab-hole-admin-key.path}";
-      Restart = "always";
-      User = "roshan";
-      Group = "users";
-      DynamicUser = true;
-      WorkingDirectory = "/var/lib/crab-hole";
-      StateDirectory = "crab-hole";
-    };
-  };
+  #  systemd.services.crab-hole = {
+  #    description = "Crab-hole DNS server";
+  #    after = [ "network.target" ];
+  #    wantedBy = [ "multi-user.target" ];
+  #    serviceConfig = {
+  #      ExecStart = "${pkgs.crab-hole}/bin/crab-hole --config /etc/crab-hole/config.toml";
+  #      Environment = "CRAB_HOLE_ADMIN_KEY=${config.age.secrets.crab-hole-admin-key.path}";
+  #      Restart = "always";
+  #      User = "roshan";
+  #      Group = "users";
+  #      DynamicUser = true;
+  #      WorkingDirectory = "/var/lib/crab-hole";
+  #      StateDirectory = "crab-hole";
+  #    };
+  #  };
 
   # Firewall Configuration
   networking.firewall = {
