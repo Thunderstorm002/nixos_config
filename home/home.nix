@@ -141,4 +141,9 @@
     userName = "roshan";
     userEmail = "roshan.nair@protonmail.com";
   };
+
+  programs.ssh = {
+    enable = true;
+    startAgent = true;
+  };
 }
