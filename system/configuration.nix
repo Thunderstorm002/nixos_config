@@ -11,6 +11,9 @@
     ../modules/desktop/hyprland.nix
     ../modules/system/bluetooth.nix
     "${inputs.nix-mineral}/nix-mineral.nix"
+    ../modules/network/tailscale.nix
+    ../modules/network/dnscrypt.nix
+    ../modules/network/crab-hole.nix
   ];
 
   # Bootloader
@@ -61,29 +64,11 @@
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
 
-  age.secrets.vpn-preauth = {
-    file = ../secrets/vpn-preauth.age;
-    owner = "roshan";
-    mode = "440";
-  };
-
   age.identityPaths = [
     "/home/roshan/.ssh/id_ed25519" # Adjust to your SSH private key path
     "/ect/ssh/ssh_host_ed_ed25519_key" # if running as root
     # or "/home/roshan/.age/key.txt" if using a dedicated age key
   ];
-
-  # Tailscale
-  services.tailscale = {
-    enable = true;
-    openFirewall = true;
-    authKeyFile = config.age.secrets.vpn-preauth.path;
-    extraUpFlags = [
-      #"--login-server=https://your-instance" # if you use a non-default tailscale coordinator
-      "--accept-routes"
-      "--accept-dns=false" # if its' a server you prolly dont need magicdns
-    ];
-  };
 
   # Virtualization with Podman
   virtualisation.containers.enable = true;
@@ -196,6 +181,7 @@
     hickory-dns
     crab-hole
     caddy
+    dnscrypt-proxy2
 
     #Security
     sops
@@ -235,36 +221,6 @@
       unit = "battery-warning.service";
     };
   };
-
-  # DNS
-  # Configure crab-hole service
-  services.crab-hole = {
-    enable = true;
-    settings = { };
-    configFile = "/etc/crab-hole/config.toml"; # Adjust path as needed
-  };
-
-  age.secrets.crab-hole-admin-key = {
-    file = ../secrets/crab-hole-admin-key.age;
-    owner = "roshan";
-    mode = "440";
-  };
-
-  #  systemd.services.crab-hole = {
-  #    description = "Crab-hole DNS server";
-  #    after = [ "network.target" ];
-  #    wantedBy = [ "multi-user.target" ];
-  #    serviceConfig = {
-  #      ExecStart = "${pkgs.crab-hole}/bin/crab-hole --config /etc/crab-hole/config.toml";
-  #      Environment = "CRAB_HOLE_ADMIN_KEY=${config.age.secrets.crab-hole-admin-key.path}";
-  #      Restart = "always";
-  #      User = "roshan";
-  #      Group = "users";
-  #      DynamicUser = true;
-  #      WorkingDirectory = "/var/lib/crab-hole";
-  #      StateDirectory = "crab-hole";
-  #    };
-  #  };
 
   # Firewall Configuration
   networking.firewall = {
