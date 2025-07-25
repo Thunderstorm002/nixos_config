@@ -14,6 +14,7 @@
     ../modules/network/tailscale.nix
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
+    ../modules/style/stylix.nix
   ];
 
   # Bootloader
@@ -186,6 +187,10 @@
     #Security
     sops
     inputs.agenix.packages.x86_64-linux.default
+
+    # Fonts
+    fontconfig
+    dejavu_fonts
   ];
 
   environment.sessionVariables = {

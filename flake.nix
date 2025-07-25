@@ -2,7 +2,8 @@
   description = "A NixOS configuration for a laptop server";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -34,6 +35,12 @@
       flake = false;
     };
 
+    stylix = {
+      #url = "github:danth/stylix";
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -45,6 +52,7 @@
       hy3,
       sops-nix,
       agenix,
+      stylix,
       ...
     }@inputs:
     let
@@ -56,7 +64,6 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./system/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -68,6 +75,8 @@
           }
           sops-nix.nixosModules.sops
           agenix.nixosModules.default
+          stylix.nixosModules.stylix
+          ./system/configuration.nix
         ];
       };
 
