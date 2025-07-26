@@ -145,7 +145,6 @@
     vim
     wget
     #neovim
-    nixvim
     git
     libgcc
     llvmPackages_20.clang-unwrapped
