@@ -143,7 +143,7 @@
     libinput
     vim
     wget
-    neovim
+    #neovim
     git
     libgcc
     llvmPackages_20.clang-unwrapped
