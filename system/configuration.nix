@@ -142,9 +142,10 @@
   # System-wide Packages
   environment.systemPackages = with pkgs; [
     libinput
+    rustc
+    cargo
     vim
     wget
-    #neovim
     git
     libgcc
     llvmPackages_20.clang-unwrapped
@@ -163,7 +164,6 @@
     mate.engrampa
     zathura
     papers
-    #xbindkeys
     wev
     wtype
     unzip
