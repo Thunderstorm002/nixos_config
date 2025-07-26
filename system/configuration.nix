@@ -15,6 +15,7 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
+    inputs.nixvim.nixosModules.nixvim
   ];
 
   # Bootloader
@@ -144,6 +145,7 @@
     vim
     wget
     #neovim
+    nixvim
     git
     libgcc
     llvmPackages_20.clang-unwrapped
