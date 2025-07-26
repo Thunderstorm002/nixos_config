@@ -195,6 +195,12 @@
     dejavu_fonts
   ];
 
+  # Nixvim
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   environment.sessionVariables = {
     # Hint to apps to prefer dark theme
     GTK_THEME = "adw-gtk3-dark";
