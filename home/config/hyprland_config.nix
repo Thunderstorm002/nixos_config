@@ -13,7 +13,7 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       inputs.hy3.packages.${pkgs.system}.hy3
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
+      #      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
     ];
     settings = {
       monitor = [ ",preferred,auto,auto" ];
