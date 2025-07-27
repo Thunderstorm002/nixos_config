@@ -145,6 +145,7 @@
     libinput
     rustc
     cargo
+    usbutils
     vim
     wget
     git
