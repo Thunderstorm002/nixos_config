@@ -304,7 +304,7 @@
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
           (defsrc
-            caps tab d h j k l
+            caps d h j k l
           )
           (defvar
             tap-time 200
@@ -312,11 +312,9 @@
           )
           (defalias
             caps (tap-hold 200 200 esc lctl)
-            tab (tap-hold $tap-time $hold-time tab (layer-toggle arrow))
             del del
           )
           (deflayer base
-            @caps @tab d h j k l
           )
           (deflayer arrow
             _ _ @del left down up right
