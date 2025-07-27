@@ -303,31 +303,23 @@
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
-          (defcfg
-            process-unmapped-keys yes
-          )
-
           (defsrc
-            caps grv         i
-                        j    k    l
-            lsft rsft
+            caps tab d h j k l
           )
-
-          (deflayer default
-            @cap @grv        _
-                        _    _    _
-            _    _
+          (defvar
+            tap-time 200
+            hold-time 200
           )
-
-          (deflayer arrows
-            _    _           up
-                        left down rght
-            _    _
-          )
-
           (defalias
-            cap (tap-hold-press 200 200 caps lctl)
-            grv (tap-hold-press 200 200 grv (layer-toggle arrows))
+            caps (tap-hold 200 200 esc lctl)
+            tab (tap-hold $tap-time $hold-time tab (layer-toggle arrow))
+            del del
+          )
+          (deflayer base
+            @caps @tab d h j k l
+          )
+          (deflayer arrow
+            _ _ @del left down up right
           )
         '';
       };
