@@ -302,25 +302,26 @@
           # "/dev/input/by-path/pci-0000:00:14.0-usb-0:3:1.0-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
-        config = ''
-          (defsrc
-            caps d h j k l
-          )
-          (defvar
-            tap-time 200
-            hold-time 200
-          )
-          (defalias
-            caps (tap-hold 200 200 esc lctl)
-            del del
-          )
-          (deflayer base
-            @caps d h j k l
-          )
-          (deflayer arrow
-            _ _ @del left down up right
-          )
-        '';
+        #    config = ''
+        #      (defsrc
+        #        caps tab d h j k l
+        #      )
+        #      (defvar
+        #        tap-time 200
+        #        hold-time 200
+        #      )
+        #      (defalias
+        #        caps (tap-hold 200 200 esc lctl)
+        #        tab (tap-hold $tap-time $hold-time tab (layer-toggle arrow))
+        #        del del
+        #      )
+        #      (deflayer base
+        #        @caps @tab d h j k l
+        #      )
+        #      (deflayer arrow
+        #        _ _ @del left down up right
+        #      )
+        #    '';
       };
     };
   };
