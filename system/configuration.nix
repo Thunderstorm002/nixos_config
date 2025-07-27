@@ -192,6 +192,9 @@
     sops
     inputs.agenix.packages.x86_64-linux.default
 
+    # Audio
+    wireplumber
+
     # Fonts
     fontconfig
     dejavu_fonts
