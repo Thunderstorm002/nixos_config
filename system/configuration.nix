@@ -315,6 +315,7 @@
             del del
           )
           (deflayer base
+            @caps d h j k l
           )
           (deflayer arrow
             _ _ @del left down up right
