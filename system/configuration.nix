@@ -302,26 +302,58 @@
           # "/dev/input/by-path/pci-0000:00:14.0-usb-0:3:1.0-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
-        #    config = ''
-        #      (defsrc
-        #        caps tab d h j k l
-        #      )
-        #      (defvar
-        #        tap-time 200
-        #        hold-time 200
-        #      )
-        #      (defalias
-        #        caps (tap-hold 200 200 esc lctl)
-        #        tab (tap-hold $tap-time $hold-time tab (layer-toggle arrow))
-        #        del del
-        #      )
-        #      (deflayer base
-        #        @caps @tab d h j k l
-        #      )
-        #      (deflayer arrow
-        #        _ _ @del left down up right
-        #      )
-        #    '';
+        config = ''
+          #|
+          This minimal config changes Caps Lock to act as Caps Lock on quick tap, but
+          if held, it will act as Left Ctrl. It also changes the backtick/grave key to
+          act as backtick/grave on quick tap, but change ijkl keys to arrow keys on hold.
+
+          This text between the two pipe+octothorpe sequences is a multi-line comment.
+          |#
+
+          ;; Text after double-semicolons are single-line comments.
+
+          #|
+          One defcfg entry may be added, which is used for configuration key-pairs. These
+          configurations change kanata's behaviour at a more global level than the other
+          configuration entries.
+          |#
+
+          (defcfg
+            #|
+            This configuration will process all keys pressed inside of kanata, even if
+            they are not mapped in defsrc. This is so that certain actions can activate
+            at the right time for certain input sequences. By default, unmapped keys are
+            not processed through kanata due to a Windows issue related to AltGr. If you
+            use AltGr in your keyboard, you will likely want to follow the simple.kbd
+            file while unmapping lctl and ralt from defsrc.
+            |#
+            process-unmapped-keys yes
+          )
+
+          (defsrc
+            caps grv         i
+                        j    k    l
+            lsft rsft
+          )
+
+          (deflayer default
+            @cap @grv        _
+                        _    _    _
+            _    _
+          )
+
+          (deflayer arrows
+            _    _           up
+                        left down rght
+            _    _
+          )
+
+          (defalias
+            cap (tap-hold-press 200 200 caps lctl)
+            grv (tap-hold-press 200 200 grv (layer-toggle arrows))
+          )
+        '';
       };
     };
   };
