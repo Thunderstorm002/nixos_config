@@ -126,7 +126,7 @@
         touchpad = {
           natural_scroll = false;
         };
-        kb_options = "ctrl:nocaps";
+        #kb_options = "ctrl:nocaps";
       };
 
       gestures = {

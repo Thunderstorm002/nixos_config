@@ -30,6 +30,7 @@
     # Activate kernel module(s).
     kernelModules = [
       # Virtual camera.
+      "uinput"
       "v4l2loopback"
       # Virtual Microphone. Custom DroidCam v4l2loopback driver needed for audio.
       #    "snd-aloop"
@@ -193,6 +194,9 @@
     # Fonts
     fontconfig
     dejavu_fonts
+
+    # Keyboard
+    kanata
   ];
 
   # Nixvim
@@ -261,6 +265,62 @@
   # Enable gvfs for better integration with GTK-based file managers
   # and various virtual filesystems (e.g., trash, sftp, mtp)
   services.gvfs.enable = true;
+
+  # Keyboard
+  # Enable the uinput module for Kanata
+  hardware.uinput.enable = true;
+
+  # Set up udev rules for uinput permissions
+  services.udev.extraRules = ''
+    KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+  '';
+
+  # Ensure the uinput group exists
+  users.groups.uinput = { };
+
+  # Add the Kanata service user to necessary groups
+  systemd.services.kanata-internalKeyboard.serviceConfig = {
+    SupplementaryGroups = [
+      "input"
+      "uinput"
+    ];
+  };
+
+  # Enable Kanata service
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      internalKeyboard = {
+        # Replace with your keyboard device paths
+        devices = [
+          "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+          # Add other device paths if necessary, e.g., for USB keyboards
+          # "/dev/input/by-path/pci-0000:00:14.0-usb-0:3:1.0-event-kbd"
+        ];
+        extraDefCfg = "process-unmapped-keys yes";
+        config = ''
+          (defsrc
+            caps tab d h j k l
+          )
+          (defvar
+            tap-time 200
+            hold-time 200
+          )
+          (defalias
+            caps (tap-hold 200 200 esc lctl)
+            tab (tap-hold $tap-time $hold-time tab (layer-toggle arrow))
+            del del
+          )
+          (deflayer base
+            @caps @tab d h j k l
+          )
+          (deflayer arrow
+            _ _ @del left down up right
+          )
+        '';
+      };
+    };
+  };
 
   system.stateVersion = "25.05";
 }
