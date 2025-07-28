@@ -108,6 +108,11 @@
             trigger_height = 500;
           };
         };
+
+        hyprscrolling = {
+          column_width = 0.7;
+          fullscreen_on_one_column = 1;
+        };
       };
 
       misc = {
