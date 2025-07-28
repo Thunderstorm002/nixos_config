@@ -76,6 +76,34 @@
     let
       system = "x86_64-linux";
       #pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          (self: super: {
+            hyprland-easymotion-patched = super.stdenv.mkDerivation {
+              name = "hyprland-easymotion";
+              src = inputs.hyprland-easymotion;
+              buildInputs = with super; [
+                hyprland
+                pixman
+                libdrm
+                pango
+                cairo
+              ];
+              nativeBuildInputs = with super; [ pkg-config ];
+              buildPhase = ''
+                make
+              '';
+              installPhase = ''
+                mkdir -p $out/lib
+                cp hypreasymotion.so $out/lib/
+              '';
+              # Optionally specify a newer stdenv if the default doesn't work
+              # stdenv = super.gcc14Stdenv;
+            };
+          })
+        ];
+      };
     in
     {
       nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {

@@ -14,7 +14,8 @@
     plugins = [
       inputs.hy3.packages.${pkgs.system}.hy3
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
-      inputs.hyprland-easymotion.packages.${pkgs.system}.hyprland-easymotion
+      #inputs.hyprland-easymotion.packages.${pkgs.system}.hyprland-easymotion
+      pkgs.hyprland-easymotion-patched
     ];
     settings = {
       monitor = [ ",preferred,auto,auto" ];
