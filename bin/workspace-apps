@@ -11,7 +11,7 @@ SELECTION=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $WORKSPACE
 # Check if a selection was made
 if [ -n "$SELECTION" ]; then
   # Extract the address from the selection (format: "class: title [address]")
-  ADDRESS=$(echo "$SELECTION" | grep -oP '\[\K0x[0-9a-f]+\]')
+  ADDRESS=$(echo "$SELECTION" | awk -F'[][]' '{print $2}')
   if [ -n "$ADDRESS" ]; then
     # Switch to the selected window using its address
     hyprctl dispatch focuswindow address:$ADDRESS
