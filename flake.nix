@@ -25,10 +25,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    hyprland-easymotion = {
-      url = "github:zakk4223/hyprland-easymotion";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-easymotion = {
+    #   url = "github:zakk4223/hyprland-easymotion";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
