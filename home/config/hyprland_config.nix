@@ -217,9 +217,9 @@
 
         # bind for hyprscrolling
         "$mainMod, S, layoutmsg, move +col"
-        "$mmainMod, A, layoutmsg, move -col"
-        "$mmainMod SHIFT, S, layoutmsg, movewindowto r"
-        "$mmainMod SHIFT, A, layoutmsg, movewindowto l"
+        "$mainMod, A, layoutmsg, move -col"
+        "$mainMod SHIFT, S, layoutmsg, movewindowto r"
+        "$mainMod SHIFT, A, layoutmsg, movewindowto l"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
