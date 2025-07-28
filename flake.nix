@@ -25,11 +25,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    hyprland-easymotion = {
-      url = "github:zakk4223/hyprland-easymotion";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,62 +70,19 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      #pkgs = nixpkgs.legacyPackages.${system};
-      customOverlay = self: super: {
-        hyprland-easymotion-patched = super.stdenv.mkDerivation {
-          name = "hyprland-easymotion";
-          src = inputs.hyprland-easymotion;
-          buildInputs = with super; [
-            inputs.hyprland.packages.${system}.hyprland
-            pixman
-            libdrm
-            pango
-            cairo
-          ];
-          nativeBuildInputs = with super; [ pkg-config ];
-          buildPhase = ''
-            make
-          '';
-          installPhase = ''
-            mkdir -p $out/lib
-            cp hypreasymotion.so $out/lib/
-          '';
-          # Optionally specify a newer stdenv if needed
-          # stdenv = super.gcc14Stdenv;
-        };
-      };
-
-      # Combine all overlays
-      combinedOverlays = [
-        customOverlay
-      ]
-      ++ (inputs.stylix.overlays or [ ]);
-
-      # Apply the overlay to nixpkgs
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = combinedOverlays;
-      };
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {
-          inherit inputs;
-        };
+        specialArgs = { inherit inputs; };
         modules = [
-          (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
-          {
-            nixpkgs.pkgs = pkgs; # Set the modified pkgs
-          }
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = {
-                inherit inputs;
-              };
+              extraSpecialArgs = { inherit inputs; };
               users.roshan = import ./home/home.nix; # Simplified import
             };
           }
@@ -143,7 +95,6 @@
 
       homeConfigurations."roshan" = home-manager.lib.homeManagerConfiguration {
         inherit system;
-        pkgs = pkgs;
         modules = [
           agenix.nixosModules.default
         ];

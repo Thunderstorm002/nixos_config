@@ -146,6 +146,7 @@
     rustc
     cargo
     usbutils
+    jq
     vim
     wget
     git
@@ -329,13 +330,6 @@
       };
     };
   };
-
-  # # hyprland-easymotion
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   hyprland-easymotion = pkgs.hyprland-easymotion.overrideAttrs (old: {
-  #     NIX_CXXFLAGS_COMPILE = "-std=c++23";
-  #   });
-  # };
 
   system.stateVersion = "25.05";
 }
