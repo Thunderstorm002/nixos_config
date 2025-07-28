@@ -111,7 +111,7 @@
         };
 
         hyprscrolling = {
-          column_width = 0.7;
+          column_width = 1;
           fullscreen_on_one_column = 1;
         };
       };
