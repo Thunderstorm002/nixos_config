@@ -64,7 +64,6 @@
   outputs =
     {
       self,
-      lib,
       nixpkgs,
       home-manager,
       hyprland,
@@ -105,8 +104,7 @@
       combinedOverlays = [
         customOverlay
       ]
-      ++ (inputs.stylix.overlays or [ ])
-      ++ (lib.optionals (inputs.nix-mineral ? overlays) inputs.nix-mineral.overlays or [ ]);
+      ++ (inputs.stylix.overlays or [ ]);
 
       # Apply the overlay to nixpkgs
       pkgs = import nixpkgs {
