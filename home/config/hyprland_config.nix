@@ -33,6 +33,7 @@
         "wl-paste --type image --watch cliphist store"
         "mako"
         "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
+        "hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
         #"bluetoothctl connect AC:80:0A:6F:44:47"
       ];
 
