@@ -113,6 +113,7 @@
         hyprscrolling = {
           column_width = 1;
           fullscreen_on_one_column = 1;
+          focus_fit_method = 1;
         };
       };
 
