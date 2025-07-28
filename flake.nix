@@ -81,7 +81,7 @@
           name = "hyprland-easymotion";
           src = inputs.hyprland-easymotion;
           buildInputs = with super; [
-            hyprland
+            inputs.hyprland.packages.${system}.hyprland
             pixman
             libdrm
             pango
@@ -110,9 +110,12 @@
         inherit system;
         specialArgs = {
           inherit inputs;
-          pkgs = pkgs;
         };
         modules = [
+          (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
+          {
+            nixpkgs.pkgs = pkgs; # Set the modified pkgs
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -120,7 +123,6 @@
               useUserPackages = true;
               extraSpecialArgs = {
                 inherit inputs;
-                pkgs = pkgs;
               };
               users.roshan = import ./home/home.nix; # Simplified import
             };
