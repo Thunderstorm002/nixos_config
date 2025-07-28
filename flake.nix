@@ -64,6 +64,7 @@
   outputs =
     {
       self,
+      lib,
       nixpkgs,
       home-manager,
       hyprland,
@@ -99,10 +100,18 @@
           # stdenv = super.gcc14Stdenv;
         };
       };
+
+      # Combine all overlays
+      combinedOverlays = [
+        customOverlay
+      ]
+      ++ (inputs.stylix.overlays or [ ])
+      ++ (lib.optionals (inputs.nix-mineral ? overlays) inputs.nix-mineral.overlays or [ ]);
+
       # Apply the overlay to nixpkgs
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ customOverlay ];
+        overlays = combinedOverlays;
       };
     in
     {
