@@ -20,10 +20,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    #    hyprland-plugins = {
-    #      url = "github:hyprwm/hyprland-plugins?ref=v0.50.0";
-    #      inputs.hyprland.follows = "hyprland";
-    #    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
