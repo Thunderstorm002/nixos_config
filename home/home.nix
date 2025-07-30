@@ -71,6 +71,7 @@
     nerd-fonts.fira-code
     nerd-fonts._0xproto
     nerd-fonts.noto
+    nerd-fonts.droid-sans-mono
     papirus-icon-theme
 
     #Rust utilities
