@@ -140,6 +140,12 @@
     shell = pkgs.fish;
   };
 
+  nixpkgs.overlays = [
+    (import (
+      builtins.fetchTarball "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz"
+    ))
+  ];
+
   # System-wide Packages
   environment.systemPackages = with pkgs; [
     libinput
@@ -148,10 +154,15 @@
     usbutils
     jq
     vim
+    pkgs.emacsGcc # Installs Emacs 28 + native-comp
     wget
     git
+    ripgrep
+    coreutils
+    fd
+    clang
     libgcc
-    llvmPackages_20.clang-unwrapped
+    #llvmPackages_20.clang-unwrapped
     curl
     htop
     dive
@@ -203,6 +214,9 @@
     # Keyboard
     kanata
   ];
+
+  #Emacs
+  services.emacs.enable = true;
 
   # Nixvim
   programs.nixvim = {
