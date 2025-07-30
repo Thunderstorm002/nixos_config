@@ -233,7 +233,7 @@
       #     they're being parsed in nix, which lacks unicode
       #     support.
       # config = ./emacs.org;
-      config = ../doomemacs/early-init.el;
+      config = "/home/roshan/nixos_config/doomemacs";
 
       # Whether to include your config as a default init file.
       # If being bool, the value of config is used.
