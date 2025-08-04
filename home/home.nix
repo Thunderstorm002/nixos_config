@@ -27,6 +27,7 @@
     alacritty
     alacritty-theme
     fish
+    shellcheck
 
     # GUI Apps
     rofi
