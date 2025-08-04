@@ -27,7 +27,6 @@
     alacritty
     alacritty-theme
     fish
-    shellcheck
 
     # GUI Apps
     rofi
@@ -89,6 +88,7 @@
 
     # git replacement
     jujutsu
+    syncthing
   ];
 
   fonts.fontconfig.enable = true;
