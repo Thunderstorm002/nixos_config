@@ -10,7 +10,7 @@
   home.stateVersion = "25.05";
 
   imports = [
-    inputs.kickstart-nixvim.homeManagerModules.default
+    #inputs.kickstart-nixvim.homeManagerModules.default
     ./config/hyprland_config.nix
     ./config/hyprpaper.nix
     ./config/waybar.nix
