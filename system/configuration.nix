@@ -316,6 +316,14 @@
             lctl lmet lalt           spc            ralt rmet rctl
           )
 
+          (deflayer dvorak
+            grv  1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+            tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
+            caps a    o    e    u    i    d    h    t    n    s    -    ret
+            lsft ;    q    j    k    x    b    m    w    v    z    rsft
+            lctl lmet lalt           spc            ralt rmet rctl
+          )
+
           (defalias
             cap (tap-hold-press 200 200 esc lctl)
           )
