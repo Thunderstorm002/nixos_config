@@ -1,0 +1,42 @@
+{
+  ...
+}:
+
+{
+  # Configure crab-hole service
+  services.crab-hole = {
+    enable = true;
+    settings = {
+      blocklist = {
+        include_subdomains = true;
+        lists = [
+          "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+          "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
+          "file:///etc/crab-hole/blocked.txt"
+        ];
+        allow_list = [ "file:///home/roshan/.config/crab-hole/allowed.txt" ];
+      };
+
+      downstream = [
+        {
+          protocol = "udp";
+          listen = "[::]";
+          port = 53;
+        }
+      ];
+
+      upstream = {
+        name_servers = [
+          {
+            # dnscrypt-proxy2
+            socket_addr = "127.0.0.1:5300";
+            protocol = "udp";
+            trust_nx_responses = false;
+          }
+        ];
+      }; # upstream
+    }; # settings
+    #configFile = "/etc/crab-hole/config.toml"; # Adjust path as needed
+  };
+
+}
