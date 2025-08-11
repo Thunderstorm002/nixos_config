@@ -38,7 +38,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
+    #kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 
     sops-nix.url = "github:Mic92/sops-nix";
     agenix.url = "github:ryantm/agenix";
@@ -90,13 +90,6 @@
           agenix.nixosModules.default
           stylix.nixosModules.stylix
           ./system/configuration.nix
-        ];
-      };
-
-      homeConfigurations."roshan" = home-manager.lib.homeManagerConfiguration {
-        inherit system;
-        modules = [
-          agenix.nixosModules.default
         ];
       };
     };
