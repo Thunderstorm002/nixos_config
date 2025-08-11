@@ -308,7 +308,7 @@
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
-                    (defsrc
+          (defsrc
             grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
             tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
             caps a    s    d    f    g    h    j    k    l    ;    '    ret
@@ -316,22 +316,9 @@
             lctl lmet lalt           spc            ralt rmet rctl
           )
 
-                    (deflayer default
-                      @cap @grv        _
-                                  _    _    _
-                      _    _
-                    )
-
-                    (deflayer arrows
-                      _    _           up
-                                  left down rght
-                      _    _
-                    )
-
-                    (defalias
-                      cap (tap-hold-press 200 200 esc lctl)
-                      grv (tap-hold-press 200 200 grv (layer-toggle arrows))
-                    )
+          (defalias
+            cap (tap-hold-press 200 200 esc lctl)
+          )
         '';
       };
     };
