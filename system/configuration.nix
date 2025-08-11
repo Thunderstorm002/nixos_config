@@ -112,6 +112,7 @@
     usbutils
     jq
     vim
+    neovim
     #pkgs.emacs-git # Installs Emacs 28 + native-comp
     wget
     git
