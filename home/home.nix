@@ -97,7 +97,6 @@
   services.mako.enable = true;
 
   # Neovim
-  programs.nixvim.enable = true;
 
   # Shell configurations
   programs.bash = {

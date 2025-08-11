@@ -3,9 +3,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
@@ -40,7 +38,7 @@
   hardware.graphics = {
     enable = true;
   };
-  services.xserver.videoDrivers = [ "amdgpu" ]; # Or "nvidia", "amdgpu"
+  services.xserver.videoDrivers = ["amdgpu"]; # Or "nvidia", "amdgpu"
 
   # Nix Settings
   nix = {
@@ -285,7 +283,7 @@
   '';
 
   # Ensure the uinput group exists
-  users.groups.uinput = { };
+  users.groups.uinput = {};
 
   # Add the Kanata service user to necessary groups
   systemd.services.kanata-internalKeyboard.serviceConfig = {
@@ -327,6 +325,9 @@
           (defalias
             cap (tap-hold-press 200 200 esc lctl)
           )
+
+          (deflayermap (base-layer)
+            caps esc)
         '';
       };
     };
