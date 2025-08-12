@@ -174,7 +174,7 @@
     # nixCats
       (nixCats-nvim.utils.forSystem "x86_64-linux").makeNvim {
         name = "nvim";
-        settings = { wrapRc = true; configDir = ../config/neovim/; };
+        settings = { wrapRc = true; configDir = ../config/neovim/.; };
         categoryDefinitions = { startupPlugins = [ "vim-nix" ]; };
         packageDefinitions = { nvim = { startupPlugins.vim-nix = true; }; };
       }
