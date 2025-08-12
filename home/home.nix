@@ -123,6 +123,8 @@
     client.enable = true;  # For emacsclient desktop integration
   };
 
+  environment.variables.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
+
   # Manage your personal Doom config files declaratively
   # Create ~/nixos_config/home/doom/ with init.el, config.el, and packages.el
   home.file.".config/doom" = {
