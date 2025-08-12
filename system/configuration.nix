@@ -12,7 +12,8 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
-    inputs.nixvim.nixosModules.nixvim
+    #inputs.nixvim.nixosModules.nixvim
+    ../modules/neovim/default.nix
   ];
 
   # Bootloader
@@ -112,7 +113,7 @@
     usbutils
     jq
     vim
-    neovim
+    #neovim
     #pkgs.emacs-git # Installs Emacs 28 + native-comp
     wget
     git
@@ -228,10 +229,10 @@
   #services.emacs.enable = true;
 
   # Nixvim
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-  };
+ # programs.nixvim = {
+ #   enable = true;
+ #   defaultEditor = true;
+ # };
 
   #  environment.sessionVariables = {
   #    # Hint to apps to prefer dark theme

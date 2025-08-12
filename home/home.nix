@@ -11,6 +11,7 @@
 
   imports = [
     #inputs.kickstart-nixvim.homeManagerModules.default
+    ../modules/neovim/default.nix
     ./config/hyprland_config.nix
     ./config/hyprpaper.nix
     ./config/waybar.nix

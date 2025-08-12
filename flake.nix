@@ -38,6 +38,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+   nixCats = {
+     url = "github:BirdeeHub/nixCats-nvim";
+     inputs.nixpkgs.follows = "nixpkgs";
+   }; 
+
     #kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 
     sops-nix.url = "github:Mic92/sops-nix";
