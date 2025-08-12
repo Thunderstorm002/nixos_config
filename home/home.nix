@@ -136,7 +136,7 @@
 
   # Activation script to install/clone Doom if needed and sync config
   home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:$PATH"
+    export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
     EMACS_DIR="$HOME/.config/emacs"
 
     if [ ! -d "$EMACS_DIR" ]; then
