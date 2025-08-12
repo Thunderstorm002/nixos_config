@@ -81,7 +81,6 @@
               extraSpecialArgs = { inherit inputs; };
               users.roshan = {
 	        import = [
-	          nvf.homeManagerModules.default
 		  ./home/home.nix
 		];
 	      };
