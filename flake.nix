@@ -39,7 +39,7 @@
     };
 
    nixCats = {
-     url = "github:BirdeeHub/nixCats-nvim#example";
+     url = "github:BirdeeHub/nixCats-nvim";
      inputs.nixpkgs.follows = "nixpkgs";
    }; 
 
@@ -71,6 +71,7 @@
       sops-nix,
       agenix,
       stylix,
+      nixCats,
       ...
     }@inputs:
     let

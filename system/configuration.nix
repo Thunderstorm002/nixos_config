@@ -171,6 +171,14 @@
     # Keyboard
     kanata
 
+    # nixCats
+      (nixCats-nvim.utils.forSystem "x86_64-linux").makeNvim {
+        name = "nvim";
+        settings = { wrapRc = true; configDir = ../config/neovim/; };
+        categoryDefinitions = { startupPlugins = [ "vim-nix" ]; };
+        packageDefinitions = { nvim = { startupPlugins.vim-nix = true; }; };
+      }
+
     #Emacs
     #(pkgs.emacsWithPackagesFromUsePackage {
     #  # Your Emacs config file. Org mode babel files are also
