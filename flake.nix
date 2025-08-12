@@ -30,19 +30,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-      # url = "github:nix-community/nixvim/nixos-25.05";
-
+    nvf = {
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-   nixCats = {
-     url = "github:BirdeeHub/nixCats-nvim";
-   }; 
-
-    #kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 
     sops-nix.url = "github:Mic92/sops-nix";
     agenix.url = "github:ryantm/agenix";
@@ -70,7 +61,7 @@
       sops-nix,
       agenix,
       stylix,
-      nixCats,
+      nvf,
       ...
     }@inputs:
     let
@@ -88,12 +79,18 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
-              users.roshan = import ./home/home.nix; # Simplified import
+              users.roshan = {
+	        import = [
+	          nvf.homeManagerModules.default
+		  ./home/home.nix
+		];
+	      };
             };
           }
           sops-nix.nixosModules.sops
           agenix.nixosModules.default
           stylix.nixosModules.stylix
+	  nvf.nixosModules.default 
           ./system/configuration.nix
         ];
       };

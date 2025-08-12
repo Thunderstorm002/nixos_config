@@ -10,7 +10,6 @@
   home.stateVersion = "25.05";
 
   imports = [
-    #inputs.kickstart-nixvim.homeManagerModules.default
     ./config/hyprland_config.nix
     ./config/hyprpaper.nix
     ./config/waybar.nix
@@ -96,7 +95,19 @@
 
   services.mako.enable = true;
 
-  # Neovim
+  # nvf
+  programs.nvf = {
+    enable = true;
+    # your settings need to go into the settings attribute set
+    # most settings are documented in the appendix
+    settings = {
+      vim.viAlias = false;
+      vim.vimAlias = true;
+      vim.lsp = {
+        enable = true;
+      };
+    };
+  };
 
   # Shell configurations
   programs.bash = {

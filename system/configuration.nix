@@ -12,7 +12,6 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
-    #inputs.nixvim.nixosModules.nixvim
   ];
 
   # Bootloader
@@ -235,13 +234,21 @@
   #Emacs
   #services.emacs.enable = true;
 
-  # Nixvim
- # programs.nixvim = {
- #   enable = true;
- #   defaultEditor = true;
- # };
+  # nvf
+  programs.nvf = {
+    enable = true;
+    # your settings need to go into the settings attribute set
+    # most settings are documented in the appendix
+    settings = {
+      vim.viAlias = false;
+      vim.vimAlias = true;
+      vim.lsp = {
+        enable = true;
+      };
+    };
+  };
 
-  #  environment.sessionVariables = {
+   #  environment.sessionVariables = {
   #    # Hint to apps to prefer dark theme
   #    GTK_THEME = "adw-gtk3-dark";
   #    QT_STYLE_OVERRIDE = "adwaita-dark";
