@@ -240,8 +240,6 @@
     };
   };
 
- environment.variables.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ]; 
-
    #  environment.sessionVariables = {
   #    # Hint to apps to prefer dark theme
   #    GTK_THEME = "adw-gtk3-dark";
