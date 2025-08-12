@@ -13,7 +13,6 @@
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
     #inputs.nixvim.nixosModules.nixvim
-    ../modules/neovim/default.nix
   ];
 
   # Bootloader
