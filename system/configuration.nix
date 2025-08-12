@@ -12,6 +12,7 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
+    inputs.nvf.nixosModules.default
   ];
 
   # Bootloader

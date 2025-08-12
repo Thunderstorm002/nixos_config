@@ -16,6 +16,7 @@
     ./config/fish.nix
     ./config/podman.nix
     ./config/rofi.nix
+    inputs.nvf.homeManagerModules.default
   ];
 
   # User Packages
