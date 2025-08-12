@@ -40,7 +40,6 @@
 
    nixCats = {
      url = "github:BirdeeHub/nixCats-nvim";
-     inputs.nixpkgs.follows = "nixpkgs";
    }; 
 
     #kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
