@@ -73,6 +73,7 @@
     nerd-fonts._0xproto
     nerd-fonts.noto
     nerd-fonts.droid-sans-mono
+    jetbrains-mono
     papirus-icon-theme
 
     #Rust utilities
@@ -90,6 +91,10 @@
     # git replacement
     jujutsu
     syncthing
+
+    # Emacs
+    emacs
+    findutils 
   ];
 
   fonts.fontconfig.enable = true;
@@ -109,6 +114,33 @@
       };
     };
   };
+
+  # emacs
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs;  # Matches the one in home.packages
+    client.enable = true;  # For emacsclient desktop integration
+  };
+
+  # Manage your personal Doom config files declaratively
+  # Create ~/nixos_config/home/doom/ with init.el, config.el, and packages.el
+  home.file.".config/doom" = {
+    source = ./config/doom;
+    recursive = true;
+  };
+
+  # Activation script to install/clone Doom if needed and sync config
+  home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:$PATH"
+    EMACS_DIR="$HOME/.config/emacs"
+
+    if [ ! -d "$EMACS_DIR" ]; then
+      ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$EMACS_DIR"
+    fi
+
+    "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
+    "$EMACS_DIR/bin/doom" sync -u
+  '';
 
   # Shell configurations
   programs.bash = {
