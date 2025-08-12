@@ -80,7 +80,7 @@
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
               users.roshan = {
-	        import = [
+	        imports = [
 		  ./home/home.nix
 		];
 	      };
