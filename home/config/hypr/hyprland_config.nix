@@ -29,6 +29,7 @@
         #"hyprpm reload -n"
         "nm-applet --indicator"
         "hyprpaper"
+        "hyprsunset"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "mako"
@@ -152,8 +153,8 @@
       binde = [
         "$mainMod, F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         "$mainMod, F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        "$mainMod, F6, exec, brightnessctl set 5%-"
-        "$mainMod, F7, exec, brightnessctl set 5%+"
+        "$mainMod, F1, exec, hyprctl hyprsunset gamma -5"
+        "$mainMod, F2, exec, hyprctl hyprsunset gamma +5"
       ];
 
       bind = [
