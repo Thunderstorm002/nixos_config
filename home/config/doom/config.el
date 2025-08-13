@@ -201,34 +201,34 @@
         `(("d" "default" plain ""
            :target (file+head "%<%Y-%m-%d>.org" ,(format "%%[%s/template/journal.org]" org-roam-directory))))))
 
-;;(after! org-tree-slide
-;;  ;; I use g{h,j,k} to traverse headings and TAB to toggle their visibility, and
-;;  ;; leave C-left/C-right to .  I'll do a lot of movement because my
-;;  ;; presentations tend not to be very linear.
-;;  (setq org-tree-slide-skip-outline-level 2))
-;;
-;;(after! org-roam
-;;  ;; Offer completion for #tags and @areas separately from notes.
-;;  (add-to-list 'org-roam-completion-functions #'org-roam-complete-tag-at-point)
-;;
-;;  ;; Automatically update the slug in the filename when #+title: has changed.
-;;  (add-hook 'org-roam-find-file-hook #'org-roam-update-slug-on-save-h)
-;;
-;;  ;; Make the backlinks buffer easier to peruse by folding leaves by default.
-;;  (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-2)
-;;
-;;  ;; List dailies and zettels separately in the backlinks buffer.
-;;  (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
-;;
-;;  ;; Open in focused buffer, despite popups
-;;  (advice-add #'org-roam-node-visit :around #'+popup-save-a)
-;;
-;;  ;; Make sure tags in vertico are sorted by insertion order, instead of
-;;  ;; arbitrarily (due to the use of group_concat in the underlying SQL query).
-;;  (advice-add #'org-roam-node-list :filter-return #'org-roam-restore-insertion-order-for-tags-a)
-;;
-;;  ;; Add ID, Type, Tags, and Aliases to top of backlinks buffer.
-;;  (advice-add #'org-roam-buffer-set-header-line-format :after #'org-roam-add-preamble-a))
+(after! org-tree-slide
+  ;; I use g{h,j,k} to traverse headings and TAB to toggle their visibility, and
+  ;; leave C-left/C-right to .  I'll do a lot of movement because my
+  ;; presentations tend not to be very linear.
+  (setq org-tree-slide-skip-outline-level 2))
+
+(after! org-roam
+  ;; Offer completion for #tags and @areas separately from notes.
+  (add-to-list 'org-roam-completion-functions #'org-roam-complete-tag-at-point)
+
+  ;; Automatically update the slug in the filename when #+title: has changed.
+  (add-hook 'org-roam-find-file-hook #'org-roam-update-slug-on-save-h)
+
+  ;; Make the backlinks buffer easier to peruse by folding leaves by default.
+  (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-2)
+
+  ;; List dailies and zettels separately in the backlinks buffer.
+  (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
+
+  ;; Open in focused buffer, despite popups
+  (advice-add #'org-roam-node-visit :around #'+popup-save-a)
+
+  ;; Make sure tags in vertico are sorted by insertion order, instead of
+  ;; arbitrarily (due to the use of group_concat in the underlying SQL query).
+  ;;(advice-add #'org-roam-node-list :filter-return #'org-roam-restore-insertion-order-for-tags-a)
+
+  ;; Add ID, Type, Tags, and Aliases to top of backlinks buffer.
+  (advice-add #'org-roam-buffer-set-header-line-format :after #'org-roam-add-preamble-a))
 
 
 ;;; :ui doom-dashboard
