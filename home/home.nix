@@ -173,7 +173,11 @@
         export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
         EMACS_DIR="$HOME/.config/emacs"
 
-        "$EMACS_DIR/bin/doom" run --daemon
+        # Ensure the Doom Emacs daemon is running
+        if ! pgrep -f "emacs --fg-daemon" > /dev/null; then
+          pkill -f "emacs --fg-daemon" || true
+          "$EMACS_DIR/bin/doom" run --daemon
+        fi
       '';
     };
   };
