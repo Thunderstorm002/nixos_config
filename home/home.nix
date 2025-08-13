@@ -99,6 +99,21 @@
     findutils 
     marksman
     shellcheck
+    make
+    cmake
+    aspell
+    direnv
+    sqlite
+    nodejs
+    nixfmt
+    maim
+    rust-analyzer
+    shfmt
+    pandoc
+    graphviz
+    imagemagick
+    isync
+    mu
   ];
 
   fonts.fontconfig.enable = true;

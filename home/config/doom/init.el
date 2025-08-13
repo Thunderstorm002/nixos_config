@@ -91,7 +91,7 @@
        (mu4e +mbsync +fastmail +org +icons)
 
        :app
-       everywhere
+       ;;everywhere
        ;;irc
 
        :config
