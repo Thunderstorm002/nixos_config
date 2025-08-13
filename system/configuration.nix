@@ -12,12 +12,6 @@
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
     "${inputs.nix-mineral}/nix-mineral.nix"
-    "${inputs.nix-mineral}/nm-overrides/desktop/allow-multilib.nix"
-    "${inputs.nix-mineral}/nm-overrides/desktop/home-exec.nix"
-    "${inputs.nix-mineral}/nm-overrides/desktop/usbguard-allow-at-boot.nix"
-    "${inputs.nix-mineral}/nm-overrides/security/lock-root.nix"
-    "${inputs.nix-mineral}/nm-overrides/security/sysrq-sak.nix"
-    "${inputs.nix-mineral}/nm-overrides/security/disable-intelme-kmodules.nix"
   ];
 
   # Bootloader
