@@ -19,7 +19,7 @@
         calendar = "*-*-* 18:00:00";
         requests = [
           {
-            temperature = "4500";
+            temperature = "4000";
           }
         ];
       };
