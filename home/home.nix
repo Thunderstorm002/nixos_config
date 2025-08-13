@@ -119,6 +119,20 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    font-awesome
+    roboto
+    noto-fonts-color-emoji
+    noto-fonts-emoji
+    nerd-fonts.fira-code
+    nerd-fonts._0xproto
+    nerd-fonts.noto
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.symbols-only
+    jetbrains-mono
+    papirus-icon-theme
+  ];
+
   # emacs
   services.emacs = {
     enable = true;
@@ -138,17 +152,17 @@
   };
 
   # Activation script to install/clone Doom if needed and sync config
-  home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
-    EMACS_DIR="$HOME/.config/emacs"
-
-    if [ ! -d "$EMACS_DIR" ]; then
-      ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$EMACS_DIR"
-    fi
-
-    "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
-    "$EMACS_DIR/bin/doom" sync -u
-  '';
+#  home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+#    export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
+#    EMACS_DIR="$HOME/.config/emacs"
+#
+#    if [ ! -d "$EMACS_DIR" ]; then
+#      ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$EMACS_DIR"
+#    fi
+#
+#    "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
+#    "$EMACS_DIR/bin/doom" sync -u
+#  '';
 
   # Shell configurations
   programs.bash = {
