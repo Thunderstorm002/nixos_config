@@ -6,6 +6,7 @@
   services.hyprsunset = {
     enable = true;
     settings = {
+      transitions = {
       sunrise = {
         calendar = "*-*-* 06:00:00";
         requests = [
@@ -26,6 +27,7 @@
         ];
       };
     };
+      };
 
   };
 }
