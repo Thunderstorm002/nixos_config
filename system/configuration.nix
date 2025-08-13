@@ -182,6 +182,7 @@
       security = {
         lock-root = true;
         sysrq-sak = true;
+        disable-intelme-kmodules = true;
       };
     };
   };
