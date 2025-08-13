@@ -13,7 +13,7 @@
 ;; When I bring up Doom's scratch buffer with SPC x, it's often to play with
 ;; elisp or note something down (that isn't worth an entry in my notes). I can
 ;; do both in `lisp-interaction-mode'.
-(setq doom-scratch-initial-major-mode 'lisp-interaction-mode)
+(setq doom-scratch-initial-major-mode 'text-mode)
 
 (setq shell-file-name (executable-find "bash"))
 (setq-default vterm-shell "/run/current-system/sw/bin/fish")
