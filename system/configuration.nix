@@ -8,10 +8,11 @@
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
     ../modules/system/bluetooth.nix
-    "${inputs.nix-mineral}/nix-mineral.nix"
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
+    "${inputs.nix-mineral}/nix-mineral.nix"
+    ./nm-overrides/desktop.nix
   ];
 
   # Bootloader
