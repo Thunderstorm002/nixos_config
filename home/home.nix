@@ -130,13 +130,12 @@
     PATH = "$XDG_CONFIG_HOME/emacs/bin:$PATH";  # Appends to existing PATH
   };
 
-  home.backupFileExtension = "backup";
-
   # Manage your personal Doom config files declaratively
   # Create ~/nixos_config/home/doom/ with init.el, config.el, and packages.el
   home.file.".config/doom" = {
     source = ./config/doom;
     recursive = true;
+    force = true;
   };
 
   # Activation script to install/clone Doom if needed and sync config
