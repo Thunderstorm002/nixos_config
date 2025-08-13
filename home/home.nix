@@ -115,7 +115,7 @@
     isync
     mu
     clang-tools
-    gdtoolkit
+    gdtoolkit_4
   ];
 
   fonts.fontconfig.enable = true;
