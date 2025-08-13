@@ -86,15 +86,6 @@
     shell = pkgs.fish;
   };
 
-  #  nixpkgs.overlays = [
-  #    (import (
-  #      builtins.fetchTarball {
-  #        url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  #        sha256 = "0sjj8cgjn1hw87b7bfn3lgy81hx740g2mmcvz6y7icwfk6n8ssa0";
-  #      }
-  #    ))
-  #  ];
-  #
   nix.settings.substituters = [
     "https://nix-community.cachix.org"
   ];
@@ -111,8 +102,6 @@
     usbutils
     jq
     vim
-    #neovim
-    #pkgs.emacs-git # Installs Emacs 28 + native-comp
     wget
     git
     ripgrep
@@ -120,7 +109,6 @@
     fd
     clang
     libgcc
-    #llvmPackages_20.clang-unwrapped
     curl
     htop
     dive
@@ -159,6 +147,7 @@
     #Security
     #sops
     #inputs.agenix.packages.x86_64-linux.default
+    sudo-rs
 
     # Audio
     wireplumber
@@ -169,62 +158,9 @@
 
     # Keyboard
     kanata
-
-    #Emacs
-    #(pkgs.emacsWithPackagesFromUsePackage {
-    #  # Your Emacs config file. Org mode babel files are also
-    #  # supported.
-    #  # NB: Config files cannot contain unicode characters, since
-    #  #     they're being parsed in nix, which lacks unicode
-    #  #     support.
-    #  # config = ./emacs.org;
-    #  config = "/home/roshan/.config/emacs";
-
-    #  # Whether to include your config as a default init file.
-    #  # If being bool, the value of config is used.
-    #  # Its value can also be a derivation like this if you want to do some
-    #  # substitution:
-    #  #   defaultInitFile = pkgs.substituteAll {
-    #  #     name = "default.el";
-    #  #     src = ./emacs.el;
-    #  #     inherit (config.xdg) configHome dataHome;
-    #  #   };
-    #  defaultInitFile = true;
-
-    #  # Package is optional, defaults to pkgs.emacs
-    #  package = pkgs.emacs-git;
-
-    #  # By default emacsWithPackagesFromUsePackage will only pull in
-    #  # packages with `:ensure`, `:ensure t` or `:ensure <package name>`.
-    #  # Setting `alwaysEnsure` to `true` emulates `use-package-always-ensure`
-    #  # and pulls in all use-package references not explicitly disabled via
-    #  # `:ensure nil` or `:disabled`.
-    #  # Note that this is NOT recommended unless you've actually set
-    #  # `use-package-always-ensure` to `t` in your config.
-    #  alwaysEnsure = true;
-
-    #  # For Org mode babel files, by default only code blocks with
-    #  # `:tangle yes` are considered. Setting `alwaysTangle` to `true`
-    #  # will include all code blocks missing the `:tangle` argument,
-    #  # defaulting it to `yes`.
-    #  # Note that this is NOT recommended unless you have something like
-    #  # `#+PROPERTY: header-args:emacs-lisp :tangle yes` in your config,
-    #  # which defaults `:tangle` to `yes`.
-    #  #alwaysTangle = true;
-
-    #  # Optionally provide extra packages not in the configuration file.
-    #  # This can also include extra executables to be run by Emacs (linters,
-    #  # language servers, formatters, etc)
-    #  extraEmacsPackages = epkgs: [
-    #    epkgs.cask
-    #    pkgs.shellcheck
-    #  ];
-
-    #})
   ];
 
-  #Emacs
-  #services.emacs.enable = true;
+  security.sudo.package = pkgs.sudo-rs;
 
   # nvf
   programs.nvf = {
@@ -239,16 +175,6 @@
       };
     };
   };
-
-   #  environment.sessionVariables = {
-  #    # Hint to apps to prefer dark theme
-  #    GTK_THEME = "adw-gtk3-dark";
-  #    QT_STYLE_OVERRIDE = "adwaita-dark";
-  #    # Wayland-specific dark mode hints
-  #    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  #    XDG_CURRENT_DESKTOP = "Hyprland";
-  #    XDG_SESSION_TYPE = "wayland";
-  #  };
 
   # Services
   services.openssh.enable = true;
