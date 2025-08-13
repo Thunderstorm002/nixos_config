@@ -34,6 +34,7 @@
         "mako"
         "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
         "hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
+        "/home/roshan/.config/emacs/bin/doom run --daemon"
       ];
 
       env = [

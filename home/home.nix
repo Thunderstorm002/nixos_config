@@ -137,11 +137,11 @@
   };
 
   # emacs
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs/bin/doom;  # Matches the one in home.packages
-    client.enable = true;  # For emacsclient desktop integration
-  };
+  # services.emacs = {
+  #   enable = true;
+  #   package = pkgs.emacs;  # Matches the one in home.packages
+  #   client.enable = true;  # For emacsclient desktop integration
+  # };
 
   home.sessionVariables = {
     PATH = "$XDG_CONFIG_HOME/emacs/bin:$PATH";  # Appends to existing PATH
@@ -156,17 +156,27 @@
   };
 
   # Activation script to install/clone Doom if needed and sync config
-  home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
-    EMACS_DIR="$HOME/.config/emacs"
+  home = {
+    activation = {
+      installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
+        EMACS_DIR="$HOME/.config/emacs"
 
-    if [ ! -d "$EMACS_DIR" ]; then
-      ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$EMACS_DIR"
+        if [ ! -d "$EMACS_DIR" ]; then
+          ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$EMACS_DIR"
 
-      "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
-      "$EMACS_DIR/bin/doom" sync -u
-    fi
-  '';
+          "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
+          "$EMACS_DIR/bin/doom" sync -u
+        fi
+      '';
+      doomEmacsServer = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
+        EMACS_DIR="$HOME/.config/emacs"
+
+        "$EMACS_DIR/bin/doom" run --daemon
+      '';
+    };
+  };
 
   # Shell configurations
   programs.bash = {
