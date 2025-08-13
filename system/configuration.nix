@@ -12,6 +12,7 @@
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
     ../modules/security/nix-mineral.nix
+    ../modules/security/nm-overrides.nix
   ];
 
   # Bootloader
