@@ -1,0 +1,3 @@
+[submodule "modules/nix-mineral"]
+	path = modules/nix-mineral
+	url = https://github.com/cynicsketch/nix-mineral
