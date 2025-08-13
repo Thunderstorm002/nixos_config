@@ -179,6 +179,10 @@
         home-exec = true;
         allow-multilib = true;
       };
+      security = {
+        lock-root = true;
+        sysrq-sak = true;
+      };
     };
   };
 
