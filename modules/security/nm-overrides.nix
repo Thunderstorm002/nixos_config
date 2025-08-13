@@ -62,7 +62,7 @@
 # options reduce security to a certain degree.
 
   # Reenable multilib, may be useful to playing certain games.
-  # nm-overrides.desktop.allow-multilib.enable = true;
+  nm-overrides.desktop.allow-multilib.enable = true;
 
   # Reenable unprivileged userns. Although userns is the target of many
   # exploits, it also used in the Chromium sandbox, unprivileged containers,
