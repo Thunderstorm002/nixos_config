@@ -11,8 +11,7 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
-    ../modules/security/nix-mineral.nix
-    ../modules/security/nm-overrides.nix
+    "${inputs.nix-mineral}/nix-mineral.nix"
   ];
 
   # Bootloader
@@ -171,6 +170,17 @@
   security.sudo-rs = {
     enable = true;
     wheelNeedsPassword = true; # Require password for wheel group
+  };
+
+  nix-mineral = {
+    enable = true;
+    overrides= {
+      desktop = {
+        home-exec = true;
+        allow-multilib = true;
+        usbguard-allow-at-boot = true;
+      };
+    };
   };
 
   # nvf
