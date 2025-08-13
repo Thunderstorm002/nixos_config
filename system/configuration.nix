@@ -11,7 +11,7 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
-    ../modules/nix-mineral/nix-mineral.nix
+    ./nix-mineral.nix
   ];
 
   # Bootloader
