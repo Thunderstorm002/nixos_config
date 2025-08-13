@@ -3,6 +3,10 @@
 (setq user-full-name "Roshan Nair"
       user-mail-address "roshan.nair@protonmail.com")
 
+
+;; Set the theme
+(setq doom-theme 'doom-one)
+
 ;; When I bring up Doom's scratch buffer with SPC x, it's often to play with
 ;; elisp or note something down (that isn't worth an entry in my notes). I can
 ;; do both in `lisp-interaction-mode'.

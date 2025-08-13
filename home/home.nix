@@ -162,10 +162,10 @@
 
     if [ ! -d "$EMACS_DIR" ]; then
       ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$EMACS_DIR"
-    fi
 
-    "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
-    "$EMACS_DIR/bin/doom" sync -u
+      "$EMACS_DIR/bin/doom" install --no-env --no-fonts --force
+      "$EMACS_DIR/bin/doom" sync -u
+    fi
   '';
 
   # Shell configurations
