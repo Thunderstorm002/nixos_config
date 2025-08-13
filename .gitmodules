@@ -1,3 +1,0 @@
-[submodule "modules/security"]
-	path = modules/security
-	url = https://github.com/cynicsketch/nix-mineral
