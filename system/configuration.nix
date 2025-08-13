@@ -178,10 +178,11 @@
       desktop = {
         home-exec = true;
         allow-multilib = true;
-        usbguard-disable = true;
       };
     };
   };
+
+  services.usbguard.enable = false;
 
   # nvf
   programs.nvf = {
