@@ -139,14 +139,8 @@
   # emacs
   services.emacs = {
     enable = true;
-    package = pkgs.emacs;  # Matches the one in home.packages
+    package = pkgs.emacs/bin/doom;  # Matches the one in home.packages
     client.enable = true;  # For emacsclient desktop integration
-    # Override the default Emacs daemon command to use Doom
-    extraOptions = [
-      "--fg-daemon" # Run Emacs as a foreground daemon
-      "--load" "${pkgs.emacs}/bin/doom" # Load Doom's initialization
-      "run" # Pass 'run' to Doom
-    ];
   };
 
   home.sessionVariables = {
