@@ -178,7 +178,6 @@
       desktop = {
         home-exec = true;
         allow-multilib = true;
-        usbguard-allow-at-boot = true;
       };
     };
   };
