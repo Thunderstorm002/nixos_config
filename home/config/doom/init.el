@@ -20,6 +20,7 @@
        treemacs
        (vc-gutter +pretty)
        workspaces
+       zen
 
        :editor
        (evil +everywhere)
@@ -64,7 +65,7 @@
        cc
        ;;common-lisp
        emacs-lisp
-       (gdscript +lsp)
+       ;;(gdscript +lsp)
        ;;haskell
        ;;janet
        ;;(java +meghanada)
@@ -88,7 +89,7 @@
        ;;(zig +lsp)
 
        :email
-       (mu4e +mbsync +fastmail +org +icons)
+       ;;(mu4e +mbsync +fastmail +org +icons)
 
        :app
        ;;everywhere
