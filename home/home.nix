@@ -99,7 +99,7 @@
     findutils 
     marksman
     shellcheck
-    make
+    gnumake
     cmake
     aspell
     direnv
