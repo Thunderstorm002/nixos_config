@@ -8,7 +8,7 @@
 (setq doom-theme 'doom-ayu-dark)
 
 ; Make emacsclient open the Doom dashboard
-(setq initial-buffer-choice (lambda () (+doom-dashboard/open (selected-frame))))
+(setq initial-buffer-choice #'+doom-dashboard/open)
 
 ;; When I bring up Doom's scratch buffer with SPC x, it's often to play with
 ;; elisp or note something down (that isn't worth an entry in my notes). I can
