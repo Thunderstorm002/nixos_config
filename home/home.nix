@@ -137,11 +137,11 @@
   };
 
   # emacs
-  # services.emacs = {
-  #   enable = true;
-  #   package = pkgs.emacs;  # Matches the one in home.packages
-  #   client.enable = true;  # For emacsclient desktop integration
-  # };
+   services.emacs = {
+     enable = false;
+     package = pkgs.emacs;  # Matches the one in home.packages
+     client.enable = true;  # For emacsclient desktop integration
+   };
 
   home.sessionVariables = {
     PATH = "$XDG_CONFIG_HOME/emacs/bin:$PATH";  # Appends to existing PATH
