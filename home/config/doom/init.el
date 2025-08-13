@@ -75,7 +75,7 @@
        (lua +fennel)
        markdown
        nix
-       (org +dragndrop +appear)
+       (org +dragndrop +roam2 +appear)
        ;;php
        ;;plantuml
        ;;(python +conda)
