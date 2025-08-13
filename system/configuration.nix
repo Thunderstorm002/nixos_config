@@ -161,24 +161,16 @@
   ];
 
   # Disable the traditional sudo module
-  security.sudo.enable = false;
+  security.sudo = {
+    enable = false;
+    package = pkgs.sudo-rs;
+  };
 
   # Enable sudo-rs
   security.sudo-rs = {
     enable = true;
     wheelNeedsPassword = true; # Require password for wheel group
-    extraRules = [
-      {
-        users = [ "username" ]; # Replace with your username
-        commands = [
-          { command = "ALL"; options = [ "NOPASSWD" ]; } # Example: passwordless sudo
-        ];
-      }
-    ];
   };
-
-  # Ensure sudo-rs is used instead of sudo
-  security.sudo.package = pkgs.sudo-rs;
 
   # nvf
   programs.nvf = {
