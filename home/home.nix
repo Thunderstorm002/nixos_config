@@ -119,20 +119,6 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    font-awesome
-    roboto
-    noto-fonts-color-emoji
-    noto-fonts-emoji
-    nerd-fonts.fira-code
-    nerd-fonts._0xproto
-    nerd-fonts.noto
-    nerd-fonts.droid-sans-mono
-    nerd-fonts.symbols-only
-    jetbrains-mono
-    papirus-icon-theme
-  ];
-
   # emacs
   services.emacs = {
     enable = true;
