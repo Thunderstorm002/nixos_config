@@ -141,7 +141,6 @@
     enable = true;
     package = pkgs.emacs;  # Matches the one in home.packages
     client.enable = true;  # For emacsclient desktop integration
-    startWithSystem = true; # Start the server when the system boots
     # Override the default Emacs daemon command to use Doom
     extraOptions = [
       "--fg-daemon" # Run Emacs as a foreground daemon
