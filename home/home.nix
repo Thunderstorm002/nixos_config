@@ -96,6 +96,8 @@
     # Emacs
     emacs
     findutils 
+    marksman
+    shellcheck
   ];
 
   fonts.fontconfig.enable = true;
@@ -126,6 +128,10 @@
   home.sessionVariables = {
     PATH = "$XDG_CONFIG_HOME/emacs/bin:$PATH";  # Appends to existing PATH
   };
+
+  fonts.packages = [
+      (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    ];
 
   # Manage your personal Doom config files declaratively
   # Create ~/nixos_config/home/doom/ with init.el, config.el, and packages.el

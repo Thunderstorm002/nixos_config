@@ -8,6 +8,10 @@
 ;; do both in `lisp-interaction-mode'.
 (setq doom-scratch-initial-major-mode 'lisp-interaction-mode)
 
+(setq shell-file-name (executable-find "bash"))
+
+(setq-default vterm-shell "/run/current-system/sw/bin/fish")
+(setq-default explicit-shell-file-name "/run/current-system/sw/bin/fish")
 
 ;;
 ;;; UI
