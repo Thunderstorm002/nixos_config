@@ -114,93 +114,93 @@
 
 ;;; :lang org
 (setq org-directory "~/projects/org/"
-      ;;org-roam-directory org-directory
-      ;;org-roam-db-location (file-name-concat org-directory ".org-roam.db")
-      ;;org-roam-dailies-directory "journal/"
-      ;;org-archive-location (file-name-concat org-directory ".archive/%s::")
-      ;;org-agenda-files (list org-directory)
-      ;;org-log-done-with-time nil
-      ;;org-habit-show-habits-only-for-today nil
+      org-roam-directory org-directory
+      org-roam-db-location (file-name-concat org-directory ".org-roam.db")
+      org-roam-dailies-directory "journal/"
+      org-archive-location (file-name-concat org-directory ".archive/%s::")
+      org-agenda-files (list org-directory)
+      org-log-done-with-time nil
+      org-habit-show-habits-only-for-today nil
 )
 
-(use-package! org-roam
-  :custom
-  (org-roam-directory "~/projects/org")
-  (org-roam-completion-everywhere t)
-  ;;:config
-  ;; Additional configurations can go here
-  )
+;;(use-package! org-roam
+;;  :custom
+;;  (org-roam-directory "~/projects/org")
+;;  (org-roam-completion-everywhere t)
+;;  ;;:config
+;;  ;; Additional configurations can go here
+;;  )
 
-;;(after! org
-;;  (add-to-list 'org-modules 'org-habit)
-;;  (setq org-startup-folded 'show2levels
-;;        org-ellipsis " [...] "
-;;        org-capture-templates
-;;        '(("t" "todo" entry (file+headline "todo.org" "Inbox")
-;;           "* [ ] %?\n%i\n%a"
-;;           :prepend t)
-;;          ("d" "deadline" entry (file+headline "todo.org" "Inbox")
-;;           "* [ ] %?\nDEADLINE: <%(org-read-date)>\n\n%i\n%a"
-;;           :prepend t)
-;;          ("s" "schedule" entry (file+headline "todo.org" "Inbox")
-;;           "* [ ] %?\nSCHEDULED: <%(org-read-date)>\n\n%i\n%a"
-;;           :prepend t)
-;;          ("c" "check out later" entry (file+headline "todo.org" "Check out later")
-;;           "* [ ] %?\n%i\n%a"
-;;           :prepend t)
-;;          ("l" "ledger" plain (file "ledger/personal.gpg")
-;;           "%(+beancount/clone-transaction)"))))
-;;
-;;(after! org-agenda
-;;  (setq org-agenda-todo-list-sublevels nil
-;;        org-agenda-compact-blocks t
-;;        org-agenda-sorting-strategy
-;;        '((agenda time-up category-keep habit-up priority-down)
-;;          (todo priority-down category-keep) (tags priority-down category-keep)
-;;          (search category-keep))))
-;;
-;;(after! org-roam
-;;  (setq org-roam-capture-templates
-;;        `(("n" "note" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/note.org]" org-roam-directory)
-;;           :target (file "note/%<%Y%m%d%H%M%S>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("r" "thought" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/thought.org]" org-roam-directory)
-;;           :target (file "thought/%<%Y%m%d%H%M%S>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("t" "topic" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/topic.org]" org-roam-directory)
-;;           :target (file "topic/%<%Y%m%d%H%M%S>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("c" "contact" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/contact.org]" org-roam-directory)
-;;           :target (file "contact/%<%Y%m%d%H%M%S>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("p" "project" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/project.org]" org-roam-directory)
-;;           :target (file "project/%<%Y%m%d>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("i" "invoice" plain
-;;           ,(format "#+title: %%<%%Y%%m%%d>-${title}\n%%[%s/template/invoice.org]" org-roam-directory)
-;;           :target (file "invoice/%<%Y%m%d>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("f" "ref" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/ref.org]" org-roam-directory)
-;;           :target (file "ref/%<%Y%m%d%H%M%S>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("w" "works" plain
-;;           ,(format "#+title: ${title}\n%%[%s/template/works.org]" org-roam-directory)
-;;           :target (file "works/%<%Y%m%d%H%M%S>-${slug}.org")
-;;           :unnarrowed t)
-;;          ("s" "secret" plain "#+title: ${title}\n\n"
-;;           :target (file "secret/%<%Y%m%d%H%M%S>-${slug}.org.gpg")
-;;           :unnarrowed t))
-;;        ;; Use human readable dates for dailies titles
-;;        org-roam-dailies-capture-templates
-;;        `(("d" "default" plain ""
-;;           :target (file+head "%<%Y-%m-%d>.org" ,(format "%%[%s/template/journal.org]" org-roam-directory))))))
-;;
+(after! org
+  (add-to-list 'org-modules 'org-habit)
+  (setq org-startup-folded 'show2levels
+        org-ellipsis " [...] "
+        org-capture-templates
+        '(("t" "todo" entry (file+headline "todo.org" "Inbox")
+           "* [ ] %?\n%i\n%a"
+           :prepend t)
+          ("d" "deadline" entry (file+headline "todo.org" "Inbox")
+           "* [ ] %?\nDEADLINE: <%(org-read-date)>\n\n%i\n%a"
+           :prepend t)
+          ("s" "schedule" entry (file+headline "todo.org" "Inbox")
+           "* [ ] %?\nSCHEDULED: <%(org-read-date)>\n\n%i\n%a"
+           :prepend t)
+          ("c" "check out later" entry (file+headline "todo.org" "Check out later")
+           "* [ ] %?\n%i\n%a"
+           :prepend t)
+          ("l" "ledger" plain (file "ledger/personal.gpg")
+           "%(+beancount/clone-transaction)"))))
+
+(after! org-agenda
+  (setq org-agenda-todo-list-sublevels nil
+        org-agenda-compact-blocks t
+        org-agenda-sorting-strategy
+        '((agenda time-up category-keep habit-up priority-down)
+          (todo priority-down category-keep) (tags priority-down category-keep)
+          (search category-keep))))
+
+(after! org-roam
+  (setq org-roam-capture-templates
+        `(("n" "note" plain
+           ,(format "#+title: ${title}\n%%[%s/template/note.org]" org-roam-directory)
+           :target (file "note/%<%Y%m%d%H%M%S>-${slug}.org")
+           :unnarrowed t)
+          ("r" "thought" plain
+           ,(format "#+title: ${title}\n%%[%s/template/thought.org]" org-roam-directory)
+           :target (file "thought/%<%Y%m%d%H%M%S>-${slug}.org")
+           :unnarrowed t)
+          ("t" "topic" plain
+           ,(format "#+title: ${title}\n%%[%s/template/topic.org]" org-roam-directory)
+           :target (file "topic/%<%Y%m%d%H%M%S>-${slug}.org")
+           :unnarrowed t)
+          ("c" "contact" plain
+           ,(format "#+title: ${title}\n%%[%s/template/contact.org]" org-roam-directory)
+           :target (file "contact/%<%Y%m%d%H%M%S>-${slug}.org")
+           :unnarrowed t)
+          ("p" "project" plain
+           ,(format "#+title: ${title}\n%%[%s/template/project.org]" org-roam-directory)
+           :target (file "project/%<%Y%m%d>-${slug}.org")
+           :unnarrowed t)
+          ("i" "invoice" plain
+           ,(format "#+title: %%<%%Y%%m%%d>-${title}\n%%[%s/template/invoice.org]" org-roam-directory)
+           :target (file "invoice/%<%Y%m%d>-${slug}.org")
+           :unnarrowed t)
+          ("f" "ref" plain
+           ,(format "#+title: ${title}\n%%[%s/template/ref.org]" org-roam-directory)
+           :target (file "ref/%<%Y%m%d%H%M%S>-${slug}.org")
+           :unnarrowed t)
+          ("w" "works" plain
+           ,(format "#+title: ${title}\n%%[%s/template/works.org]" org-roam-directory)
+           :target (file "works/%<%Y%m%d%H%M%S>-${slug}.org")
+           :unnarrowed t)
+          ("s" "secret" plain "#+title: ${title}\n\n"
+           :target (file "secret/%<%Y%m%d%H%M%S>-${slug}.org.gpg")
+           :unnarrowed t))
+        ;; Use human readable dates for dailies titles
+        org-roam-dailies-capture-templates
+        `(("d" "default" plain ""
+           :target (file+head "%<%Y-%m-%d>.org" ,(format "%%[%s/template/journal.org]" org-roam-directory))))))
+
 ;;(after! org-tree-slide
 ;;  ;; I use g{h,j,k} to traverse headings and TAB to toggle their visibility, and
 ;;  ;; leave C-left/C-right to .  I'll do a lot of movement because my
