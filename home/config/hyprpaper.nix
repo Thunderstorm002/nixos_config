@@ -10,8 +10,8 @@
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ "${config.home.homeDirectory}/Pictures/space_1.jpg" ];
-      wallpaper = [ ",${config.home.homeDirectory}/Pictures/space_1.jpg" ];
+      preload = [ "${config.home.homeDirectory}/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png" ];
+      wallpaper = [ ",${config.home.homeDirectory}/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png" ];
     };
   };
 }
