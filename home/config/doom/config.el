@@ -169,9 +169,9 @@
            ,(format "#+title: ${title}\n%%[%s/template/thought.org]" org-roam-directory)
            :target (file "thought/%<%Y%m%d%H%M%S>-${slug}.org")
            :unnarrowed t)
-          ("t" "topic" plain
-           ,(format "#+title: ${title}\n%%[%s/template/topic.org]" org-roam-directory)
-           :target (file "topic/%<%Y%m%d%H%M%S>-${slug}.org")
+          ("b" "book" plain
+           ,(format "#+title: ${title}\n%%[%s/template/books.org]" org-roam-directory)
+           :target (file "book/%<%Y%m%d%H%M%S>-${slug}.org")
            :unnarrowed t)
           ("c" "contact" plain
            ,(format "#+title: ${title}\n%%[%s/template/contact.org]" org-roam-directory)
@@ -188,13 +188,6 @@
           ("f" "ref" plain
            ,(format "#+title: ${title}\n%%[%s/template/ref.org]" org-roam-directory)
            :target (file "ref/%<%Y%m%d%H%M%S>-${slug}.org")
-           :unnarrowed t)
-          ("w" "works" plain
-           ,(format "#+title: ${title}\n%%[%s/template/works.org]" org-roam-directory)
-           :target (file "works/%<%Y%m%d%H%M%S>-${slug}.org")
-           :unnarrowed t)
-          ("s" "secret" plain "#+title: ${title}\n\n"
-           :target (file "secret/%<%Y%m%d%H%M%S>-${slug}.org.gpg")
            :unnarrowed t))
         ;; Use human readable dates for dailies titles
         org-roam-dailies-capture-templates
