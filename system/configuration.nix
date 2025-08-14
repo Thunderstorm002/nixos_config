@@ -9,6 +9,7 @@
     ../modules/desktop/hyprland.nix
     ../modules/desktop/sddm.nix
     ../modules/desktop/niri/niri.mod.nix
+    ../modules/desktop/niri/niri_config.nix
     ../modules/system/bluetooth.nix
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
