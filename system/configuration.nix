@@ -173,7 +173,7 @@
   };
 
   nix-mineral = {
-    enable = false;
+    enable = true;
     overrides= {
       desktop = {
         home-exec = true;
