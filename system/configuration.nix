@@ -178,6 +178,8 @@
       desktop = {
         home-exec = true;
         allow-multilib = true;
+        hideproc-off = true;
+        nix-allow-all = true;
       };
       security = {
         lock-root = true;
