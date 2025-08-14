@@ -38,11 +38,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     agenix.url = "github:ryantm/agenix";
 
-    nix-mineral = {
-      url = "github:cynicsketch/nix-mineral"; # Refers to the main branch and is updated to the latest commit when you use "nix flake update"
-      flake = false;
-    };
-
     stylix = {
       url = "github:danth/stylix";
       #url = "github:nix-community/stylix/release-25.05";
@@ -89,7 +84,7 @@
           sops-nix.nixosModules.sops
           agenix.nixosModules.default
           stylix.nixosModules.stylix
-	  nvf.nixosModules.default 
+	        nvf.nixosModules.default
           ./system/configuration.nix
         ];
       };

@@ -11,7 +11,6 @@
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
     ../modules/theme/stylix.nix
-    "${inputs.nix-mineral}/nix-mineral.nix"
   ];
 
   # Bootloader
@@ -180,25 +179,6 @@
     enable = true;
     wheelNeedsPassword = true; # Require password for wheel group
   };
-
-  nix-mineral = {
-    enable = false;
-    overrides= {
-      desktop = {
-        home-exec = true;
-        allow-multilib = true;
-        hideproc-off = true;
-        nix-allow-all = true;
-      };
-      security = {
-        lock-root = true;
-        sysrq-sak = true;
-        disable-intelme-kmodules = true;
-      };
-    };
-  };
-
-  services.usbguard.enable = false;
 
   # nvf
   programs.nvf = {
