@@ -16,8 +16,8 @@ input {
 spawn-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "mako"
-spawn-at-startup "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
-spawn-at-startup "/home/roshan/.config/emacs/bin/doom run --daemon"
+spawn-at-startup "sh /home/roshan/.config/waybar/launch.sh"
+spawn-at-startup "emacs --daemon"
 spawn-at-startup "xwayland-satellite"
 
 environment {
@@ -351,7 +351,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 4

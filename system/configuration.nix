@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
     ../modules/desktop/sddm.nix
+    ../modules/desktop/niri/niri.mod.nix
     ../modules/system/bluetooth.nix
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
@@ -172,6 +173,9 @@
     niri
     fuzzel
     xwayland-satellite
+    wayland-utils
+    libsecret
+    cage
     xdg-desktop-portal-gtk
     swaybg
     swayidle

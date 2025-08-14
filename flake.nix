@@ -45,6 +45,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
+
   };
 
   outputs =
@@ -57,6 +61,7 @@
       agenix,
       stylix,
       nvf,
+      niri,
       ...
     }@inputs:
     let
