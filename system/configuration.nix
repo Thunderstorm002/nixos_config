@@ -35,12 +35,9 @@
 
   # Graphics Drivers (Corrected)
    hardware = {
-    opengl = {
-      ## amdvlk: an open-source Vulkan driver from AMD
+    graphics = {
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-    };
-    graphics = {
       enable = true;
       enable32Bit = true;
     };
