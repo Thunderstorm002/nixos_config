@@ -4,16 +4,18 @@
   plain,
   leaf,
   flag,
+  inputs,
   ...
 }:
-[
+{
+programs.niri.config = with inputs.niri.lib.kdl; [
   (plain "input" [
     (plain "keyboard" [
       (plain "xkb" [
         # You can set rules, model, layout, variant and options.
         # For more information, see xkeyboard-config(7).
         (leaf "layout" "us")
-        (leaf "options" "caps:escape,compose:sclk")
+        #(leaf "options" "caps:escape,compose:sclk")
       ])
 
       # You can set the keyboard repeat parameters. The defaults match wlroots and sway.
@@ -212,8 +214,8 @@
     "--systemd"
     "WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
   ])
-  (leaf "spawn-at-startup" [ "cosmic-bg" ])
-  (leaf "spawn-at-startup" [ "cosmic-panel" ])
+  (leaf "spawn-at-startup" [ "sway-bg" ])
+  (leaf "spawn-at-startup" [ "waybar" ])
 
   # You can override environment variables for processes spawned by niri.
   (plain "environment" [
@@ -425,16 +427,16 @@
     (plain "Mod+L" [ (leaf "spawn" [ "swaylock" ]) ])
     (plain "Mod+W" [
       (leaf "spawn" [
-        "firefox"
+        "zen"
         "--new-window"
         "about:newtab"
       ])
     ])
-    (plain "Mod+Enter" [ (leaf "spawn" [ "wezterm" ]) ])
-    (plain "Mod+E" [ (leaf "spawn" [ "cosmic-files" ]) ])
-    (plain "Mod+J" [ (leaf "spawn" [ "cosmic-launcher" ]) ])
-    (plain "Mod+Space" [ (leaf "spawn" [ "cosmic-launcher" ]) ])
-    (plain "Mod+Shift+J" [ (leaf "spawn" [ "cosmic-app-library" ]) ])
+    (plain "Mod+Return" [ (leaf "spawn" [ "ghostty" ]) ])
+    (plain "Mod+E" [ (leaf "spawn" [ "thunar" ]) ])
+    (plain "Mod+D" [ (leaf "spawn" [ "fuzzel" ]) ])
+    #(plain "Mod+Space" [ (leaf "spawn" [ "cosmic-launcher" ]) ])
+    #(plain "Mod+Shift+J" [ (leaf "spawn" [ "cosmic-app-library" ]) ])
 
     (plain "Mod+Escape" [
       (leaf "spawn" [
@@ -476,7 +478,7 @@
     (plain "Mod+Down" [ (flag "focus-window-down") ])
     (plain "Mod+Up" [ (flag "focus-window-up") ])
     (plain "Mod+Right" [ (flag "focus-column-right-or-first") ])
-    (plain "Mod+D" [ (flag "focus-column-left-or-last") ])
+    #(plain "Mod+D" [ (flag "focus-column-left-or-last") ])
     # (plain "Mod+G"      [(flag "focus-window-down")])
     # (plain "Mod+S"      [(flag "focus-window-up")])
     (plain "Mod+F" [ (flag "focus-column-right-or-first") ])
@@ -639,4 +641,5 @@
     (node "Mod+Shift+WheelScrollUp" { cooldown-ms = 150; } [ (flag "move-column-to-workspace-up") ])
 
   ])
-]
+];
+}
