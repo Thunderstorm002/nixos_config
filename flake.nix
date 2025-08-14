@@ -89,6 +89,7 @@
           agenix.nixosModules.default
           stylix.nixosModules.stylix
           nvf.nixosModules.default
+          niri.nixosModules.niri
           ./system/configuration.nix
         ];
       };

@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
     ../modules/desktop/sddm.nix
-    inputs.niri.nixosModules.niri
     ../modules/desktop/niri/niri.mod.nix
     ../modules/system/bluetooth.nix
     ../modules/network/dnscrypt.nix
