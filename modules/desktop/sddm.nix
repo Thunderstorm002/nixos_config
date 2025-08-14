@@ -1,13 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.xserver.enable = true;
-  services.xserver.displayManager.sessionPackages = with pkgs; [
+  #services.xserver.enable = true;
+  services.displayManager.sessionPackages = with pkgs; [
     hyprland
     niri
   ];
   # Ensure SDDM is configured to handle Wayland sessions
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true; # Explicitly enable Wayland support for SDDM
   };
