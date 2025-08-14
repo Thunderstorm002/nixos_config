@@ -197,7 +197,7 @@
 
   # Services
   services.openssh.enable = true;
-  programs.ssh.startAgent = true;
+  #programs.ssh.startAgent = true;
 
   # Firewall Configuration
   networking.firewall = {
