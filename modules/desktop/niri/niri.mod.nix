@@ -1,11 +1,6 @@
 { config, lib, pkgs, niri, ... }:
 
 {
-  # enable the binary cache on all systems; useful for remote build
-  universal.imports = [ niri.nixosModules.niri ];
-  personal =
-    { pkgs, ... }:
-    {
       programs.niri.enable = true;
       nixpkgs.overlays = [ niri.overlays.niri ];
       programs.niri.package = pkgs.niri-unstable;
@@ -365,5 +360,4 @@
           }
         )
       ];
-    };
 }
