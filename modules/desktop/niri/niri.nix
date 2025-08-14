@@ -84,7 +84,7 @@ in
       target = "niri/config.kdl";
       source =
         let
-          kdl = (pkgs.callPackage "${sources.kdl}/pkgs/pkgs-lib/formats.nix" { }).kdl { version = 1; };
+          kdl = (pkgs.callPackage "${sources.kdl}/pkgs/pkgs-lib/formats.nix" { }).kdl { };
           typed = kdl.lib.node;
           # use json2kdl's performance with niri-specific syntax sugar:
           # https://github.com/sodiboo/niri-flake/blob/main/kdl.nix

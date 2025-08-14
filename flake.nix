@@ -45,6 +45,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    kdl.url = "github:sodiboo/niri-flake";
+
   };
 
   outputs =
@@ -57,6 +59,7 @@
       agenix,
       stylix,
       nvf,
+      kdl,
       ...
     }@inputs:
     let
@@ -84,6 +87,9 @@
           agenix.nixosModules.default
           stylix.nixosModules.stylix
           nvf.nixosModules.default
+          {
+            _module.args.sources = { kdl = kdl; };
+          }
           ./system/configuration.nix
         ];
       };
