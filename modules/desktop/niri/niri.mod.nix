@@ -1,8 +1,8 @@
-{ config, lib, pkgs, niri, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
       programs.niri.enable = true;
-      nixpkgs.overlays = [ niri.overlays.niri ];
+      nixpkgs.overlays = [ inputs.niri.overlays.niri ];
       programs.niri.package = pkgs.niri-unstable;
       environment.variables.NIXOS_OZONE_WL = "1";
 
