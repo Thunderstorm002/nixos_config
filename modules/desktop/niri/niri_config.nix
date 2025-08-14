@@ -1,9 +1,5 @@
   # kdl helpers from https://github.com/sodiboo/niri-flake/blob/main/kdl.nix
 {
-  node,
-  plain,
-  leaf,
-  flag,
   inputs,
   ...
 }:
