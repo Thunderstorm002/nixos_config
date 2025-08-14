@@ -35,7 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix.url = "github:Mic92/sops-nix";
     agenix.url = "github:ryantm/agenix";
 
     stylix = {
@@ -53,7 +52,6 @@
       home-manager,
       hyprland,
       hy3,
-      sops-nix,
       agenix,
       stylix,
       nvf,
@@ -75,16 +73,15 @@
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
               users.roshan = {
-	        imports = [
-		  ./home/home.nix
-		];
-	      };
+                imports = [
+                  ./home/home.nix
+                ];
+              };
             };
           }
-          sops-nix.nixosModules.sops
           agenix.nixosModules.default
           stylix.nixosModules.stylix
-	        nvf.nixosModules.default
+          nvf.nixosModules.default
           ./system/configuration.nix
         ];
       };
