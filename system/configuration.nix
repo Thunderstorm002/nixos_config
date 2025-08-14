@@ -170,9 +170,8 @@
     kanata
 
     # NiriWM
-    niri
     fuzzel
-    xwayland-satellite
+    xwayland-satellite-unstable
     wayland-utils
     libsecret
     cage
