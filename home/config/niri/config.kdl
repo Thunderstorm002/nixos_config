@@ -8,8 +8,9 @@ input {
 }
 
  output "HDMI-A-1" {
-     mode { width 1920 height 1080 refresh 60 }
+     mode "1920x1080@74.973"
      scale 1.0
+     variable-refresh-rate on-demand=true 
  }
 
 spawn-at-startup "wl-paste --type text --watch cliphist store"
