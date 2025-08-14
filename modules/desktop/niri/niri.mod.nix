@@ -1,7 +1,12 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  programs.niri.enable = true;
+  imports = [
+    ./niri_config.nix
+  ];
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-  programs.niri.package = pkgs.niri-unstable;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
 }
