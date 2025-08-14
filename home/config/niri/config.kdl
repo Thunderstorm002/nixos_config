@@ -7,10 +7,10 @@ input {
     }
 }
 
-/-output "eDP-1" {
-    mode { width 1920 height 1080 refresh 60 }
-    scale 1.0
-}
+ output "HDMI-A-1" {
+     mode { width 1920 height 1080 refresh 60 }
+     scale 1.0
+ }
 
 spawn-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "wl-paste --type image --watch cliphist store"
@@ -30,10 +30,10 @@ binds {
     Mod+Shift+E { quit; }
 
     // Navigation
-    Mod+A { focus-column-left; }
-    Mod+J { focus-window-or-workspace-down; }
-    Mod+K { focus-window-or-workspace-up; }
-    Mod+S { focus-column-right; }
+   // Mod+A { focus-column-left; }
+   // Mod+J { focus-window-or-workspace-down; }
+   // Mod+K { focus-window-or-workspace-up; }
+   // Mod+S { focus-column-right; }
 
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -210,7 +210,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
