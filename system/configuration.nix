@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
+    ../modules/desktop/sddm.nix
     ../modules/system/bluetooth.nix
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix
@@ -166,6 +167,15 @@
 
     # Keyboard
     kanata
+
+    # NiriWM
+    niri
+    fuzzel
+    xwayland-satellite
+    xdg-desktop-portal-gtk
+    swaybg
+    swayidle
+    swaylock
   ];
 
   # Disable the traditional sudo module
