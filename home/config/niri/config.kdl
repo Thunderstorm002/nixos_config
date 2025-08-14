@@ -295,7 +295,7 @@ binds {
 
 cursor {
     xcursor-theme "breeze_cursors"
-    xcursor-size 48
+    xcursor-size 24
 
     hide-when-typing
     hide-after-inactive-ms 5000
