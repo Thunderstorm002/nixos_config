@@ -34,8 +34,24 @@
   };
 
   # Graphics Drivers (Corrected)
-  hardware.graphics = {
-    enable = true;
+   hardware = {
+    opengl = {
+      ## radv: an open-source Vulkan driver from freedesktop
+      driSupport = true;
+      driSupport32Bit = true;
+
+      ## amdvlk: an open-source Vulkan driver from AMD
+      extraPackages = [ pkgs.amdvlk ];
+      extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+    };
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    amdgpu.amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+    };
   };
   services.xserver.videoDrivers = ["amdgpu"]; # Or "nvidia", "amdgpu"
 
