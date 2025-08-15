@@ -273,7 +273,7 @@
 
     "Mod+R".action.switch-preset-column-width = true;
     "Mod+F".action.maximize-column = true;
-    "Mod+Shift+R".switch-preset-window-height = true;
+    "Mod+Shift+R".action.switch-preset-window-height = true;
     "Mod+Ctrl+R".action.reset-window-height = true;
     "Mod+Shift+F".action.fullscreen-window = true;
 
