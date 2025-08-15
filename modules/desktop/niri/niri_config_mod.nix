@@ -319,7 +319,7 @@
     # Mod+Shift+Space { switch-layout "prev"; }
 
     "Print".action.screenshot = true;
-    "Ctrl+Print".action.screenshot-screen = true;
+    #"Ctrl+Print".action.screenshot-screen = true;
     #"Alt+Print".action.screenshot-window = {write-to-disk = true;};
 
     # Applications such as remote-desktop clients and software KVM switches may
