@@ -199,11 +199,11 @@
     };
     "Mod+Ctrl+WheelScrollDown" = {
       cooldown-ms = 150;
-      move-column-to-workspace-down = true;
+      action.move-column-to-workspace-down = true;
     };
     "Mod+Ctrl+WheelScrollUp" = {
       cooldown-ms = 150;
-      move-column-to-workspace-up = true;
+      action.move-column-to-workspace-up = true;
     };
 
     #Mod+WheelScrollRight      { focus-column-right; }
