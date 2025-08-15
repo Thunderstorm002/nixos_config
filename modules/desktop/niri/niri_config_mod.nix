@@ -44,7 +44,7 @@
       };
       "Mod+Q" = {
         repeat = false;
-        close-window = true;
+        action.close-window = true;
       };
 
     # Keys consist of modifiers separated by + signs, followed by an XKB key name
