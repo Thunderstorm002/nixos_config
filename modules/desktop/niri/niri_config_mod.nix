@@ -333,7 +333,7 @@
     "Mod+Escape".action.allow-inhibiting = false;
 
     # The quit action will show a confirmation dialog to avoid accidental exits.
-    "Ctrl+Alt+Delete".action.quit = true;
+    "Ctrl+Alt+Delete".action = quit { skip-confirmation=true; };
 
     # Powers off the monitors. To turn them back on, do any input like
     # moving the mouse or pressing any other key.
