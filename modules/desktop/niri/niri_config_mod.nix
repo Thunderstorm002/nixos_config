@@ -44,7 +44,7 @@
       };
       "Mod+Q" = {
         repeat = false;
-        action.close-window = true;
+        action.close-window = [];
       };
 
     # Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -106,7 +106,7 @@
     # or do a four-finger swipe up on a touchpad.
     "Mod+O" = {
       repeat = false;
-      action.toggle-overview = true;
+      action.toggle-overview = [];
     };
 
     "Mod+Left".action.focus-column-left   = [];
@@ -153,7 +153,7 @@
     "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left  = [];
     "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down  = [];
     "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up      = [];
-    "Mod+Shift+Ctrl+Righ".action.move-column-to-monitor-right = [];
+    "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [];
     "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left     = [];
     "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down     = [];
     "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up       = [];
