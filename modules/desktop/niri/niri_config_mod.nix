@@ -330,7 +330,7 @@
     #
     # The allow-inhibiting=false property can be applied to other binds as well,
     # which ensures niri always processes them, even when an inhibitor is active.
-    "Mod+Escape".allow-inhibiting = true;
+    #"Mod+Escape".action.allow-inhibiting = true;
 
     # The quit action will show a confirmation dialog to avoid accidental exits.
     "Mod+Ctrl+Alt+Delete".action.quit = [];
