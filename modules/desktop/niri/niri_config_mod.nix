@@ -59,7 +59,7 @@
 
     # Mod-Shift-/, which is usually the same as Mod-?,
     # shows a list of important hotkeys.
-    "Mod+Shift+Slash".action.show-hotkey-overlay = true;
+    "Mod+Shift+Slash".action.show-hotkey-overlay = [];
 
     # Suggested binds for running programs: terminal, app launcher, screen locker.
     "Super+Shift+L" = {
@@ -144,7 +144,7 @@
     "Mod+Shift+Left".action.focus-monitor-left  = [];
     "Mod+Shift+Down".action.focus-monitor-down  = [];
     "Mod+Shift+Up".action.focus-monitor-up      = [];
-    "Mod+Shift+Righ".action.focus-monitor-right = [];
+    "Mod+Shift+Right".action.focus-monitor-right = [];
     "Mod+Shift+H".action.focus-monitor-left     = [];
     "Mod+Shift+J".action.focus-monitor-down     = [];
     "Mod+Shift+K".action.focus-monitor-up       = [];
@@ -337,7 +337,7 @@
 
     # Powers off the monitors. To turn them back on, do any input like
     # moving the mouse or pressing any other key.
-    "Mod+Shift+P".action.power-off-monitors = true;
+    "Mod+Shift+P".action.power-off-monitors = [];
 
     };
 
