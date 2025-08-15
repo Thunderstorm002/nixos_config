@@ -59,7 +59,7 @@
 
     # Mod-Shift-/, which is usually the same as Mod-?,
     # shows a list of important hotkeys.
-    "Mod+Shift+Slash".action = show-hotkey-overlay;
+    "Mod+Shift+Slash".action.show-hotkey-overlay = true;
 
     # Suggested binds for running programs: terminal, app launcher, screen locker.
     "Super+Shift+L" = {
