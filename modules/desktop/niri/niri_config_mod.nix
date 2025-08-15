@@ -109,25 +109,25 @@
       action.toggle-overview = true;
     };
 
-    "Mod+Left".action.focus-column-left = true;
-    "Mod+Down".action.focus-window-down = true;
-    "Mod+Up".action.focus-window-up = true;
-    "Mod+Right".action.focus-column-right = true;
+    "Mod+Left".action.focus-column-left   = [];
+    "Mod+Down".action.focus-window-down   = [];
+    "Mod+Up".action.focus-window-up       = [];
+    "Mod+Right".action.focus-column-right = [];
 
-    "Mod+A".action.focus-column-left = true;
-    "Mod+J".action.focus-window-down = true;
-    "Mod+K".action.focus-window-up = true;
-    "Mod+S".action.focus-column-right = true;
+    "Mod+A".action.focus-column-left  = [];
+    "Mod+J".action.focus-window-down  = [];
+    "Mod+K".action.focus-window-up    = [];
+    "Mod+S".action.focus-column-right = [];
 
-    "Mod+Ctrl+Left".action.move-column-left = true;
-    "Mod+Ctrl+Down".action.move-window-down = true;
-    "Mod+Ctrl+Up".action.move-window-up = true;
-    "Mod+Ctrl+Right".action.move-column-right = true;
+    "Mod+Ctrl+Left".action.move-column-left   = [];
+    "Mod+Ctrl+Down".action.move-window-down   = [];
+    "Mod+Ctrl+Up".action.move-window-up       = [];
+    "Mod+Ctrl+Right".action.move-column-right = [];
 
-    "Mod+Ctrl+A".action.move-column-left = true;
-    "Mod+Ctrl+J".action.move-window-down = true;
-    "Mod+Ctrl+K".action.move-window-up = true;
-    "Mod+Ctrl+S".action.move-column-right = true;
+    "Mod+Ctrl+A".action.move-column-left  = [];
+    "Mod+Ctrl+J".action.move-window-down  = [];
+    "Mod+Ctrl+K".action.move-window-up    = [];
+    "Mod+Ctrl+S".action.move-column-right = [];
 
     # Alternative commands that move across workspaces when reaching
     # the first or last window in a column.
@@ -136,28 +136,28 @@
     # Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
     # Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
-   "Mod+Home".action.focus-column-first = true;
-   "Mod+End".action .focus-column-last = true;
-   "Mod+Ctrl+Home".action.move-column-to-first = true;
-   "Mod+Ctrl+End".action.move-column-to-last = true;
+    "Mod+Home".action.focus-column-first        = [];
+    "Mod+End".action .focus-column-last         = [];
+    "Mod+Ctrl+Home".action.move-column-to-first = [];
+    "Mod+Ctrl+End".action.move-column-to-last   = [];
 
-    "Mod+Shift+Left".action.focus-monitor-left = true;
-    "Mod+Shift+Down".action.focus-monitor-down = true;
-    "Mod+Shift+Up".action.focus-monitor-up = true;
-    "Mod+Shift+Righ".action.focus-monitor-right = true;
-    "Mod+Shift+H".action.focus-monitor-left = true;
-    "Mod+Shift+J".action.focus-monitor-down = true;
-    "Mod+Shift+K".action.focus-monitor-up = true;
-    "Mod+Shift+L".action.focus-monitor-right = true;
+    "Mod+Shift+Left".action.focus-monitor-left  = [];
+    "Mod+Shift+Down".action.focus-monitor-down  = [];
+    "Mod+Shift+Up".action.focus-monitor-up      = [];
+    "Mod+Shift+Righ".action.focus-monitor-right = [];
+    "Mod+Shift+H".action.focus-monitor-left     = [];
+    "Mod+Shift+J".action.focus-monitor-down     = [];
+    "Mod+Shift+K".action.focus-monitor-up       = [];
+    "Mod+Shift+L".action.focus-monitor-right    = [];
 
-    "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = true;
-    "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = true;
-    "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = true;
-    "Mod+Shift+Ctrl+Righ".action.move-column-to-monitor-right = true;
-    "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = true;
-    "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = true;
-    "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = true;
-    "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = true;
+    "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left  = [];
+    "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down  = [];
+    "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up      = [];
+    "Mod+Shift+Ctrl+Righ".action.move-column-to-monitor-right = [];
+    "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left     = [];
+    "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down     = [];
+    "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up       = [];
+    "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right    = [];
 
     # Alternatively, there are commands to move just a single window:
     # Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -167,21 +167,21 @@
     # Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     # ...
 
-    "Mod+Page_Down".action.focus-workspace-down = true;
-    "Mod+Page_Up".action.focus-workspace-up = true;
-    "Mod+U".action.focus-workspace-down = true;
-    "Mod+I".action.focus-workspace-up = true;
-    "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = true;
-    "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = true;
-    "Mod+Ctrl+U".action.move-column-to-workspace-down = true;
-    "Mod+Ctrl+I".action.move-column-to-workspace-up = true;
+    "Mod+Page_Down".action.focus-workspace-down               = [];
+    "Mod+Page_Up".action.focus-workspace-up                   = [];
+    "Mod+U".action.focus-workspace-down                       = [];
+    "Mod+I".action.focus-workspace-up                         = [];
+    "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [];
+    "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up     = [];
+    "Mod+Ctrl+U".action.move-column-to-workspace-down         = [];
+    "Mod+Ctrl+I".action.move-column-to-workspace-up           = [];
     # Alternatively, there are commands to move just a single window:
     # Mod+Ctrl+Page_Down { move.ndow-to-workspace-down;  = true}
     #  = tru = true.
-    "Mod+Shift+Page_Down".action.move-workspace-down = true;
-    "Mod+Shift+Page_Up".action.move-workspace-up = true;
-    "Mod+Shift+U".action.move-workspace-down = true;
-    "Mod+Shift+I".action.move-workspace-up = true;
+    "Mod+Shift+Page_Down".action.move-workspace-down = [];
+    "Mod+Shift+Page_Up".action.move-workspace-up     = [];
+    "Mod+Shift+U".action.move-workspace-down         = [];
+    "Mod+Shift+I".action.move-workspace-up           = [];
 
     # You can bind mouse wheel scroll ticks using the following syntax.
     # These binds will change direction based on the natural-scroll setting.
