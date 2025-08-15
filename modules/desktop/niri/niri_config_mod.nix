@@ -275,7 +275,7 @@
     "Mod+F".action.maximize-column = true;
     "Mod+Shift+R".switch-preset-window-height = true;
     "Mod+Ctrl+R".action.reset-window-height = true;
-    "Mod+Shift+F".fullscreen-window = true;
+    "Mod+Shift+F".action.fullscreen-window = true;
 
     # Expand the focused column to space not taken up by other fully visible columns.
     # Makes the column "fill the rest of the space".
