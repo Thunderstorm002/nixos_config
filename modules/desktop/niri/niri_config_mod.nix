@@ -106,7 +106,7 @@
     # or do a four-finger swipe up on a touchpad.
     "Mod+O" = {
       repeat = false;
-      toggle-overview = true;
+      action.toggle-overview = true;
     };
 
     "Mod+Left".action.focus-column-left = true;
