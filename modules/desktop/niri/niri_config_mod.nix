@@ -351,9 +351,9 @@
       border.enable = false;
     };
 
-    animations = {
-      enable = true;
-    };
+    #animations = {
+    #  enable = true;
+    #};
 
     hotkey-overlay.skip-at-startup = false;
 
