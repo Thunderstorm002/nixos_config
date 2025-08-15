@@ -174,7 +174,7 @@
     "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = true;
     "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = true;
     "Mod+Ctrl+U".action.move-column-to-workspace-down = true;
-    "Mod+Ctrl+I".action.move-column-to-workspace-up = tru = true.
+    "Mod+Ctrl+I".action.move-column-to-workspace-up = true;
     # Alternatively, there are commands to move just a single window:
     # Mod+Ctrl+Page_Down { move.ndow-to-workspace-down;  = true}
     #  = tru = true.
@@ -191,19 +191,19 @@
     # You can set a cooldown on any bind, but it's most useful for the wheel.
     "Mod+WheelScrollDown" = {
       cooldown-ms = 150;
-      action = focus-workspace-down;
+      focus-workspace-down = true;
     };
     "Mod+WheelScrollUp" = {
       cooldown-ms = 150;
-      action = focus-workspace-up;
+      focus-workspace-up = true;
     };
     "Mod+Ctrl+WheelScrollDown" = {
       cooldown-ms = 150;
-      action = move-column-to-workspace-down;
+      move-column-to-workspace-down = true;
     };
     "Mod+Ctrl+WheelScrollUp" = {
       cooldown-ms = 150;
-      action = move-column-to-workspace-up;
+      move-column-to-workspace-up = true;
     };
 
     #Mod+WheelScrollRight      { focus-column-right; }
@@ -258,33 +258,33 @@
     # Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     # Switches focus between the current and the previous workspace.
-    "Mod+Tab".action = focus-workspace-previous;
+    "Mod+Tab".action.focus-workspace-previous = true;
 
     # The following binds move the focused window in and out of a column.
     # If the window is alone, they will consume it into the nearby column to the side.
     # If the window is already in a column, they will expel it out.
-    "Mod+BracketLeft".action = consume-or-expel-window-left;
-    "Mod+BracketRight".action =consume-or-expel-window-right;
+    "Mod+BracketLeft".action.consume-or-expel-window-left = true;
+    "Mod+BracketRight".action.consume-or-expel-window-right = true;
 
     # Consume one window from the right to the bottom of the focused column.
-    "Mod+Comma".action = consume-window-into-column;
+    "Mod+Comma".action.consume-window-into-column = true;
     # Expel the bottom window from the focused column to the right.
-    "Mod+Period".action = expel-window-from-column;
+    "Mod+Period".action.expel-window-from-column = true;
 
-    "Mod+R".action = switch-preset-column-width;
-    "Mod+F".action = maximize-column;
-    "Mod+Shift+R"  = switch-preset-window-height;
-    "Mod+Ctrl+R"   = reset-window-height;
-    "Mod+Shift+F"  = fullscreen-window;
+    "Mod+R".action.switch-preset-column-width = true;
+    "Mod+F".action.maximize-column = true;
+    "Mod+Shift+R".switch-preset-window-height = true;
+    "Mod+Ctrl+R".reset-window-height = true;
+    "Mod+Shift+F".fullscreen-window = true;
 
     # Expand the focused column to space not taken up by other fully visible columns.
     # Makes the column "fill the rest of the space".
-    "Mod+Ctrl+F".action = expand-column-to-available-width;
+    "Mod+Ctrl+F".action.expand-column-to-available-width = true;
 
-    "Mod+C".action = center-column;
+    "Mod+C".action.center-column = true;
 
     # Center all fully visible columns on screen.
-    "Mod+Ctrl+C".action = center-visible-columns;
+    "Mod+Ctrl+C".action.center-visible-columns = true;
 
     # Finer width adjustments.
     # This command can also:
@@ -294,21 +294,21 @@
     # * adjust width as a percentage of screen width: "-10%" or "+10%"
     # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     # set-column-width "100" will make the column occupy 200 physical screen pixels.
-    "Mod+Minus".action = set-column-width "-10%";
-    "Mod+Equal".action = set-column-width "+10%";
+    "Mod+Minus".action.set-column-width = "-10%";
+    "Mod+Equal".action.set-column-width = "+10%";
 
     # Finer height adjustments when in column with other windows.
-    "Mod+Shift+Minus".action = set-window-height "-10%";
-    "Mod+Shift+Equal".action = set-window-height "+10%";
+    "Mod+Shift+Minus".action.set-window-height = "-10%";
+    "Mod+Shift+Equal".action.set-window-height = "+10%";
 
     # Move the focused window between the floating and the tiling layout.
-    "Mod+V".action            = toggle-window-floating;
-    "Mod+Shift+V".action      = switch-focus-between-floating-and-tiling;
+    "Mod+V".action.toggle-window-floating = true;
+    "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = true;
 
     # Toggle tabbed column display mode.
     # Windows in this column will appear as vertical tabs,
     # rather than stacked on top of each other.
-    "Mod+Shift+Ctrl+T".action = toggle-column-tabbed-display;
+    "Mod+Shift+Ctrl+T".action.toggle-column-tabbed-display = true;
 
     # Actions to switch layouts.
     # Note: if you uncomment these, make sure you do NOT have
@@ -318,9 +318,9 @@
     # Mod+Space       { switch-layout "next"; }
     # Mod+Shift+Space { switch-layout "prev"; }
 
-    "Print".action      = screenshot;
-    "Ctrl+Print".action = screenshot-screen;
-    "Alt+Print".action  = screenshot-window;
+    "Print".action.screenshot = true;
+    "Ctrl+Print".action.screenshot-screen = true;
+    "Alt+Print".action.screenshot-window = true;
 
     # Applications such as remote-desktop clients and software KVM switches may
     # request that niri stops processing the keyboard shortcuts defined here
@@ -337,7 +337,7 @@
 
     # Powers off the monitors. To turn them back on, do any input like
     # moving the mouse or pressing any other key.
-    "Mod+Shift+P".action = power-off-monitors;
+    "Mod+Shift+P".action.power-off-monitors = true;
 
     };
 
