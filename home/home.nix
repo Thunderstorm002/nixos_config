@@ -18,6 +18,7 @@
     ./config/fish.nix
     ./config/podman.nix
     ./config/rofi.nix
+    ../modules/desktop/niri/niri_config_mod.nix
     inputs.nvf.homeManagerModules.default
   ];
 
