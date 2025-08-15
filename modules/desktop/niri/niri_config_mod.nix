@@ -191,19 +191,19 @@
     # You can set a cooldown on any bind, but it's most useful for the wheel.
     "Mod+WheelScrollDown" = {
       cooldown-ms = 150;
-      action = focus-workspace-down;
+      action.focus-workspace-down = true;
     };
     "Mod+WheelScrollUp" = {
       cooldown-ms = 150;
-      action = focus-workspace-up;
+      action.focus-workspace-up = true;
     };
     "Mod+Ctrl+WheelScrollDown" = {
       cooldown-ms = 150;
-      action = move-column-to-workspace-down;
+      action.move-column-to-workspace-down = true;
     };
     "Mod+Ctrl+WheelScrollUp" = {
       cooldown-ms = 150;
-      action = move-column-to-workspace-up;
+      action.move-column-to-workspace-up = true;
     };
 
     #Mod+WheelScrollRight      { focus-column-right; }
