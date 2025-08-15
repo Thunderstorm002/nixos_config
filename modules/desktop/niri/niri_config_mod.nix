@@ -258,33 +258,33 @@
     # Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     # Switches focus between the current and the previous workspace.
-    "Mod+Tab".action.focus-workspace-previous = true;
+    "Mod+Tab".action.focus-workspace-previous = [];
 
     # The following binds move the focused window in and out of a column.
     # If the window is alone, they will consume it into the nearby column to the side.
     # If the window is already in a column, they will expel it out.
-    "Mod+BracketLeft".action.consume-or-expel-window-left = true;
-    "Mod+BracketRight".action.consume-or-expel-window-right = true;
+    "Mod+BracketLeft".action.consume-or-expel-window-left   = [];
+    "Mod+BracketRight".action.consume-or-expel-window-right = [];
 
     # Consume one window from the right to the bottom of the focused column.
-    "Mod+Comma".action.consume-window-into-column = true;
+    "Mod+Comma".action.consume-window-into-column = [];
     # Expel the bottom window from the focused column to the right.
-    "Mod+Period".action.expel-window-from-column = true;
+    "Mod+Period".action.expel-window-from-column = [];
 
-    "Mod+R".action.switch-preset-column-width = true;
-    "Mod+F".action.maximize-column = true;
-    "Mod+Shift+R".action.switch-preset-window-height = true;
-    "Mod+Ctrl+R".action.reset-window-height = true;
-    "Mod+Shift+F".action.fullscreen-window = true;
+    "Mod+R".action.switch-preset-column-width        = [];
+    "Mod+F".action.maximize-column                   = [];
+    "Mod+Shift+R".action.switch-preset-window-height = [];
+    "Mod+Ctrl+R".action.reset-window-height          = [];
+    "Mod+Shift+F".action.fullscreen-window           = [];
 
     # Expand the focused column to space not taken up by other fully visible columns.
     # Makes the column "fill the rest of the space".
-    "Mod+Ctrl+F".action.expand-column-to-available-width = true;
+    "Mod+Ctrl+F".action.expand-column-to-available-width = [];
 
-    "Mod+C".action.center-column = true;
+    "Mod+C".action.center-column = [];
 
     # Center all fully visible columns on screen.
-    "Mod+Ctrl+C".action.center-visible-columns = true;
+    "Mod+Ctrl+C".action.center-visible-columns = [];
 
     # Finer width adjustments.
     # This command can also:
@@ -302,13 +302,13 @@
     "Mod+Shift+Equal".action.set-window-height = "+10%";
 
     # Move the focused window between the floating and the tiling layout.
-    "Mod+V".action.toggle-window-floating = true;
-    "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = true;
+    "Mod+V".action.toggle-window-floating = [];
+    "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
 
     # Toggle tabbed column display mode.
     # Windows in this column will appear as vertical tabs,
     # rather than stacked on top of each other.
-    "Mod+Shift+Ctrl+T".action.toggle-column-tabbed-display = true;
+    "Mod+Shift+Ctrl+T".action.toggle-column-tabbed-display = [];
 
     # Actions to switch layouts.
     # Note: if you uncomment these, make sure you do NOT have
@@ -318,7 +318,7 @@
     # Mod+Space       { switch-layout "next"; }
     # Mod+Shift+Space { switch-layout "prev"; }
 
-    "Print".action.screenshot = true;
+    "Print".action.screenshot = [];
     #"Ctrl+Print".action.screenshot-screen = true;
     #"Alt+Print".action.screenshot-window = {write-to-disk = true;};
 
