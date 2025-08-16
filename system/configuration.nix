@@ -179,8 +179,6 @@
     swaybg
     swayidle
     swaylock
-
-    gammastep
   ];
 
   # Disable the traditional sudo module

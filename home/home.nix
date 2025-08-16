@@ -121,10 +121,8 @@
     clang-tools
     gdtoolkit_4
 
-    (pkgs.writeShellScriptBin "clipboard-menu" ''
-      export PATH=${lib.makeBinPath [pkgs.cliphist pkgs.fuzzel pkgs.wl-clipboard]}:$PATH
-      cliphist list | fuzzel -dmenu | cliphist decode | wl-copy
-    '')
+    gammastep
+    geoclue2
   ];
 
   fonts.fontconfig.enable = true;
