@@ -28,12 +28,12 @@
     };
 
     spawn-at-startup = [
-    { command = ["wl-paste --type text --watch cliphist store"]; }
-    { command = ["wl-paste --type image --watch cliphist store"]; }
-    { command = ["mako"]; }
-    { command = ["waybar"]; }
-    { command = ["emacs --daemon"]; }
-    { command = ["swaybg" "--image" "/home/roshan/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png"]; }
+      { command = ["wl-paste --type text --watch cliphist store"]; }
+      { command = ["wl-paste --type image --watch cliphist store"]; }
+      { command = ["mako"]; }
+      { command = ["waybar"]; }
+      { command = ["emacs --daemon"]; }
+      { command = ["swaybg" "--image" "/home/roshan/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png"]; }
   ];
 
     binds = {
@@ -46,6 +46,13 @@
         repeat = false;
         action.close-window = [];
       };
+      "Mod+E".action.spawn = "emacsclient -nc";
+      "Mod+W".action.spawn = "zen";
+      "Mod+Shift+T".action.spawn = "thunar";
+      "Mod+N".action.spawn = "neovide";
+      "Mod+Y".action.spawn = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy";
+      "Mod+Shift+Y".action.spawn = "cliphist wipe";
+      "Mod+B".action.spawn = "blueman-manager";
 
     # Keys consist of modifiers separated by + signs, followed by an XKB key name
     # in the end. To find an XKB name for a particular key, you may use a program
@@ -355,7 +362,7 @@
     #  enable = true;
     #};
 
-    hotkey-overlay.skip-at-startup = false;
+    hotkey-overlay.skip-at-startup = true;
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d %H-%M-%S.png";
 
