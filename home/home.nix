@@ -217,6 +217,9 @@
   };
 
   xdg.configFile."fuzzel/fuzzel.ini".text = ''
+    fuzzy=yes
+    width=30
+
     [colors]
     background=0a0e14ff
     text=b3b1adff
