@@ -45,7 +45,7 @@
 
     ; Set the location-provider: 'geoclue2', 'manual'.
     ; The location provider settings are in a different section.
-    ; location-provider=manual
+    location-provider=manual
 
     ; Set the adjustment-method: 'randr', 'vidmode', 'drm', 'wayland'.
     ; 'randr' is the preferred X11 method, 'vidmode' is an older API
@@ -59,7 +59,7 @@
     ; Keep in mind that longitudes west of Greenwich (e.g. the Americas)
     ; are negative numbers.
     ;[manual]
-    ;lat=48.1
-    ;lon=11.6
+    lat=12.9
+    lon=77.6
   '';
 }
