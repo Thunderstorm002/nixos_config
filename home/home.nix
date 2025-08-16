@@ -20,6 +20,7 @@
     ./config/rofi.nix
     ./config/niri/config.nix
     inputs.nvf.homeManagerModules.default
+    ./config/fuzzel.nix
   ];
 
   # User Packages
@@ -181,16 +182,6 @@
           "$EMACS_DIR/bin/doom" sync -u
         fi
       '';
-      doomEmacsServer = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        export PATH="${pkgs.git}/bin:${pkgs.ripgrep}/bin:${pkgs.fd}/bin:${pkgs.findutils}/bin:${pkgs.emacs}/bin:$PATH"
-        EMACS_DIR="$HOME/.config/emacs"
-
-        # Ensure the Doom Emacs daemon is running
-        if ! pgrep -f "emacs --fg-daemon" > /dev/null; then
-          pkill -f "emacs --fg-daemon" || true
-          #"$EMACS_DIR/bin/doom" run --daemon
-        fi
-      '';
     };
   };
 
@@ -215,26 +206,4 @@
     userName = "roshan";
     userEmail = "roshan.nair@protonmail.com";
   };
-
-  xdg.configFile."fuzzel/fuzzel.ini".text = ''
-    fuzzy=yes
-    width=60
-
-    [colors]
-    background=0a0e14ff
-    text=b3b1adff
-    match=26d3b5ff
-    selection=ff9940ff
-    selection-text=0a0e14ff
-    border=59c2ffff
-
-    [border]
-    width=1
-    # radius=10
-
-    [dmenu]
-    mode=text  # text|index
-    exit-immediately-if-empty=no
-  '';
-
 }

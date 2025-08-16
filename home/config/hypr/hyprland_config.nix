@@ -51,8 +51,7 @@
         #        "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
-        #layout = "hy3";
-        layout = "scrolling";
+        layout = "hy3";
       };
 
       decoration = {
@@ -212,18 +211,18 @@
         "$mainMod, W, exec, pkill -SIGUSR1 waybar"
         "$mainMod, T, hy3:makegroup, tab"
         "$mainMod SHIFT, U, hy3:makegroup, h"
-        #        "$mainMod, Z, hy3:movefocus, l"
-        #        "$mainMod, X, hy3:movefocus, r"
-        #        "$mainMod SHIFT, Z, hy3:movewindow, l, once"
-        #        "$mainMod SHIFT, X, hy3:movewindow, r, once"
+        "$mainMod, A, hy3:movefocus, l"
+        "$mainMod, S, hy3:movefocus, r"
+        "$mainMod SHIFT, A, hy3:movewindow, l, once"
+        "$mainMod SHIFT, S, hy3:movewindow, r, once"
         "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/bin/rofi-power-menu"
         "$mainMod, X, exec, ${config.home.homeDirectory}/nixos_config/bin/workspace-apps"
 
         # bind for hyprscrolling
-        "$mainMod, S, layoutmsg, move +col"
-        "$mainMod, A, layoutmsg, move -col"
-        "$mainMod SHIFT, S, layoutmsg, movewindowto r"
-        "$mainMod SHIFT, A, layoutmsg, movewindowto l"
+        # "$mainMod, S, layoutmsg, move +col"
+        # "$mainMod, A, layoutmsg, move -col"
+        # "$mainMod SHIFT, S, layoutmsg, movewindowto r"
+        # "$mainMod SHIFT, A, layoutmsg, movewindowto l"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"

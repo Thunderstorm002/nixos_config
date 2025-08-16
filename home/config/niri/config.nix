@@ -46,13 +46,13 @@
         repeat = false;
         action.close-window = [];
       };
-      "Mod+E".action.spawn = "emacsclient -nc";
+      "Mod+E".action.spawn = ["sh" "-c" "emacsclient -nc"];
       "Mod+W".action.spawn = "zen";
       "Mod+Shift+T".action.spawn = "thunar";
       "Mod+N".action.spawn = "neovide";
       #"Mod+Y".action.spawn = ["sh" "-c" "cliphist list | fuzzel -dmenu | cliphist decode | wl-copy"];
       "Mod+Y".action.spawn = ["sh" "-c" "WAYLAND_DISPLAY=$WAYLAND_DISPLAY cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"];
-      "Mod+Shift+Y".action.spawn = "cliphist wipe";
+      "Mod+Shift+Y".action.spawn = ["sh" "-c" "cliphist wipe"];
       "Mod+B".action.spawn = "blueman-manager";
 
     # Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -359,9 +359,9 @@
       border.enable = false;
     };
 
-    #animations = {
-    #  enable = true;
-    #};
+    animations = {
+      enable = false;
+    };
 
     hotkey-overlay.skip-at-startup = true;
 
