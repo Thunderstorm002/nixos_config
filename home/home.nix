@@ -21,6 +21,7 @@
     ./config/niri/config.nix
     inputs.nvf.homeManagerModules.default
     ./config/fuzzel.nix
+    ./config/gammastep.nix
   ];
 
   # User Packages
