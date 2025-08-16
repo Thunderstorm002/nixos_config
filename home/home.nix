@@ -211,4 +211,21 @@
     userEmail = "roshan.nair@protonmail.com";
   };
 
+  xdg.configFile."fuzzel/fuzzel.ini".text = ''
+    [dmenu]
+    lines=10
+    prompt="> "
+    width=50
+    font=monospace:size=12
+    layer=overlay
+
+    [colors]
+    background=0a0e14ff
+    text=b3b1adff
+    match=26d3b5ff
+    selection=ff9940ff
+    selection-text=0a0e14ff
+    border=59c2ffff
+  '';
+
 }

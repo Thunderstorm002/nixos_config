@@ -50,7 +50,7 @@
       "Mod+W".action.spawn = "zen";
       "Mod+Shift+T".action.spawn = "thunar";
       "Mod+N".action.spawn = "neovide";
-      "Mod+Y".action.spawn = "cliphist list | fuzzel -dmenu -M 00ff00ff | cliphist decode | wl-copy";
+      "Mod+Y".action.spawn = "cliphist list | fuzzel -dmenu | cliphist decode | wl-copy";
       "Mod+Shift+Y".action.spawn = "cliphist wipe";
       "Mod+B".action.spawn = "blueman-manager";
 
