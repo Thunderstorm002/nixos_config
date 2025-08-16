@@ -33,7 +33,7 @@
       { command = ["mako"]; }
       { command = ["waybar"]; }
       { command = ["sh" "-c" "emacs --daemon"]; }
-      { command = ["sh" "-c" "gammastep"]; }
+      { command = ["gammastep"]; }
       { command = ["swaybg" "--image" "/home/roshan/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png"]; }
   ];
 
