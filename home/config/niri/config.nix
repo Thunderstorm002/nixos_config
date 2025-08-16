@@ -28,12 +28,12 @@
     };
 
     spawn-at-startup = [
-      { command = ["wl-paste --type text --watch cliphist store"]; }
-      { command = ["wl-paste --type image --watch cliphist store"]; }
+      { command = ["sh" "-c" "wl-paste --type text --watch cliphist store"]; }
+      { command = ["sh" "-c" "wl-paste --type image --watch cliphist store"]; }
       { command = ["mako"]; }
       { command = ["waybar"]; }
       { command = ["sh" "-c" "emacs --daemon"]; }
-      { command = ["gammastep"]; }
+      { command = ["sh" "-c" "gammastep"]; }
       { command = ["swaybg" "--image" "/home/roshan/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png"]; }
   ];
 
@@ -55,6 +55,7 @@
       "Mod+Y".action.spawn = ["sh" "-c" "WAYLAND_DISPLAY=$WAYLAND_DISPLAY cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"];
       "Mod+Shift+Y".action.spawn = ["sh" "-c" "cliphist wipe"];
       "Mod+B".action.spawn = "blueman-manager";
+      "Mod+G".action.spawn = "gammastep";
 
     # Keys consist of modifiers separated by + signs, followed by an XKB key name
     # in the end. To find an XKB name for a particular key, you may use a program
