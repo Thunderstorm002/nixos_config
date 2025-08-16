@@ -218,7 +218,7 @@
 
   xdg.configFile."fuzzel/fuzzel.ini".text = ''
     fuzzy=yes
-    width=30
+    width=60
 
     [colors]
     background=0a0e14ff
@@ -229,7 +229,7 @@
     border=59c2ffff
 
     [border]
-    width=30
+    width=1
     # radius=10
 
     [dmenu]
