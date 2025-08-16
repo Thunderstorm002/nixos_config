@@ -51,7 +51,7 @@
       "Mod+Shift+T".action.spawn = "thunar";
       "Mod+N".action.spawn = "neovide";
       #"Mod+Y".action.spawn = ["sh" "-c" "cliphist list | fuzzel -dmenu | cliphist decode | wl-copy"];
-      "Mod+Y".action.spawn = ["sh" "-c" "which cliphist && which fuzzel && which wl-copy"];
+      "Mod+Y".action.spawn = ["sh" "-c" "/run/current-system/sw/bin/cliphist list | /run/current-system/sw/bin/fuzzel --dmenu | /run/current-system/sw/bin/cliphist decode | /run/current-system/sw/bin/wl-copy"];
       "Mod+Shift+Y".action.spawn = "cliphist wipe";
       "Mod+B".action.spawn = "blueman-manager";
 
