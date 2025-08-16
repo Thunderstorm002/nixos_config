@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  xdg.configFile."gammastep/gammastep.ini".text = ''
+  xdg.configFile."gammastep/config.ini".text = ''
     ; Global settings
     [general]
     ; Set the day and night screen temperatures

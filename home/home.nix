@@ -122,7 +122,6 @@
     gdtoolkit_4
 
     gammastep
-    geoclue2
   ];
 
   fonts.fontconfig.enable = true;
