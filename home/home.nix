@@ -212,13 +212,6 @@
   };
 
   xdg.configFile."fuzzel/fuzzel.ini".text = ''
-    [dmenu]
-    lines=10
-    prompt="> "
-    width=50
-    font=monospace:size=12
-    layer=overlay
-
     [colors]
     background=0a0e14ff
     text=b3b1adff
