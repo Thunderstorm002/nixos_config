@@ -118,6 +118,11 @@
     mu
     clang-tools
     gdtoolkit_4
+
+    (pkgs.writeShellScriptBin "clipboard-menu" ''
+      export PATH=${lib.makeBinPath [pkgs.cliphist pkgs.fuzzel pkgs.wl-clipboard]}:$PATH
+      cliphist list | fuzzel -dmenu | cliphist decode | wl-copy
+    '')
   ];
 
   fonts.fontconfig.enable = true;
