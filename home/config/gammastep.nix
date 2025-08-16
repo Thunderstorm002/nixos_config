@@ -41,7 +41,7 @@
     ; This can also be set individually for day and night since
     ; version 1.10.
     gamma-day=0.8:0.7:0.8
-    gamma-night=0.4
+    gamma-night=0.5
 
     ; Set the location-provider: 'geoclue2', 'manual'.
     ; The location provider settings are in a different section.
@@ -58,7 +58,7 @@
     ; ex: 'gammastep -l manual:help'
     ; Keep in mind that longitudes west of Greenwich (e.g. the Americas)
     ; are negative numbers.
-    ;[manual]
+    [manual]
     lat=12.9
     lon=77.6
   '';
