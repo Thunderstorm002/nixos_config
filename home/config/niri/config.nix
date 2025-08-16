@@ -51,7 +51,7 @@
       "Mod+Shift+T".action.spawn = "thunar";
       "Mod+N".action.spawn = "neovide";
       #"Mod+Y".action.spawn = ["sh" "-c" "cliphist list | fuzzel -dmenu | cliphist decode | wl-copy"];
-      "Mod+Y".action.spawn = ["sh" "-c" "/run/current-system/sw/bin/cliphist list > ./cliphist.txt"];
+      "Mod+Y".action.spawn = ["sh" "-c" "cliphist list > /home/roshan/nixos_config/home/config/niri/cliphist.txt"];
       "Mod+Shift+Y".action.spawn = "cliphist wipe";
       "Mod+B".action.spawn = "blueman-manager";
 
