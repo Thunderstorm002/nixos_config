@@ -226,7 +226,7 @@
     border=59c2ffff
 
     [border]
-    width=10
+    width=30
     # radius=10
 
     [dmenu]
