@@ -6,7 +6,7 @@
    enable = true;
    package = pkgs.emacs-pgtk;  # Matches the one in home.packages
    client.enable = true;  # For emacsclient desktop integration
-   client.arguments = "-nc";
+   client.arguments = ["-nc"];
    startWithUserSession = "graphical";
    socketActivation.enable = true;
   };
