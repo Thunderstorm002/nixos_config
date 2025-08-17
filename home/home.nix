@@ -96,7 +96,7 @@
     syncthing
 
     # Emacs
-    emacs
+    #emacs
     emacsclient-commands
     emacs-pgtk
     findutils 
