@@ -4,7 +4,7 @@
 
 {
   services.hyprsunset = {
-    enable = true;
+    enable = false;
     settings = {
       sunrise = {
         calendar = "*-*-* 06:00:00";

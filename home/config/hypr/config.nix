@@ -27,7 +27,7 @@
       #Autostart
       exec-once = [
         "hyprpaper"
-        "gammastep"
+        #"gammastep"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "mako"

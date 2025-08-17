@@ -15,8 +15,8 @@
             general = {
                 adjustment-method = "wayland";
 
-                temp-day = 5700;
-                temp-night = 4500;
+                temp-day = lib.mkForce 5700;
+                temp-night = lib.mkForce 4500;
 
                 fade = 1;
 
