@@ -98,6 +98,18 @@
   (setq lsp-ui-sideline-enable nil  ; no more useful than flycheck
         lsp-ui-doc-enable nil))     ; redundant with K
 
+;; nix lsp
+(use-package lsp-nix
+  :ensure lsp-mode
+  :after (lsp-mode)
+  :demand t
+  :custom
+  (lsp-nix-nil-formatter ["nixfmt"]))
+
+(use-package nix-mode
+  :hook (nix-mode . lsp-deferred)
+  :ensure t)
+
 ;; emacs-lsp-booster
 ;; This tells lsp-mode to use plists for deserialization, which is
 ;; a prerequisite for lsp-booster.

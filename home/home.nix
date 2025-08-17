@@ -95,6 +95,10 @@
     jujutsu
     syncthing
 
+    # nix lsp
+    nixfmt
+    nil
+
     # Emacs
     #emacs
     emacsclient-commands
