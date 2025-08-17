@@ -99,12 +99,12 @@
         lsp-ui-doc-enable nil))     ; redundant with K
 
 ;; nix lsp
-(after! format
-  (set-formatter! 'nixfmt "alejandra" :modes '(nix-mode)))
-(add-hook 'nix-mode-hook #'format-all-mode)
+(setq +format-on-save-enabled-modes '(not emacs-lisp-mode))
 
 (after! lsp-mode
-  (setq lsp-nix-nil-formatter ["alejandra"]))
+  (setq lsp-nix-nil-formatter ["alejandra"])
+  ;; make Doom use LSP for formatting if available
+  (setq +format-with-lsp t))
 
 ;; emacs-lsp-booster
 ;; This tells lsp-mode to use plists for deserialization, which is
