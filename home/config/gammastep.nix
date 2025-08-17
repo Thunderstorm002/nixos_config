@@ -8,7 +8,7 @@
         duskTime = "18:00";
 
         provider = "manual";
-        lattitude = 12.9;
+        latitude = 12.9;
         longitude = 77.6;
 
         settings = {
