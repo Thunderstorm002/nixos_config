@@ -113,7 +113,7 @@
 
 
 ;;; :lang org
-(setq org-directory "~/projects/org/"
+(setq org-directory "~/Documents/org/"
       org-roam-directory org-directory
       org-roam-db-location (file-name-concat org-directory ".org-roam.db")
       org-roam-dailies-directory "journal/"
