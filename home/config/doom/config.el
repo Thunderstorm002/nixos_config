@@ -99,16 +99,12 @@
         lsp-ui-doc-enable nil))     ; redundant with K
 
 ;; nix lsp
-(use-package lsp-nix
-  :ensure lsp-mode
-  :after (lsp-mode)
-  :demand t
-  :custom
-  (lsp-nix-nil-formatter ["nixfmt"]))
+(after! format
+  (set-formatter! 'nixfmt "alejandra" :modes '(nix-mode)))
+(add-hook 'nix-mode-hook #'format-all-mode)
 
-(use-package nix-mode
-  :hook (nix-mode . lsp-deferred)
-  :ensure t)
+(after! lsp-mode
+  (setq lsp-nix-nil-formatter ["alejandra"]))
 
 ;; emacs-lsp-booster
 ;; This tells lsp-mode to use plists for deserialization, which is

@@ -96,6 +96,7 @@
     syncthing
 
     # nix lsp
+    alejandra
     nixfmt
     nil
 

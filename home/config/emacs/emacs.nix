@@ -3,12 +3,15 @@
 {
   # emacs
   services.emacs = {
-   enable = true;
-   package = pkgs.emacs-pgtk;  # Matches the one in home.packages
-   client.enable = true;  # For emacsclient desktop integration
-   client.arguments = ["-nc"];
-   startWithUserSession = "graphical";
-   socketActivation.enable = true;
+    enable = true;
+    package = pkgs.emacs-pgtk;  # Matches the one in home.packages
+    client.enable = true;  # For emacsclient desktop integration
+    client.arguments = ["-nc"];
+    startWithUserSession = "graphical";
+    socketActivation.enable = true;
+    extraPackages = epkgs: [
+      epkgs.vterm
+    ];
   };
 
   home.sessionVariables = {
