@@ -9,6 +9,10 @@
     client.arguments = ["-nc"];
     startWithUserSession = "graphical";
     socketActivation.enable = true;
+
+  };
+
+  programs.emacs = {
     extraPackages = epkgs: [
       epkgs.vterm
     ];
