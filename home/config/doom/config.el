@@ -98,6 +98,37 @@
   (setq lsp-ui-sideline-enable nil  ; no more useful than flycheck
         lsp-ui-doc-enable nil))     ; redundant with K
 
+;; emacs-lsp-booster
+;; This tells lsp-mode to use plists for deserialization, which is
+;; a prerequisite for lsp-booster.
+(setq lsp-use-plists t)
+(setenv "LSP_USE_PLISTS" "true")
+
+;; Use `after!` to ensure this code runs after the lsp module is loaded.
+(after! lsp-mode
+  (defun lsp-booster--advice-json-parse (old-fn &rest args)
+    "Try to parse bytecode instead of json."
+    (or
+     (when (equal (following-char) ?#)
+       (let ((bytecode (read (current-buffer))))
+         (when (byte-code-function-p bytecode)
+           (funcall bytecode))))
+     (apply old-fn args)))
+  (advice-add (if (progn (require 'json)
+                         (fboundp 'json-parse-buffer))
+                  'json-parse-buffer
+                'json-read)
+              :around
+              #'lsp-booster--advice-json-parse)
+  ;; This function prepends the 'emacs-lsp-booster' command to the
+  ;; language server command. It's a key part of the setup.
+  (defun lsp-booster--advice-final-command (old-fn cmd &rest args)
+    (let ((result (apply old-fn cmd args)))
+      (if (and lsp-use-plists
+               (executable-find "emacs-lsp-booster"))
+          (cons "emacs-lsp-booster" result)
+        result)))
+  (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
 ;;; :tools magit
 (setq magit-show-long-lines-warning nil

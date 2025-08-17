@@ -96,6 +96,8 @@
 
     # Emacs
     emacs
+    emacsclient-commands
+    emacs-pgtk
     findutils 
     marksman
     shellcheck
@@ -146,9 +148,12 @@
 
   # emacs
    services.emacs = {
-     enable = false;
-     package = pkgs.emacs;  # Matches the one in home.packages
-     client.enable = true;  # For emacsclient desktop integration
+    enable = true;
+    package = pkgs.emacs-pgtk;  # Matches the one in home.packages
+    client.enable = true;  # For emacsclient desktop integration
+    client.arguments = "-nc";
+    startWithUserSession = "graphical";
+    socketActivation = true;
    };
 
   home.sessionVariables = {
