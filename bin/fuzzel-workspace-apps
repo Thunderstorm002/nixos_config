@@ -6,7 +6,7 @@
 WORKSPACE_ID=$(hyprctl activeworkspace -j | jq -r '.id')
 
 # Get the list of windows in the current workspace, format as "class: title" with address as metadata
-SELECTION=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $WORKSPACE_ID) | \"\(.class): \(.title) [\(.address)]\"" | fuzzel -dmenu -p "Switch to window in workspace $WORKSPACE_ID")
+SELECTION=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $WORKSPACE_ID) | \"\(.class): \(.title) [\(.address)]\"" | fuzzel --dmenu -p "Switch to window in workspace $WORKSPACE_ID")
 
 # Check if a selection was made
 if [ -n "$SELECTION" ]; then
@@ -14,6 +14,6 @@ if [ -n "$SELECTION" ]; then
   ADDRESS=$(echo "$SELECTION" | awk -F'[][]' '{print $2}')
   if [ -n "$ADDRESS" ]; then
     # Switch to the selected window using its address
-    hyprctl dispatch focuswindow address:$ADDRESS
+    hyprctl dispatch focuswindow address:"$ADDRESS"
   fi
 fi

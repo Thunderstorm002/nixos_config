@@ -17,7 +17,6 @@
     ./config/waybar.nix
     ./config/fish.nix
     ./config/podman.nix
-    ./config/rofi.nix
     ./config/niri/config.nix
     inputs.nvf.homeManagerModules.default
     ./config/fuzzel.nix
@@ -35,7 +34,6 @@
     fish
 
     # GUI Apps
-    rofi
     xfce.thunar
     mako # notification client
     cliphist
