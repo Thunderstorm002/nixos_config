@@ -10,8 +10,8 @@
         calendar = "*-*-* 06:00:00";
         requests = [
           {
-            temperature = "6500";
-            gamma = "100";
+            temperature = "5700";
+            gamma = "80";
           }
         ];
       };
@@ -20,6 +20,7 @@
         requests = [
           {
             temperature = "4000";
+            gamma = "40";
           }
         ];
       };

@@ -13,7 +13,6 @@
   imports = [
     ./config/hypr/config.nix
     ./config/hypr/hyprpaper.nix
-    ./config/hypr/hyprsunset.nix
     ./config/waybar.nix
     ./config/fish.nix
     ./config/podman.nix
