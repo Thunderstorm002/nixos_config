@@ -11,17 +11,20 @@
         lattitude = 12.9;
         longitude = 77.6;
 
-        general = {
-            adjustment-method = "wayland";
+        settings = {
+            general = {
+                adjustment-method = "wayland";
 
-            temp-day = 5700;
-            temp-night = 4500;
+                temp-day = 5700;
+                temp-night = 4500;
 
-            fade = 1;
+                fade = 1;
 
-            gamma-day = "0.8:0.7:0.8";
-            gamma-night = "0.5";
+                gamma-day = "0.8:0.7:0.8";
+                gamma-night = "0.5";
+            };
         };
+
     };
   #xdg.configFile."gammastep/config.ini".text = ''
   #  ; Global settings
