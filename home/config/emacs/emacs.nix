@@ -18,7 +18,7 @@
   # Manage your personal Doom config files declaratively
   # Create ~/nixos_config/home/doom/ with init.el, config.el, and packages.el
   home.file.".config/doom" = {
-    source = ./config/doom;
+    source = ../doom;
     recursive = true;
     force = true;
   };
