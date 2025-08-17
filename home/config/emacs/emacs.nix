@@ -13,6 +13,7 @@
   };
 
   programs.emacs = {
+    package = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
       epkgs.vterm
     ];
