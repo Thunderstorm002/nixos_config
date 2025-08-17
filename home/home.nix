@@ -11,7 +11,7 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./config/hypr/hyprland_config.nix
+    ./config/hypr/config.nix
     ./config/hypr/hyprpaper.nix
     ./config/hypr/hyprsunset.nix
     ./config/waybar.nix
