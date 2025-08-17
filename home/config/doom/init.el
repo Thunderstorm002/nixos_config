@@ -39,7 +39,7 @@
 
        :term
        eshell
-       vterm
+       (vterm +toggle)
 
        :checkers
        (syntax +childframe)

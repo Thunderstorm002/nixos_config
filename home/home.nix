@@ -51,7 +51,6 @@
     slurp
     mpc-cli # For controlling MPD
     power-profiles-daemon
-    rofi-power-menu
     wireplumber
     keepassxc
     hyprsunset
@@ -118,6 +117,7 @@
     mu
     clang-tools
     gdtoolkit_4
+    libvterm
 
     gammastep
   ];
