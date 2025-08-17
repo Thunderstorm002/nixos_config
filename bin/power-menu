@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+
+# Wrapper script to use rofi-power-menu with fuzzel
+# Save as, e.g., ~/nixos_config/bin/fuzzel-power-menu
+# Make executable: chmod +x ~/nixos_config/bin/fuzzel-power-menu
+
+set -e
+set -u
+
+# Path to the original rofi-power-menu script
+#POWER_MENU="${HOME}/nixos_config/bin/power-menu"
+
+# Supported choices
+all=(lockscreen logout suspend hibernate reboot shutdown)
+
+# Actions for each choice
+declare -A actions
+actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+actions[suspend]="systemctl suspend"
+actions[hibernate]="systemctl hibernate"
+actions[reboot]="systemctl reboot"
+actions[shutdown]="systemctl poweroff"
+
+# Text descriptions for display
+declare -A texts
+texts[lockscreen]="Lock Screen"
+texts[logout]="Log Out"
+texts[suspend]="Suspend"
+texts[hibernate]="Hibernate"
+texts[reboot]="Reboot"
+texts[shutdown]="Shut Down"
+
+# Confirmation required for these actions
+confirmations=(reboot shutdown logout)
+
+# Function to check if an option is valid
+check_valid() {
+    option="$1"
+    for entry in "${all[@]}"; do
+        if [ "$option" = "$entry" ]; then
+            return 0
+        fi
+    done
+    echo "Invalid choice: $option" >&2
+    exit 1
+}
+
+# Function to generate menu options (plain text)
+generate_menu() {
+    for entry in "${all[@]}"; do
+        echo "${texts[$entry]}"
+    done
+}
+
+# Function to handle confirmation
+confirm_action() {
+    local action="$1"
+    local prompt="Are you sure you want to ${texts[$action],,}? (yes/no)"
+    local response
+    response=$(echo -e "Yes\nNo" | fuzzel --dmenu --prompt "$prompt")
+    if [ "$response" = "Yes" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Main logic
+main() {
+    # Generate menu options and pipe to fuzzel
+    selection=$(generate_menu | fuzzel --dmenu --prompt "Power Menu: ")
+
+    # Exit if no selection
+    if [ -z "$selection" ]; then
+        exit 0
+    fi
+
+    # Find the corresponding action key
+    action_key=""
+    for key in "${!texts[@]}"; do
+        if [ "${texts[$key]}" = "$selection" ]; then
+            action_key="$key"
+            break
+        fi
+    done
+
+    # Validate selection
+    if [ -z "$action_key" ]; then
+        echo "Invalid selection: $selection" >&2
+        exit 1
+    fi
+
+    # Check if confirmation is needed
+    for confirmation in "${confirmations[@]}"; do
+        if [ "$action_key" = "$confirmation" ]; then
+            if confirm_action "$action_key"; then
+                eval "${actions[$action_key]}"
+            fi
+            exit 0
+        fi
+    done
+
+    # Execute action if no confirmation needed
+    eval "${actions[$action_key]}"
+}
+
+main

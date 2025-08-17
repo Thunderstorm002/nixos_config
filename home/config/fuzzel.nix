@@ -2,7 +2,7 @@
 
 {
   xdg.configFile."fuzzel/fuzzel.ini".text = ''
-    fuzzy=yes
+    #fuzzy=yes
     width=60
 
     [colors]
