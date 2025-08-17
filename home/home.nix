@@ -16,7 +16,6 @@
     ./config/hypr/hyprsunset.nix
     ./config/waybar.nix
     ./config/fish.nix
-    ./config/podman.nix
     ./config/niri/config.nix
     inputs.nvf.homeManagerModules.default
     ./config/fuzzel.nix
