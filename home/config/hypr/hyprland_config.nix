@@ -21,7 +21,8 @@
       # Variables
       "$terminal" = "ghostty";
       "$fileManager" = "thunar";
-      "$menu" = "rofi -show drun";
+      #"$menu" = "rofi -show drun";
+      "$menu" = "fuzzel";
       "$mainMod" = "SUPER";
 
       #Autostart
@@ -217,7 +218,7 @@
         "$mainMod SHIFT, S, hy3:movewindow, r, once"
         "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/bin/rofi-power-menu"
         "$mainMod, Escape, exec, ${config.home.homeDirectory}/nixos_config/bin/power-menu"
-        "$mainMod, X, exec, ${config.home.homeDirectory}/nixos_config/bin/workspace-apps"
+        "$mainMod, X, exec, ${config.home.homeDirectory}/nixos_config/bin/fuzzel-workspace-apps"
 
         # bind for hyprscrolling
         # "$mainMod, S, layoutmsg, move +col"
