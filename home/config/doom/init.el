@@ -3,8 +3,6 @@
 (doom! ;;((sources)
        ;; (flags))
 
-      (setq shell-file-name (executable-find "bash"))
-
        :completion
        ;; company
        (corfu +dabbrev +icons)
