@@ -56,7 +56,7 @@
       "Mod+Shift+Y".action.spawn = ["sh" "-c" "cliphist wipe"];
       "Mod+B".action.spawn = "blueman-manager";
       "Mod+G".action.spawn = "gammastep";
-      "Mod+Escape".action.spawn = ["sh" "-c" "/home/roshan/nixos_config/bin/power_menu" ">" "/home/roshan/nixos_config/bin/power.txt"];
+      "Mod+Escape".action.spawn = ["sh" "-c" "WAYLAND_DISPLAY=$WAYLAND_DISPLAY /home/roshan/nixos_config/bin/power_menu"];
 
     # Keys consist of modifiers separated by + signs, followed by an XKB key name
     # in the end. To find an XKB name for a particular key, you may use a program
