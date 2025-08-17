@@ -216,6 +216,7 @@
         "$mainMod SHIFT, A, hy3:movewindow, l, once"
         "$mainMod SHIFT, S, hy3:movewindow, r, once"
         "$mainMod SHIFT, N, exec, rofi -show p -modi p:${config.home.homeDirectory}/nixos_config/bin/rofi-power-menu"
+        "$mainMod, Escape, exec, ${config.home.homeDirectory}/nixos_config/bin/power-menu"
         "$mainMod, X, exec, ${config.home.homeDirectory}/nixos_config/bin/workspace-apps"
 
         # bind for hyprscrolling
