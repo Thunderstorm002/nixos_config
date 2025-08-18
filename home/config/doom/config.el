@@ -72,7 +72,14 @@
 
 (setq ispell-program-name "hunspell")
 (setq ispell-dictionary "en_US")
+;; Or configure it to be less aggressive
+;;(setq ispell-quietly t)  ; Don't show messages
+;;(setq flyspell-issue-message-flag nil)  ; Reduce noise
 ;; (setq ispell-personal-dictionary "/etc/profiles/per-user/roshan/bin/aspell")
+;; Configure hunspell dictionaries
+(setq ispell-hunspell-dict-paths-alist
+      '(("en_US" "/run/current-system/sw/share/hunspell/en_US.aff")))
+
 
 
 ;;; :ui modeline
