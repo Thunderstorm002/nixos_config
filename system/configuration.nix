@@ -180,7 +180,10 @@
     swayidle
     swaylock
 
-    aspellWithDicts
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
     hunspell
     hunspellDicts.en_US
   ];

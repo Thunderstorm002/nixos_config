@@ -70,6 +70,9 @@
 (after! corfu
   (setq corfu-auto nil))
 
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "english")
+
 
 ;;; :ui modeline
 ;; An evil mode indicator is redundant with cursor shape
