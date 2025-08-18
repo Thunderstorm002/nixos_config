@@ -34,7 +34,7 @@
 
 (defvar my-org-heading-colors
   '(:level-1 "#82AAFF"  ; Soft blue (inspired by ayu-dark's syntax)
-    :level-2 "#C3E88D"  ; Pastel green
+    :level-2 "#FFC662"  ; Pastel
     :level-3 "#FFCB6B"  ; Warm yellow
     :level-4 "#F07178"  ; Soft pink
     :level-5 "#C792EA"  ; Light purple
