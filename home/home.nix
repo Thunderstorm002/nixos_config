@@ -103,7 +103,7 @@
     # Emacs
     #emacs
     emacsclient-commands
-    emacs-pgtk
+    #emacs-pgtk
     findutils 
     marksman
     shellcheck
