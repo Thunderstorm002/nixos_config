@@ -43,7 +43,7 @@
 
        :checkers
        ;;(syntax +childframe)
-       (spell +hunspell)
+       (spell +flyspell +hunspell)
 
        :tools
        ;;(debugger +lsp)
