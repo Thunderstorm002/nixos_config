@@ -80,6 +80,8 @@
     papirus-icon-theme
     source-sans-pro
     source-serif-pro
+    source-code-pro
+    inter
 
     #Rust utilities
     ripgrep
