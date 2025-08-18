@@ -43,7 +43,7 @@
 
        :checkers
        ;;(syntax +childframe)
-       ;;spell
+       spell
 
        :tools
        ;;(debugger +lsp)
