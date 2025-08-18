@@ -42,7 +42,7 @@
        (vterm +toggle)
 
        :checkers
-       (syntax +childframe)
+       ;;(syntax +childframe)
        spell
 
        :tools
