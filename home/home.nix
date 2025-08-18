@@ -130,7 +130,10 @@
     hunspellDicts.en_US
 
     aspell
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
+   # (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
 
     gammastep
   ];
