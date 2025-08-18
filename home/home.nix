@@ -126,18 +126,15 @@
     gdtoolkit_4
     libvterm
 
-    aspellWithDicts
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
     hunspell
     hunspellDicts.en_US
 
     gammastep
   ];
-
-  aspellWithDicts = pkgs.aspellWithDicts.override {
-    dictionaries = with pkgs.aspellDicts; [
-      en_US
-    ];
-  };
 
   fonts.fontconfig.enable = true;
 
