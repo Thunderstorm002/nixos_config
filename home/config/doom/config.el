@@ -75,12 +75,18 @@
   (setq ispell-local-dictionary "en_US")
   (ispell-change-dictionary "en_US"))
 
+(use-package! spell-fu
+  :hook (text-mode . spell-fu-mode)  ; Enable spell-fu in text-mode buffers
+  :init
+  (setq ispell-program-name "hunspell")
+  (setq ispell-dictionary "en_US")
+
 (after! spell-fu
   ;; Set hunspell as the spell checker
   ;;(setq spell-fu-ispell-program "hunspell")
-  (setq ispell-program-name "hunspell")
-  (setq ispell-local-dictionary "en_US")
-   (ispell-change-dictionary "en_US")
+  ;;(setq ispell-program-name "hunspell")
+  ;;(setq ispell-local-dictionary "en_US")
+  ;; (ispell-change-dictionary "en_US")
 
   ;; Set dictionary
   ;;(setq spell-fu-dictionary "en_US")
