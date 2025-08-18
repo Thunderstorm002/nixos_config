@@ -77,10 +77,13 @@
 
 (after! spell-fu
   ;; Set hunspell as the spell checker
-  (setq spell-fu-ispell-program "hunspell")
+  ;;(setq spell-fu-ispell-program "hunspell")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-local-dictionary "en_US")
+   (ispell-change-dictionary "en_US")
 
   ;; Set dictionary
-  (setq spell-fu-dictionary "en_US")
+  ;;(setq spell-fu-dictionary "en_US")
 
   ;; Optional: reduce aggressiveness
   (setq spell-fu-idle-delay 1.0)  ; Default is 0.25 seconds
