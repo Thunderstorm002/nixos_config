@@ -77,6 +77,7 @@
   (setq ispell-dictionary "en_US")
   (setq ispell-local-dictionary "en_US")
   (setenv "DICTPATH" "/etc/profiles/per-user/roshan/share/hunspell/en_US.dic") ; Replace with actual path from `hunspell -D`
+  (setq ispell-debug t)
   (ispell-change-dictionary "en_US" t))
 
 (use-package! spell-fu
@@ -88,6 +89,7 @@
   (setq spell-fu-dictionary "en_US")
   :config
   (setq spell-fu-idle-delay 1.0) ; Less aggressive checking
+  (setq spell-fu-ispell-args '("-d" "/etc/profiles/per-user/roshan/share/hunspell/en_US"))
   (add-hook 'org-mode-hook
             (lambda ()
               (setq-local spell-fu-faces-exclude
