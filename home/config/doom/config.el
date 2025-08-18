@@ -87,8 +87,7 @@
           ("DONE" . (:foreground ,(plist-get my-org-heading-colors :level-2) :weight bold))))  ; Green for DONE
 
   ;; Org-modern for fancy bullets
-  (setq org-modern-star '("◉" "○" "✸" "✿" "✤"))
-  (org-modern-mode 1))
+  (setq org-modern-star '("◉" "○" "✸" "✿" "✤")))
 
 ;;
 ;;; Keybinds
