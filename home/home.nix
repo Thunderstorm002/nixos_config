@@ -125,11 +125,19 @@
     clang-tools
     gdtoolkit_4
     libvterm
+
+    aspellWithDicts
     hunspell
     hunspellDicts.en_US
 
     gammastep
   ];
+
+  aspellWithDicts = pkgs.aspellWithDicts.override {
+    dictionaries = with pkgs.aspellDicts; [
+      en_US
+    ];
+  };
 
   fonts.fontconfig.enable = true;
 

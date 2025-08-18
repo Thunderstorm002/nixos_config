@@ -179,6 +179,10 @@
     swaybg
     swayidle
     swaylock
+
+    aspellWithDicts
+    hunspell
+    hunspellDicts.en_US
   ];
 
   # Disable the traditional sudo module
