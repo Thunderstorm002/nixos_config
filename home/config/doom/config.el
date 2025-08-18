@@ -80,29 +80,6 @@
   (setq ispell-debug t)
   (ispell-change-dictionary "en_US" t))
 
-(use-package! spell-fu
-  :hook (text-mode . spell-fu-mode)
-  :init
-  (setq spell-fu-directory "~/.config/emacs/.local/etc/spell-fu")
-  (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "en_US")
-  (setq spell-fu-dictionary "en_US")
-  :config
-  (setq spell-fu-idle-delay 1.0) ; Less aggressive checking
-  (setq spell-fu-ispell-args '("-d" "/etc/profiles/per-user/roshan/share/hunspell/en_US"))
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (setq-local spell-fu-faces-exclude
-                          '(org-code
-                            org-block
-                            org-block-begin-line
-                            org-block-end-line
-                            org-meta-line
-                            org-property-value
-                            org-tag
-                            org-link))))
-  (spell-fu-reset)) ; Reset cache on load
-
 ;;; :ui modeline
 ;; An evil mode indicator is redundant with cursor shape
 (setq doom-modeline-modal nil
