@@ -125,6 +125,8 @@
     clang-tools
     gdtoolkit_4
     libvterm
+    hunspell
+    hunspellDicts.en_US
 
     gammastep
   ];
