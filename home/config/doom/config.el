@@ -71,7 +71,7 @@
   (setq corfu-auto nil))
 
 (setq ispell-program-name "aspell")
-(setq ispell-dictionary "english")
+(setq ispell-dictionary "en")
 (setq ispell-personal-dictionary "/etc/profiles/per-user/roshan/bin/aspell")
 
 
