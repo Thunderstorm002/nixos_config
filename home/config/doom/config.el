@@ -46,7 +46,7 @@
   ;; Enable variable pitch and visual tweaks
   (add-hook 'org-mode-hook
             (lambda ()
-              (variable-pitch-mode 1)
+              (mixed-pitch-mode 1)
               (visual-line-mode 1)
               (setq line-spacing 0.1)))
 
@@ -66,6 +66,9 @@
     `(org-level-6 :foreground ,(plist-get my-org-heading-colors :level-6) :height 1.0 :weight semi-bold)
     `(org-level-7 :foreground ,(plist-get my-org-heading-colors :level-7) :height 1.0 :weight semi-bold)
     `(org-level-8 :foreground ,(plist-get my-org-heading-colors :level-8) :height 1.0 :weight semi-bold))
+
+;; Tags
+  '(org-tag :foreground "#757575" :weight light :slant italic)
 
   ;; Keep fixed-pitch for structured elements
   (dolist (face '(org-block
