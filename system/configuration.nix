@@ -57,6 +57,8 @@
     '';
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # Networking
   networking.hostName = "homepc";
   networking.networkmanager.enable = true;
