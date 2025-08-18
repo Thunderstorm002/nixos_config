@@ -70,9 +70,9 @@
 (after! corfu
   (setq corfu-auto nil))
 
-(setq ispell-program-name "aspell")
-(setq ispell-dictionary "en")
-(setq ispell-personal-dictionary "/etc/profiles/per-user/roshan/bin/aspell")
+(setq ispell-program-name "hunspell")
+(setq ispell-dictionary "en_US")
+;; (setq ispell-personal-dictionary "/etc/profiles/per-user/roshan/bin/aspell")
 
 
 ;;; :ui modeline
