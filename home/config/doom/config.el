@@ -75,6 +75,29 @@
   (setq ispell-local-dictionary "en_US")
   (ispell-change-dictionary "en_US"))
 
+(after! spell-fu
+  ;; Set hunspell as the spell checker
+  (setq spell-fu-ispell-program "hunspell")
+
+  ;; Set dictionary
+  (setq spell-fu-dictionary "en_US")
+
+  ;; Optional: reduce aggressiveness
+  (setq spell-fu-idle-delay 1.0)  ; Default is 0.25 seconds
+
+  ;; Optional: disable in certain org blocks
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local spell-fu-faces-exclude
+                          '(org-code
+                            org-block
+                            org-block-begin-line
+                            org-block-end-line
+                            org-meta-line
+                            org-property-value
+                            org-tag
+                            org-link)))))
+
 ;;(setq ispell-program-name "hunspell")
 ;;(setq ispell-dictionary "en_US")
 ;; Or configure it to be less aggressive
