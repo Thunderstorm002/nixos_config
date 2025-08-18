@@ -70,31 +70,24 @@
 (after! corfu
   (setq corfu-auto nil))
 
+
+;; Remove existing ispell and spell-fu settings
 (after! ispell
   (setq ispell-program-name "hunspell")
+  (setq ispell-dictionary "en_US")
   (setq ispell-local-dictionary "en_US")
-  (ispell-change-dictionary "en_US"))
+  (setenv "DICTPATH" "/etc/profiles/per-user/roshan/share/hunspell/en_US.dic") ; Replace with actual path from `hunspell -D`
+  (ispell-change-dictionary "en_US" t))
 
 (use-package! spell-fu
-  :hook (text-mode . spell-fu-mode)  ; Enable spell-fu in text-mode buffers
+  :hook (text-mode . spell-fu-mode)
   :init
+  (setq spell-fu-directory "~/.config/emacs/.local/etc/spell-fu")
   (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "en_US"))
-
-(after! spell-fu
-  ;; Set hunspell as the spell checker
-  ;;(setq spell-fu-ispell-program "hunspell")
-  ;;(setq ispell-program-name "hunspell")
-  ;;(setq ispell-local-dictionary "en_US")
-  ;; (ispell-change-dictionary "en_US")
-
-  ;; Set dictionary
-  ;;(setq spell-fu-dictionary "en_US")
-
-  ;; Optional: reduce aggressiveness
-  (setq spell-fu-idle-delay 1.0)  ; Default is 0.25 seconds
-
-  ;; Optional: disable in certain org blocks
+  (setq ispell-dictionary "en_US")
+  (setq spell-fu-dictionary "en_US")
+  :config
+  (setq spell-fu-idle-delay 1.0) ; Less aggressive checking
   (add-hook 'org-mode-hook
             (lambda ()
               (setq-local spell-fu-faces-exclude
@@ -105,19 +98,8 @@
                             org-meta-line
                             org-property-value
                             org-tag
-                            org-link)))))
-
-;;(setq ispell-program-name "hunspell")
-;;(setq ispell-dictionary "en_US")
-;; Or configure it to be less aggressive
-;;(setq ispell-quietly t)  ; Don't show messages
-;;(setq flyspell-issue-message-flag nil)  ; Reduce noise
-;; (setq ispell-personal-dictionary "/etc/profiles/per-user/roshan/bin/aspell")
-;; Configure hunspell dictionaries
-;;(setq ispell-hunspell-dict-paths-alist
-;;      '(("en_US" "/run/current-system/sw/share/hunspell/en_US.aff")))
-
-
+                            org-link))))
+  (spell-fu-reset)) ; Reset cache on load
 
 ;;; :ui modeline
 ;; An evil mode indicator is redundant with cursor shape
