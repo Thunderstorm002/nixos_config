@@ -30,7 +30,8 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "mako"
-        "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
+        "waybar"
+        #"${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
         "hyprctl setcursor catppuccin-mocha-dark-cursors 24"
         #"hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
       ];

@@ -7,12 +7,12 @@
 
       settings = {
         mainBar = {
-          layer = "bottom";
-          position = "top";
+          layer = "top";
+          position = "bottom";
           mode = "hide";
           start_hidden = true;
           ipc = true;
-          height = 32;
+          height = 40;
           spacing = 8;
           margin-top = 8;
           margin-left = 16;
