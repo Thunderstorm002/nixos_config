@@ -31,7 +31,6 @@
       { command = ["sh" "-c" "wl-paste --type text --watch cliphist store"]; }
       { command = ["sh" "-c" "wl-paste --type image --watch cliphist store"]; }
       { command = ["mako"]; }
-      { command = ["waybar"]; }
       { command = ["sh" "-c" "emacs --daemon"]; }
       { command = ["gammastep"]; }
       { command = ["swaybg" "--image" "/home/roshan/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png"]; }
