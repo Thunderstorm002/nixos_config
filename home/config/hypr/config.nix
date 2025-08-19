@@ -247,6 +247,6 @@
   };
 
   # Ensure cursor theme files are in the correct directory
-  home.file.".local/share/icons/catppuccin-mocha-dark-cursors".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
+  # home.file.".local/share/icons/catppuccin-mocha-dark-cursors".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
 
 }
