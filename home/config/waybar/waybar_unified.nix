@@ -469,7 +469,7 @@ in
   home.file.".config/waybar/config-niri.json".text = builtins.toJSON niriSettings;
 
   # Generate shared style file
-  home.file.".config/waybar/style.css".text = style;
+  #home.file.".config/waybar/style.css".text = style;
 
     # Generate the launch.sh script that selects config based on WAYBAR_WM
   home.file.".config/waybar/launch.sh" = {
