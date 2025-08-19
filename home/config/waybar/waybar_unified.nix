@@ -463,13 +463,13 @@ in
   };
 
   # Generate Hyprland-specific config file
-  home.file.".config/waybar/config-hypr.json".text = builtins.toJSON hyprSettings;
+  home.file.".config/waybar/config-hyprland.json".text = builtins.toJSON hyprSettings;
 
   # Generate Niri-specific config file
   home.file.".config/waybar/config-niri.json".text = builtins.toJSON niriSettings;
 
   # Generate shared style file
-  #home.file.".config/waybar/style.css".text = style;
+  home.file.".config/waybar/style.css".text = style;
 
     # Generate the launch.sh script that selects config based on WAYBAR_WM
   home.file.".config/waybar/launch.sh" = {
