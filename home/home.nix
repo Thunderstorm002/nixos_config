@@ -83,6 +83,10 @@
     source-code-pro
     inter
 
+    # theme
+    catppuccin-cursors.mochaDark
+    hyprcursor
+
     #Rust utilities
     ripgrep
     fd
@@ -174,5 +178,23 @@
     enable = true;
     userName = "roshan";
     userEmail = "roshan.nair@protonmail.com";
+  };
+
+  # Cursor theme
+  home.pointerCursor = {
+    gtk.enable = true;  # Apply to GTK apps
+    x11.enable = true;  # Apply to X11 apps (XWayland)
+    package = pkgs.catppuccin-cursors.mochaDark;
+    name = "catppuccin-mocha-dark-cursors";
+    size = 24;  # Adjust size as needed
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "catppuccin-mocha-dark-cursors";
+      size = 24;
+    };
   };
 }

@@ -47,6 +47,7 @@
         support32Bit.enable = true;
     };
   };
+  services.xserver.enable = true;
   services.xserver.videoDrivers = ["amdgpu"]; # Or "nvidia", "amdgpu"
 
   # Nix Settings
@@ -184,6 +185,17 @@
 
     hunspell
     hunspellDicts.en_US
+
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      font  = "Noto Sans";
+      fontSize = "10";
+      background = "${../modules/desktop/wallpaper/dark_galaxy.jpg}";
+      loginBackground = true;
+    })
+    catppuccin-cursors.mochaDark
+    catppuccin-gtk  # GTK theme for Catppuccin
+    catppuccin-kvantum  # Qt/Kvantum theme
   ];
 
   # Disable the traditional sudo module

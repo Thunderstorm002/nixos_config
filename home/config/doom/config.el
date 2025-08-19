@@ -5,7 +5,7 @@
 
 
 ;; Set the theme
-(setq doom-theme 'doom-ayu-dark)
+(setq doom-theme 'catppuccin)
 
 (setq shell-file-name (executable-find "bash"))
 (setq-default vterm-shell "/run/current-system/sw/bin/fish")

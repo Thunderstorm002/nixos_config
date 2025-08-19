@@ -6,7 +6,13 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+    polarity = dark;
+    base16Scheme = "${pkgs.stylix}/share/themes/catppuccin-mocha.yaml";
+    cursor = {
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "catppuccin-mocha-dark-cursors";
+      size = 24;
+    };
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
@@ -27,6 +33,13 @@
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
+    };
+
+    targets = {
+      gtk.enable = true;  # Theme GTK apps
+      qt.enable = true;   # Theme Qt apps
+      # Ensure Hyprland respects Stylix theming
+      hyprland.enable = true;
     };
   };
 }

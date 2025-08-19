@@ -31,12 +31,19 @@
         "wl-paste --type image --watch cliphist store"
         "mako"
         "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
+        "hyprctl setcursor catppuccin-mocha-dark-cursors 24"
         #"hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
       ];
 
+      cursor = {
+        enable_hyprcursor = true;  # Enable hyprcursor
+      };
+
       env = [
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors"  # Set hyprcursor theme
+        "HYPRCURSOR_SIZE,24"  # Cursor size
+        "XCURSOR_THEME,catppuccin-mocha-dark-cursors"  # Fallback for XCursor
+        "XCURSOR_SIZE,24"  # Fallback size
       ];
 
       general = {
@@ -238,4 +245,8 @@
       ];
     };
   };
+
+  # Ensure cursor theme files are in the correct directory
+  home.file.".local/share/icons/catppuccin-mocha-dark-cursors".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
+
 }
