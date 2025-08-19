@@ -134,7 +134,7 @@
     wl-clipboard
     mate.engrampa
     zathura
-    papers
+    #papers
     wev
     wtype
     unzip
