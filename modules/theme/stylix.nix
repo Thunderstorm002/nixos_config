@@ -8,7 +8,7 @@
     enable = true;
     polarity = "dark";
     autoEnable = true;
-    base16Scheme = "${pkgs.stylix}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
