@@ -34,7 +34,7 @@
       { command = ["sh" "-c" "emacs --daemon"]; }
       { command = ["gammastep"]; }
       { command = ["swaybg" "--image" "/home/roshan/nixos_config/modules/desktop/wallpaper/carina_nebula_orig.png"]; }
-      { command = ["sh" "-c" "export WAYBAR_WM=niri; ~/.config/waybar/launch.sh"]; }
+      { command = ["sh" "-c" "export WAYBAR_WM=niri; /home/roshan/.config/waybar/launch.sh"]; }
   ];
 
     binds = {
