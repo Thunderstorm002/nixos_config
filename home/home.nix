@@ -14,8 +14,7 @@
     ./config/hypr/config.nix
     ./config/hypr/hyprpaper.nix
     ./config/hypr/hyprsunset.nix
-    ./config/waybar/waybar_hypr.nix
-    ./config/waybar/waybar_niri.nix
+    ./config/waybar/waybar.nix
     ./config/fish.nix
     ./config/emacs/emacs.nix
     ./config/niri/config.nix

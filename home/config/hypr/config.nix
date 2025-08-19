@@ -16,6 +16,14 @@
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
     ];
     settings = {
+      env = [
+        "HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors"  # Set hyprcursor theme
+        "HYPRCURSOR_SIZE,24"  # Cursor size
+        "XCURSOR_THEME,catppuccin-mocha-dark-cursors"  # Fallback for XCursor
+        "XCURSOR_SIZE,24"  # Fallback size
+        "WAYBAR_WM,hyprland"
+      ];
+
       monitor = [ ",preferred,auto,auto" ];
 
       # Variables
@@ -30,8 +38,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "mako"
-        "waybar"
-        #"${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
+        "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
         "hyprctl setcursor catppuccin-mocha-dark-cursors 24"
         #"hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
       ];
@@ -39,13 +46,6 @@
       cursor = {
         enable_hyprcursor = true;  # Enable hyprcursor
       };
-
-      env = [
-        "HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors"  # Set hyprcursor theme
-        "HYPRCURSOR_SIZE,24"  # Cursor size
-        "XCURSOR_THEME,catppuccin-mocha-dark-cursors"  # Fallback for XCursor
-        "XCURSOR_SIZE,24"  # Fallback size
-      ];
 
       general = {
         gaps_in = 5;
