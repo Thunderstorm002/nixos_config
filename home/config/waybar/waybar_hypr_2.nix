@@ -13,6 +13,7 @@
           start_hidden = true;
           ipc = true;
           height = 40;
+          width = 1920;
           spacing = 8;
           margin-top = 8;
           margin-left = 16;
@@ -187,18 +188,6 @@
         @define-color pink      #f5c2e7;
         @define-color flamingo  #f2cdcd;
         @define-color rosewater #f5e0dc;
-
-        @keyframes urgent {
-          0% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
-          50% { box-shadow: 0 2px 20px rgba(243, 139, 168, 0.8); }
-          100% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
-        }
-
-        @keyframes critical {
-          0% { opacity: 1; }
-          50% { opacity: 0.7; }
-          100% { opacity: 1; }
-        }
 
         * {
           font-family: "JetBrainsMono Nerd Font", monospace;
