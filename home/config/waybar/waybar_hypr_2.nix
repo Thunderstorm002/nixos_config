@@ -12,7 +12,7 @@
           mode = "hide";
           start_hidden = true;
           ipc = true;
-          height = 41;
+          height = 42;
           width = 1920;
           spacing = 8;
           margin-top = 8;
@@ -220,7 +220,7 @@
 
         #workspaces button:hover {
           background: @surface1;
-          color: @text;
+          color: @blue;
         }
 
         #workspaces button.active {
