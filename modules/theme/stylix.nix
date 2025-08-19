@@ -7,6 +7,7 @@
   stylix = {
     enable = true;
     polarity = "dark";
+    autoEnable = true;
     base16Scheme = "${pkgs.stylix}/share/themes/catppuccin-mocha.yaml";
     cursor = {
       package = pkgs.catppuccin-cursors.mochaDark;
@@ -38,8 +39,6 @@
     targets = {
       gtk.enable = true;  # Theme GTK apps
       qt.enable = true;   # Theme Qt apps
-      # Ensure Hyprland respects Stylix theming
-      hyprland.enable = true;
     };
   };
 }
