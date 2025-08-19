@@ -181,13 +181,13 @@
   };
 
   # Cursor theme
-  home.pointerCursor = {
-    gtk.enable = true;  # Apply to GTK apps
-    x11.enable = true;  # Apply to X11 apps (XWayland)
-    package = pkgs.catppuccin-cursors.mochaDark;
-    name = "catppuccin-mocha-dark-cursors";
-    size = 24;  # Adjust size as needed
-  };
+  # home.pointerCursor = {
+  #   gtk.enable = true;  # Apply to GTK apps
+  #   x11.enable = true;  # Apply to X11 apps (XWayland)
+  #   package = pkgs.catppuccin-cursors.mochaDark;
+  #   name = "catppuccin-mocha-dark-cursors";
+  #   size = 24;  # Adjust size as needed
+  # };
 
   gtk = {
     enable = true;
