@@ -214,8 +214,7 @@
 
         #workspaces button {
           padding: 4px 8px;
-          color: @overlay1;
-          background: transparent;
+          color: @blue;
           border: none;
           border-radius: 8px;
           margin: 0 2px;
@@ -254,7 +253,7 @@
         /* Clock */
         #clock {
           background: @surface0;
-          color: @blue;
+          color: @sky;
           padding: 4px 16px;
           border-radius: 12px;
           font-weight: bold;
