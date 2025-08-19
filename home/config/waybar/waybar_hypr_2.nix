@@ -7,8 +7,11 @@
 
       settings = {
         mainBar = {
-          layer = "top";
+          layer = "bottom";
           position = "top";
+          mode = "hide";
+          start_hidden = true;
+          ipc = true;
           height = 32;
           spacing = 8;
           margin-top = 8;
@@ -189,12 +192,14 @@
 
         @keyframes urgent {
           0% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
-            50% { box-shadow: 0 2px 20px rgba(243, 139, 168, 0.8); }
+          50% { box-shadow: 0 2px 20px rgba(243, 139, 168, 0.8); }
+          100% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
         }
 
         @keyframes critical {
           0% { opacity: 1; }
           50% { opacity: 0.7; }
+          100% { opacity: 1; }
         }
 
         * {
