@@ -187,6 +187,16 @@
         @define-color flamingo  #f2cdcd;
         @define-color rosewater #f5e0dc;
 
+        @keyframes urgent {
+          0%, 100% { box-shadow: 0 2px 12px alpha(@red, 0.5); }
+          50% { box-shadow: 0 2px 20px alpha(@red, 0.8); }
+        }
+
+        @keyframes critical {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+
         * {
           font-family: "JetBrainsMono Nerd Font", monospace;
           font-size: 13px;
@@ -230,6 +240,12 @@
           color: @base;
           font-weight: bold;
           box-shadow: 0 2px 12px alpha(@blue, 0.5);
+        }
+
+        #workspaces button.urgent {
+          background: @red;
+          color: @base;
+          animation: urgent 2s ease-in-out infinite;
         }
 
         /* Window Title */
@@ -301,11 +317,6 @@
           background: @red;
           color: @base;
           animation: critical 1s ease-in-out infinite;
-        }
-
-        @keyframes critical {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
         }
 
         /* Network */
