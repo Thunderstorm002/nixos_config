@@ -469,7 +469,8 @@ in
   home.file.".config/waybar/config-niri.json".text = builtins.toJSON niriSettings;
 
   # Generate shared style file
-  #home.file.".config/waybar/style.css".text = style;
+  home.file.".config/waybar/style-hyprland.css".text = style;
+  home.file.".config/waybar/style-niri.css".text = style;
 
     # Generate the launch.sh script that selects config based on WAYBAR_WM
   home.file.".config/waybar/launch.sh" = {
@@ -478,7 +479,7 @@ in
       # Determine WM from environment variable (fallback to hyprland)
       WM=''${WAYBAR_WM:-hyprland}
       CONFIG=~/.config/waybar/config-''${WM}.json
-      STYLE=~/.config/waybar/style.css
+      STYLE=~/.config/waybar/style-''${WM}.css
 
       # Quit all running waybar instances
       killall waybar
