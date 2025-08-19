@@ -128,7 +128,7 @@
               default = [ "󰕿" "󰖀" "󰕾" ];
             };
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-            on-click-right = "${pkgs.wireplow}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
+            on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
           };
 
           tray = {
