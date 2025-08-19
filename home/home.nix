@@ -33,6 +33,9 @@
     kitty
     fish
 
+    psmisc
+    procps
+
     # GUI Apps
     xfce.thunar
     mako # notification client

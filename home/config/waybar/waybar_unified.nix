@@ -482,8 +482,8 @@ in
       STYLE=~/.config/waybar/style-''${WM}.css
 
       # Quit all running waybar instances
-      killall waybar
-      pkill waybar
+      ${pkgs.psmisc}/bin/killall waybar
+      ${pkgs.procps}/bin/pkill waybar
       sleep 0.2
 
       # Launch Waybar with the selected config and style
