@@ -471,23 +471,14 @@ in
   # Generate shared style file
   home.file.".config/waybar/style.css".text = style;
 
-  # Generate the launch.sh script that selects config based on WAYBAR_WM
+    # Generate the launch.sh script that selects config based on WAYBAR_WM
   home.file.".config/waybar/launch.sh" = {
     text = ''
       #!/bin/sh
-      # Determine WM from environment variable
-      case \$WAYBAR_WM in
-        hyprland|niri) CONFIG=~/.config/waybar/config-\${WAYBAR_WM}.json ;;
-        *) echo "Error: Invalid WAYBAR_WM value: \$WAYBAR_WM"; exit 1 ;;
-      esac
-
+      # Determine WM from environment variable (fallback to hyprland)
+      WM=''${WAYBAR_WM:-hyprland}
+      CONFIG=~/.config/waybar/config-''${WM}.json
       STYLE=~/.config/waybar/style.css
-
-      # Check if config file exists
-      if [ ! -f "$CONFIG" ]; then
-        echo "Error: Config file $CONFIG not found"
-        exit 1
-      fi
 
       # Quit all running waybar instances
       killall waybar
@@ -495,7 +486,7 @@ in
       sleep 0.2
 
       # Launch Waybar with the selected config and style
-      ${pkgs.waybar}/bin/waybar -c $CONFIG -s $STYLE &
+      ${pkgs.waybar}/bin/waybar -c $CONFIG -s $STYLE >> ~/.config/waybar/waybar.log 2>&1 &
     '';
     executable = true;
   };
