@@ -215,9 +215,6 @@
         #workspaces button {
           padding: 4px 8px;
           color: @overlay1;
-          border: none;
-          border-radius: 8px;
-          margin: 0 2px;
           transition: all 0.3s ease;
         }
 
