@@ -197,7 +197,7 @@
         }
 
         window#waybar {
-          background: alpha(@base, 0.95);
+          background: @base;
           color: @text;
           border-radius: 16px;
           border: 2px solid @surface0;
@@ -214,19 +214,20 @@
 
         #workspaces button {
           padding: 4px 8px;
-          color: @overlay1;
+          color: @overlay0;
+          background: transparent;
           transition: all 0.3s ease;
         }
 
         #workspaces button:hover {
           background: @surface1;
-          color: @blue;
+          color: @text;
         }
 
         #workspaces button.active {
-          background: @blue;
-          color: @base;
-          font-weight: normal;
+          background: @lavender;
+          color: @surface0;
+          font-weight: bold;
         }
 
         #workspaces button.urgent {
