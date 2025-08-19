@@ -56,9 +56,7 @@
               "9" = "󰲰";
               "10" = "󰿬";
             };
-            persistent-workspaces = {
-              "*" = 5;
-            };
+
           };
 
           "hyprland/window" = {
@@ -101,7 +99,7 @@
             # NixOS automatically detects thermal zones
             # You may need to adjust this based on your system
             thermal-zone = 2;
-            hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+            hwmon-path = "/sys/class/hwmon/hwmon0/temp1_input";
             critical-threshold = 80;
             format-critical = "󰸁 {temperatureC}°C";
             format = "󰔏 {temperatureC}°C";
@@ -130,7 +128,7 @@
               default = [ "󰕿" "󰖀" "󰕾" ];
             };
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-            on-click-right = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+            on-click-right = "${pkgs.wireplow}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
           };
 
           tray = {
@@ -190,7 +188,7 @@
         @define-color flamingo  #f2cdcd;
         @define-color rosewater #f5e0dc;
 
-        @keyframes urgent {
+        /*@keyframes urgent {
           0% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
           50% { box-shadow: 0 2px 20px rgba(243, 139, 168, 0.8); }
           100% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
@@ -200,7 +198,7 @@
           0% { opacity: 1; }
           50% { opacity: 0.7; }
           100% { opacity: 1; }
-        }
+        }*/
 
         * {
           font-family: "JetBrainsMono Nerd Font", monospace;
@@ -222,6 +220,7 @@
           margin: 4px 8px;
           padding: 2px 4px;
           border-radius: 12px;
+          border: 1px solid @surface1; /* Optional: Adds a subtle border for definition */
         }
 
         #workspaces button {
@@ -237,20 +236,20 @@
         #workspaces button:hover {
           background: @surface1;
           color: @text;
-          box-shadow: 0 2px 8px alpha(@blue, 0.3);
+          /* Removed box-shadow for a flat look */
         }
 
         #workspaces button.active {
           background: @blue;
           color: @base;
           font-weight: bold;
-          box-shadow: 0 2px 12px alpha(@blue, 0.5);
+          /* Removed box-shadow for a flat look */
         }
 
         #workspaces button.urgent {
           background: @red;
           color: @base;
-          animation: urgent 2s ease-in-out infinite;
+          /* Removed animation for a flat, static look */
         }
 
         /* Window Title */
@@ -294,7 +293,7 @@
         #cpu.critical {
           background: @red;
           color: @base;
-          animation: critical 1s ease-in-out infinite;
+          /*animation: critical 1s ease-in-out infinite;*/
         }
 
         #memory {
@@ -310,7 +309,7 @@
         #memory.critical {
           background: @red;
           color: @base;
-          animation: critical 1s ease-in-out infinite;
+          /*animation: critical 1s ease-in-out infinite;*/
         }
 
         #temperature {
@@ -321,7 +320,7 @@
         #temperature.critical {
           background: @red;
           color: @base;
-          animation: critical 1s ease-in-out infinite;
+          /*animation: critical 1s ease-in-out infinite;*/
         }
 
         /* Network */
