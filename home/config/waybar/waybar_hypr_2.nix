@@ -232,17 +232,6 @@
           box-shadow: 0 2px 12px alpha(@blue, 0.5);
         }
 
-        //#workspaces button.urgent {
-        //  background: @red;
-        //  color: @base;
-        //  animation: urgent 2s ease-in-out infinite;
-        //}
-
-        //@keyframes urgent {
-        //  0%, 100% { box-shadow: 0 2px 12px alpha(@red, 0.5); }
-        //  50% { box-shadow: 0 2px 20px alpha(@red, 0.8); }
-        //}
-
         /* Window Title */
         #window {
           background: @surface0;
