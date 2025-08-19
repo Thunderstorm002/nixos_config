@@ -12,7 +12,7 @@
           mode = "hide";
           start_hidden = true;
           ipc = true;
-          height = 40;
+          height = 41;
           width = 1920;
           spacing = 8;
           margin-top = 8;
@@ -214,7 +214,7 @@
 
         #workspaces button {
           padding: 4px 8px;
-          color: @blue;
+          color: @overlay1;
           border: none;
           border-radius: 8px;
           margin: 0 2px;
@@ -224,20 +224,17 @@
         #workspaces button:hover {
           background: @surface1;
           color: @text;
-          /* Removed box-shadow for a flat look */
         }
 
         #workspaces button.active {
           background: @blue;
           color: @base;
-          font-weight: bold;
-          /* Removed box-shadow for a flat look */
+          font-weight: normal;
         }
 
         #workspaces button.urgent {
           background: @red;
           color: @base;
-          /* Removed animation for a flat, static look */
         }
 
         /* Window Title */
@@ -281,7 +278,6 @@
         #cpu.critical {
           background: @red;
           color: @base;
-          /*animation: critical 1s ease-in-out infinite;*/
         }
 
         #memory {
@@ -297,7 +293,6 @@
         #memory.critical {
           background: @red;
           color: @base;
-          /*animation: critical 1s ease-in-out infinite;*/
         }
 
         #temperature {
@@ -308,7 +303,6 @@
         #temperature.critical {
           background: @red;
           color: @base;
-          /*animation: critical 1s ease-in-out infinite;*/
         }
 
         /* Network */
