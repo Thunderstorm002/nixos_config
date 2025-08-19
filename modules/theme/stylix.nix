@@ -6,7 +6,7 @@
 {
   stylix = {
     enable = true;
-    polarity = dark;
+    polarity = "dark";
     base16Scheme = "${pkgs.stylix}/share/themes/catppuccin-mocha.yaml";
     cursor = {
       package = pkgs.catppuccin-cursors.mochaDark;
