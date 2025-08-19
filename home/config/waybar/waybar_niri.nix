@@ -3,483 +3,393 @@
 {
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar;
+
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
-        height = 17;
-        spacing = 1;
-        margin = 0;
-        margin-top = 0;
-        margin-bottom = 0;
-        #mode = "hide";
+        position = "bottom";
+        mode = "hide";
+        start_hidden = true;
+        ipc = true;
+        height = 42;
+        width = 1920;
+        spacing = 8;
+        margin-top = 8;
+        margin-left = 16;
+        margin-right = 16;
+
         modules-left = [
-          "group/hardware"
           "niri/workspaces"
           "niri/window"
         ];
+
         modules-center = [
           "clock"
         ];
+
         modules-right = [
-          "wireplumber#sink"
-          "backlight"
-          "network"
-          "battery"
-          "group/session"
           "tray"
+          "idle_inhibitor"
+          "pulseaudio"
+          "network"
+          "cpu"
+          "memory"
+          "temperature"
+          "custom/power"
         ];
+
+        # Module configurations
         "niri/workspaces" = {
+          all-outputs = true;
           format = "{icon}";
           format-icons = {
-            active = "";
-            default = "";
+            "1" = "󰲠";
+            "2" = "󰲢";
+            "3" = "󰲤";
+            "4" = "󰲦";
+            "5" = "󰲨";
+            "6" = "󰲪";
+            "7" = "󰲬";
+            "8" = "󰲮";
+            "9" = "󰲰";
+            "10" = "󰿬";
           };
         };
+
         "niri/window" = {
-          format = "<span color='#FFD700'>  {title}</span>";
+          format = "{}";
+          separate-outputs = true;
           rewrite = {
-            "(.*) - Mozilla Firefox" = "🌎 $1";
-            "(.*) - zsh" = "> [$1]";
+            "(.*) — Mozilla Firefox" = " $1";
+            "(.*) - Visual Studio Code" = "󰨞 $1";
           };
         };
-        "custom/hardware-wrap" = {
-          format = "";
-          tooltip-format = "Resource Usage";
-        };
-        "group/hardware" = {
-          orientation = "horizontal";
-          drawer = {
-            transition-duration = 500;
-            transition-left-to-right = true;
-          };
-          modules = [
-            "custom/hardware-wrap"
-            "power-profiles-daemon"
-            "cpu"
-            "memory"
-            "temperature"
-            "disk"
-          ];
-        };
-        "custom/session-wrap" = {
-          format = "<span color='#63a4ff'>  </span>";
-          tooltip-format = "Lock, Reboot, Shutdown";
-        };
-        "group/session" = {
-          orientation = "horizontal";
-          drawer = {
-            transition-duration = 500;
-            transition-left-to-right = true;
-          };
-          modules = [
-            "custom/session-wrap"
-            "custom/lock"
-            "custom/reboot"
-            "custom/power"
-          ];
-        };
-        "custom/lock" = {
-          format = "<span color='#00FFFF'>  </span>";
-          on-click = "swaylock -c 000000";
-          tooltip = true;
-          tooltip-format = "Lock screen";
-        };
-        "custom/reboot" = {
-          format = "<span color='#FFD700'>  </span>";
-          on-click = "systemctl reboot";
-          tooltip = true;
-          tooltip-format = "Reboot";
-        };
-        "custom/power" = {
-          format = "<span color='#FF4040'>  </span>";
-          on-click = "systemctl poweroff";
-          tooltip = true;
-          tooltip-format = "Power Off";
-        };
+
         clock = {
-          format = "󰥔 {:%H:%M 󰃮 %B %d, %Y}";
-          format-alt = "󰥔 {:%H:%M}";
+          timezone = "Asia/Kolkata";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          calendar = {
-            mode = "month";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            on-click-right = "mode";
-            format = {
-              months = "<span color='#d3c6aa'><b>{}</b></span>";
-              days = "<span color='#e67e80'>{}</span>";
-              weeks = "<span color='#a7c080'><b>W{}</b></span>";
-              weekdays = "<span color='#7fbbb3'><b>{}</b></span>";
-              today = "<span color='#dbbc7f'><b><u>{}</u></b></span>";
-            };
-          };
-          actions = {
-            on-click-right = "mode";
-            on-click-forward = "tz_up";
-            on-click-backward = "tz_down";
-            on-scroll-up = "shift_up";
-            on-scroll-down = "shift_down";
-          };
+          format = " {:%H:%M   %d/%m/%Y}";
+          format-alt = " {:%A, %B %d, %Y}";
         };
+
         cpu = {
-          format = "󰘚 {usage}%";
+          format = "󰍛 {usage}%";
           tooltip = true;
-          interval = 1;
-          on-click = "alacritty -e htop";
-        };
-        memory = {
-          format = "󰍛 {}%";
-          interval = 1;
-          on-click = "alacritty -e htop";
-        };
-        temperature = {
-          critical-threshold = 80;
-          format = "{icon} {temperatureC}°C";
-          format-icons = [
-            "󱃃"
-            "󰔏"
-            "󱃂"
-          ];
-        };
-        battery = {
+          interval = 2;
           states = {
-            good = 95;
-            warning = 30;
-            critical = 15;
+            warning = 70;
+            critical = 90;
           };
-          format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󰚥 {capacity}%";
-          format-alt = "{icon} {time}";
-          format-icons = [
-            "󰂎"
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
         };
+
+        memory = {
+          format = "󰾆 {percentage}%";
+          tooltip-format = "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G";
+          states = {
+            warning = 70;
+            critical = 90;
+          };
+        };
+
+        temperature = {
+          thermal-zone = 2;
+          hwmon-path = "/sys/class/hwmon/hwmon0/temp1_input";
+          critical-threshold = 80;
+          format-critical = "󰸁 {temperatureC}°C";
+          format = "󰔏 {temperatureC}°C";
+        };
+
         network = {
-          format-wifi = "󰖩 {essid} ({signalStrength}%)";
-          format-ethernet = "󰈀 {ifname}";
+          format-wifi = "󰤨 {signalStrength}%";
+          format-ethernet = "󰈀 Connected";
+          tooltip-format = "{ifname} via {gwaddr}";
           format-linked = "󰈀 {ifname} (No IP)";
-          format-disconnected = "󰖪 Disconnected";
+          format-disconnected = "󰤭 Disconnected";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
-          tooltip-format = "{ifname}: {ipaddr}";
-          on-click-right = "alacritty -e nmtui";
+          on-click-right = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
-        "wireplumber#sink" = {
+
+        pulseaudio = {
           format = "{icon} {volume}%";
-          format-muted = "";
-          format-icons = [
-            ""
-            ""
-            ""
-          ];
-          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          on-scroll-down = "wpctl set-volume @DEFAULT_SINK@ 1%-";
-          on-scroll-up = "wpctl set-volume @DEFAULT_SINK@ 1%+";
-        };
-        backlight = {
-          format = "{icon} {percent}%";
-          format-icons = [
-            "󰃞"
-            "󰃟"
-            "󰃠"
-          ];
-          on-scroll-up = "brightnessctl set +5%";
-          on-scroll-down = "brightnessctl set 5%-";
-        };
-        disk = {
-          interval = 30;
-          format = "󰋊 {percentage_used}%";
-          path = "/";
-        };
-        tray = {
-          icon-size = 16;
-          spacing = 5;
-        };
-        power-profiles-daemon = {
-          format = "{icon}";
-          tooltip-format = "Power profile: {profile}\nDriver: {driver}";
-          tooltip = true;
+          format-muted = "󰖁 Muted";
           format-icons = {
-            default = "";
-            performance = "";
-            balanced = "";
-            power-saver = "";
+            headphone = "󰋋";
+            hands-free = "󰋋";
+            headset = "󰋋";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [ "󰕿" "󰖀" "󰕾" ];
           };
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
+        };
+
+        tray = {
+          spacing = 10;
+          icon-size = 16;
+        };
+
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "󰈈";
+            deactivated = "󰈉";
+          };
+          tooltip-format-activated = "Idle inhibitor: ON";
+          tooltip-format-deactivated = "Idle inhibitor: OFF";
+        };
+
+        "custom/power" = {
+          format = "⏻";
+          tooltip = "Power menu";
+          on-click = "${pkgs.wlogout}/bin/wlogout";
         };
       };
     };
+
     style = ''
-      /* Pastel TTY Colors */
-      @define-color background #212121;
-      @define-color background-light #3a3a3a;
-      @define-color foreground #e0e0e0;
-      @define-color black #5a5a5a;
-      @define-color red #ff9a9e;
-      @define-color green #b5e8a9;
-      @define-color yellow #ffe6a7;
-      @define-color blue #63a4ff;
-      @define-color magenta #dda0dd;
-      @define-color cyan #a3e8e8;
-      @define-color white #ffffff;
-      @define-color orange #ff8952;
+      /* Catppuccin Mocha Color Palette */
+      @define-color base   #1e1e2e;
+      @define-color mantle #181825;
+      @define-color crust  #11111b;
 
-      /* Module-specific colors */
-      @define-color workspaces-color @foreground;
-      @define-color workspaces-focused-bg @green;
-      @define-color workspaces-focused-fg @cyan;
-      @define-color workspaces-urgent-bg @red;
-      @define-color workspaces-urgent-fg @black;
+      @define-color text     #cdd6f4;
+      @define-color subtext0 #a6adc8;
+      @define-color subtext1 #bac2de;
 
-      /* Text and border colors for modules */
-      @define-color mode-color @orange;
-      @define-color group-hardware-color @blue;
-      @define-color group-session-color @red;
-      @define-color clock-color @blue;
-      @define-color cpu-color @green;
-      @define-color memory-color @magenta;
-      @define-color temperature-color @yellow;
-      @define-color temperature-critical-color @red;
-      @define-color battery-color @cyan;
-      @define-color battery-charging-color @green;
-      @define-color battery-warning-color @yellow;
-      @define-color battery-critical-color @red;
-      @define-color network-color @blue;
-      @define-color network-disconnected-color @red;
-      @define-color pulseaudio-color @orange;
-      @define-color pulseaudio-muted-color @red;
-      @define-color wireplumber-color @orange;
-      @define-color wireplumber-muted-color @red;
-      @define-color backlight-color @yellow;
-      @define-color disk-color @cyan;
-      @define-color updates-color @orange;
-      @define-color quote-color @green;
-      @define-color idle-inhibitor-color @foreground;
-      @define-color idle-inhibitor-active-color @red;
-      @define-color power-profiles-daemon-color @cyan;
-      @define-color power-profiles-daemon-performance-color @red;
-      @define-color power-profiles-daemon-balanced-color @yellow;
-      @define-color power-profiles-daemon-power-saver-color @green;
+      @define-color surface0 #313244;
+      @define-color surface1 #45475a;
+      @define-color surface2 #585b70;
+
+      @define-color overlay0 #6c7086;
+      @define-color overlay1 #7f849c;
+      @define-color overlay2 #9399b2;
+
+      @define-color blue      #2765f6;
+      @define-color lavender  #b4befe;
+      @define-color sapphire  #74c7ec;
+      @define-color sky       #89dceb;
+      @define-color teal      #94e2d5;
+      @define-color green     #a6e3a1;
+      @define-color yellow    #f9e2af;
+      @define-color peach     #fab387;
+      @define-color maroon    #eba0ac;
+      @define-color red       #f38ba8;
+      @define-color mauve     #cba6f7;
+      @define-color pink      #f5c2e7;
+      @define-color flamingo  #f2cdcd;
+      @define-color rosewater #f5e0dc;
 
       * {
-          /* Base styling for all modules */
-          border: none;
-          border-radius: 0;
-          font-family: "JetBrainsMono Nerd Font Propo";
-          font-size: 14px;
-          min-height: 0;
+        font-family: "JetBrainsMono Nerd Font", monospace;
+        font-size: 13px;
+        min-height: 0;
+        transition: all 0.3s ease;
       }
 
       window#waybar {
-          background-color: @background;
-          color: @foreground;
+        background: @base;
+        color: @text;
+        border-radius: 16px;
+        border: 2px solid @surface0;
       }
 
-      /* Common module styling with border-bottom */
-      #mode,
-      #custom-hardware-wrap,
-      #custom-session-wrap,
-      #clock,
-      #cpu,
-      #memory,
-      #temperature,
-      #battery,
-      #network,
-      #pulseaudio,
-      #wireplumber,
-      #backlight,
-      #disk,
-      #power-profiles-daemon,
-      #idle_inhibitor,
-      #tray {
-          padding: 0 10px;
-          margin: 0 2px;
-          border-bottom: 2px solid transparent;
-          background-color: transparent;
+      #workspaces {
+        background: @surface0;
+        margin: 4px 8px;
+        padding: 2px 4px;
+        border-radius: 12px;
+        border: 1px solid @surface1;
       }
 
-      /* Workspaces styling */
       #workspaces button {
-          padding: 0 10px;
-          background-color: transparent;
-          color: @workspaces-color;
-          margin: 0;
+        padding: 4px 8px;
+        color: @overlay0;
+        background: transparent;
+        transition: all 0.3s ease;
       }
 
       #workspaces button:hover {
-          background: @background-light;
-          box-shadow: inherit;
+        background: @surface1;
+        color: @text;
       }
 
-      #workspaces button.focused {
-          box-shadow: inset 0 -2px @workspaces-focused-fg;
-          color: @workspaces-focused-fg;
-          font-weight: 900;
+      #workspaces button.active {
+        background: @lavender;
+        color: @surface0;
+        font-weight: bold;
       }
 
       #workspaces button.urgent {
-          background-color: @workspaces-urgent-bg;
-          color: @workspaces-urgent-fg;
+        background: @red;
+        color: @base;
       }
 
-      /* Module-specific styling */
-      #mode {
-          color: @mode-color;
-          border-bottom-color: @mode-color;
-      }
-
-      #custom-hardware-wrap {
-          color: @group-hardware-color;
-          border-bottom-color: @group-hardware-color;
-      }
-
-      #custom-session-wrap {
-          color: @group-session-color;
-          border-bottom-color: @group-session-color;
+      #window {
+        background: @surface0;
+        margin: 4px 0;
+        padding: 4px 12px;
+        border-radius: 12px;
+        color: @text;
+        font-weight: 500;
       }
 
       #clock {
-          color: @clock-color;
-          border-bottom-color: @clock-color;
+        background: @surface0;
+        color: @sky;
+        padding: 4px 16px;
+        border-radius: 12px;
+        font-weight: bold;
+        margin: 4px 0;
+      }
+
+      #cpu, #memory, #temperature {
+        margin: 4px 2px;
+        padding: 4px 8px;
+        border-radius: 10px;
+        font-weight: 500;
       }
 
       #cpu {
-          color: @cpu-color;
-          border-bottom-color: @cpu-color;
+        background: @surface0;
+        color: @green;
+      }
+
+      #cpu.warning {
+        background: @yellow;
+        color: @base;
+      }
+
+      #cpu.critical {
+        background: @red;
+        color: @base;
       }
 
       #memory {
-          color: @memory-color;
-          border-bottom-color: @memory-color;
+        background: @surface0;
+        color: @mauve;
+      }
+
+      #memory.warning {
+        background: @yellow;
+        color: @base;
+      }
+
+      #memory.critical {
+        background: @red;
+        color: @base;
       }
 
       #temperature {
-          color: @temperature-color;
-          border-bottom-color: @temperature-color;
+        background: @surface0;
+        color: @sapphire;
       }
 
       #temperature.critical {
-          color: @temperature-critical-color;
-          border-bottom-color: @temperature-critical-color;
-      }
-
-      #power-profiles-daemon {
-          color: @power-profiles-daemon-color;
-          border-bottom-color: @power-profiles-daemon-color;
-      }
-
-      #power-profiles-daemon.performance {
-          color: @power-profiles-daemon-performance-color;
-          border-bottom-color: @power-profiles-daemon-performance-color;
-      }
-
-      #power-profiles-daemon.balanced {
-          color: @power-profiles-daemon-balanced-color;
-          border-bottom-color: @power-profiles-daemon-balanced-color;
-      }
-
-      #power-profiles-daemon.power-saver {
-          color: @power-profiles-daemon-power-saver-color;
-          border-bottom-color: @power-profiles-daemon-power-saver-color;
-      }
-
-      #battery {
-          color: @battery-color;
-          border-bottom-color: @battery-color;
-      }
-
-      #battery.charging,
-      #battery.plugged {
-          color: @battery-charging-color;
-          border-bottom-color: @battery-charging-color;
-      }
-
-      #battery.warning:not(.charging) {
-          color: @battery-warning-color;
-          border-bottom-color: @battery-warning-color;
-      }
-
-      #battery.critical:not(.charging) {
-          color: @battery-critical-color;
-          border-bottom-color: @battery-critical-color;
+        background: @red;
+        color: @base;
       }
 
       #network {
-          color: @network-color;
-          border-bottom-color: @network-color;
+        background: @surface0;
+        color: @teal;
+        padding: 4px 12px;
+        border-radius: 12px;
+        margin: 4px 2px;
+        font-weight: 500;
       }
 
       #network.disconnected {
-          color: @network-disconnected-color;
-          border-bottom-color: @network-disconnected-color;
+        background: @surface0;
+        color: @red;
       }
 
       #pulseaudio {
-          color: @pulseaudio-color;
-          border-bottom-color: @pulseaudio-color;
+        background: @surface0;
+        color: @yellow;
+        padding: 4px 12px;
+        border-radius: 12px;
+        margin: 4px 2px;
+        font-weight: 500;
       }
 
       #pulseaudio.muted {
-          color: @pulseaudio-muted-color;
-          border-bottom-color: @pulseaudio-muted-color;
-      }
-
-      #wireplumber {
-          color: @wireplumber-color;
-          border-bottom-color: @wireplumber-color;
-      }
-
-      #wireplumber.muted {
-          color: @wireplumber-muted-color;
-          border-bottom-color: @wireplumber-muted-color;
-      }
-
-      #backlight {
-          color: @backlight-color;
-          border-bottom-color: @backlight-color;
-      }
-
-      #disk {
-          color: @disk-color;
-          border-bottom-color: @disk-color;
-      }
-
-      #idle_inhibitor {
-          color: @idle-inhibitor-color;
-          border-bottom-color: transparent;
-      }
-
-      #idle_inhibitor.activated {
-          color: @idle-inhibitor-active-color;
-          border-bottom-color: @idle-inhibitor-active-color;
+        color: @red;
       }
 
       #tray {
-          background-color: transparent;
-          padding: 0 10px;
-          margin: 0 2px;
+        background: @surface0;
+        margin: 4px 2px;
+        padding: 4px 8px;
+        border-radius: 12px;
       }
 
-      #tray>.passive {
-          -gtk-icon-effect: dim;
+      #tray > .passive {
+        -gtk-icon-effect: dim;
       }
 
-      #tray>.needs-attention {
-          -gtk-icon-effect: highlight;
-          color: @red;
-          border-bottom-color: @red;
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+        background: @red;
+        border-radius: 50%;
+      }
+
+      #idle_inhibitor {
+        background: @surface0;
+        color: @lavender;
+        padding: 4px 8px;
+        border-radius: 12px;
+        margin: 4px 2px;
+        font-weight: 500;
+      }
+
+      #idle_inhibitor.activated {
+        background: @green;
+        color: @base;
+      }
+
+      #custom-power {
+        background: @surface0;
+        color: @red;
+        padding: 4px 12px;
+        border-radius: 12px;
+        margin: 4px 8px 4px 2px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      #custom-power:hover {
+        background: @red;
+        color: @base;
+        box-shadow: 0 2px 12px alpha(@red, 0.5);
+      }
+
+      tooltip {
+        background: @base;
+        border: 2px solid @surface0;
+        border-radius: 12px;
+        color: @text;
+        padding: 8px;
+      }
+
+      tooltip label {
+        color: @text;
       }
     '';
+  };
+
+  home.file.".config/waybar/launch.sh" = {
+    text = ''
+      #!/bin/sh
+      # Quit all running waybar instances
+      killall waybar
+      pkill waybar
+      sleep 0.2
+      # Launch Waybar
+      ${pkgs.waybar}/bin/waybar &
+    '';
+    executable = true;
   };
 }
