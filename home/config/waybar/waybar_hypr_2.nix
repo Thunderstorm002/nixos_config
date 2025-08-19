@@ -188,7 +188,7 @@
         @define-color flamingo  #f2cdcd;
         @define-color rosewater #f5e0dc;
 
-        /*@keyframes urgent {
+        @keyframes urgent {
           0% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
           50% { box-shadow: 0 2px 20px rgba(243, 139, 168, 0.8); }
           100% { box-shadow: 0 2px 12px rgba(243, 139, 168, 0.5); } /* @red = #f38ba8 */
@@ -198,7 +198,7 @@
           0% { opacity: 1; }
           50% { opacity: 0.7; }
           100% { opacity: 1; }
-        }*/
+        }
 
         * {
           font-family: "JetBrainsMono Nerd Font", monospace;
