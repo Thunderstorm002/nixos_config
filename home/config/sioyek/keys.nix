@@ -75,7 +75,7 @@
   # pop_state w
 
   # Goto the previous history point
-  "prev_state" = "<backspace>";
+  #"prev_state" = "<backspace>";
   "prev_state" = "<C-<left>>";
 
   # Create a new sioyek window
