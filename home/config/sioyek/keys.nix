@@ -27,10 +27,10 @@
   # Goto the beginning of document. If prefixed with a number, it will go to that page.
   # for example 150gg goes to page 150.
   "goto_beginning" = "gg";
-  "goto_beginning" = "<C-<home>>";
+  #"goto_beginning" = "<C-<home>>";
 
   # Goto the end of the document
-  "goto_end" = "<end>";
+  #"goto_end" = "<end>";
   "goto_end" = "G";
 
   # Opens a prompt to enter page number and jump to that page
@@ -62,8 +62,8 @@
   "previous_page" = "<C-<pageup>>";
 
   # Go down one screen width (can be prefixed with a number which tells how many screen widths should we go down)
-  "screen_down" = "<space>";
-  "screen_up" = "<S-<space>>";
+  #"screen_down" = "<space>";
+  #"screen_up" = "<S-<space>>";
   "screen_down" = "<pagedown>";
   "screen_up" = "<pageup>";
 
@@ -88,7 +88,7 @@
   #goto_window <unbound>
 
   # If we are not at the end of viewing history, goto the next history point
-  "next_state" = "<S-<backspace>>";
+  #"next_state" = "<S-<backspace>>";
   "next_state" = "<C-<right>>";
 
   # Open table of contents.
@@ -155,12 +155,12 @@
   # example: /something                   (searches the document for 'something')
   # you can also specify a page range to search:
   # example: /<110,135>something          (searches pages 110 to 135 (inclusive) for 'something')
-  "search" = "<C-f>";
+  #"search" = "<C-f>";
   "search" = "/";
 
   # Searches the current chapter. This is essentially the same as search but the range prefix is autofilled
   # with the range of the current lowest level subchapter.
-  "chapter_search" = "c<C-f>";
+  #"chapter_search" = "c<C-f>";
   "chapter_search" = "c/";
 
   # Goto the next search item. Can be prefixed with a number which is the same as performing the command n times
@@ -230,12 +230,12 @@
 
   # Goto the position of the portal with the closest source to current location
   "goto_portal" = "gp";
-  "goto_portal" = "<tab>";
+  #"goto_portal" = "<tab>";
 
   # Similar to goto_portal, except when prev_state is called, the destination of the portal is update to be the state
   # on which prev_state is called
   "edit_portal" = "P";
-  "edit_portal" = "<S-<tab>>";
+  #"edit_portal" = "<S-<tab>>";
 
   # Open/Close the helper window for portals
   "toggle_window_configuration" = "<f12>";
