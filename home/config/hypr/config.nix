@@ -171,7 +171,7 @@
         "$Mod, J, togglesplit,"
         "$Mod, O, exec, zen"
         "$Mod SHIFT, O, exec, librewolf"
-        "$Mod, P, exec, ebook-viewer"
+        "$Mod, P, exec, sioyek"
         "$Mod, N, exec, neovide"
         "$Mod, Y, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         "$Mod SHIFT, Y, exec, cliphist wipe"
