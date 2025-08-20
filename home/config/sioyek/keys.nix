@@ -109,7 +109,7 @@
 
   # Automatically set the zoom level and horizontal offset such that the current page is centered horizontally and
   # it fills the screen width
-  "fit_to_page_width" = "<f9>";
+  #"fit_to_page_width" = "<f9>";
   # Same as fit_to_page_with but ignores page margins
   "fit_to_page_width_smart" = "<f10>";
 
