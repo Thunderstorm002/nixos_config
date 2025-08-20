@@ -350,16 +350,16 @@
 
 
 ;;; :email mu4e
-(after! mu4e
-  (setq mu4e-headers-skip-duplicates t
-        mu4e-compose-format-flowed nil
-        mu4e-change-filenames-when-moving t
-        mu4e-headers-date-format "%Y/%m/%d"
-        mu4e-refile-folder "/Archive"
-        mu4e-sent-folder   "/Sent"
-        mu4e-drafts-folder "/Drafts"
-        mu4e-trash-folder  "/Trash"
-        smtpmail-smtp-server "smtp.fastmail.com"))
+;; (after! mu4e
+;;   (setq mu4e-headers-skip-duplicates t
+;;         mu4e-compose-format-flowed nil
+;;         mu4e-change-filenames-when-moving t
+;;         mu4e-headers-date-format "%Y/%m/%d"
+;;         mu4e-refile-folder "/Archive"
+;;         mu4e-sent-folder   "/Sent"
+;;         mu4e-drafts-folder "/Drafts"
+;;         mu4e-trash-folder  "/Trash"
+;;         smtpmail-smtp-server "smtp.fastmail.com"))
 
 
 ;;
