@@ -29,10 +29,10 @@
       # Goto the beginning of document. If prefixed with a number, it will go to that page.
       # for example 150gg goes to page 150.
       "goto_beginning" = "gg";
-      "goto_beginning" = "<C-<home>>";
+      #"goto_beginning" = "<C-<home>>";
 
       # Goto the end of the document
-      "goto_end" = "<end>";
+      #"goto_end" = "<end>";
       "goto_end" = "G";
 
       # Opens a prompt to enter page number and jump to that page
@@ -52,10 +52,10 @@
       "goto_top_of_page;goto_right_smart" = "zz";
 
       # Movement (can be prefixed with a number)
-      # move_down           <down>
-      # move_up             <up>
-      "move_left" = "<right>";
-      "move_right" = "<left>";
+      "move_down" = "j";
+      "move_up" = "k";
+      "move_left" = "h";
+      "move_right" = "l";
 
       # Goto forward for one page width. (can be prefixed with a number)
       # (note that going forward for one page width is not usually what you want because if
@@ -66,8 +66,8 @@
       # Go down one screen width (can be prefixed with a number which tells how many screen widths should we go down)
       "screen_down" = "<space>";
       "screen_up" = "<S-<space>>";
-      "screen_down" = "<pagedown>";
-      "screen_up" = "<pageup>";
+      #"screen_down" = "<pagedown>";
+      #"screen_up" = "<pageup>";
 
       # Goto the next/prev chapter
       "next_chapter" = "gc";
@@ -77,7 +77,7 @@
       # pop_state w
 
       # Goto the previous history point
-      "prev_state" = "<backspace>";
+      #"prev_state" = "<backspace>";
       "prev_state" = "<C-<left>>";
 
       # Create a new sioyek window
@@ -90,7 +90,7 @@
       #goto_window <unbound>
 
       # If we are not at the end of viewing history, goto the next history point
-      "next_state" = "<S-<backspace>>";
+      #"next_state" = "<S-<backspace>>";
       "next_state" = "<C-<right>>";
 
       # Open table of contents.
@@ -111,7 +111,7 @@
 
       # Automatically set the zoom level and horizontal offset such that the current page is centered horizontally and
       # it fills the screen width
-      "fit_to_page_width" = "<f9>";
+      #"fit_to_page_width" = "<f9>";
       # Same as fit_to_page_with but ignores page margins
       "fit_to_page_width_smart" = "<f10>";
 
@@ -157,12 +157,12 @@
       # example: /something                   (searches the document for 'something')
       # you can also specify a page range to search:
       # example: /<110,135>something          (searches pages 110 to 135 (inclusive) for 'something')
-      "search" = "<C-f>";
+      #"search" = "<C-f>";
       "search" = "/";
 
       # Searches the current chapter. This is essentially the same as search but the range prefix is autofilled
       # with the range of the current lowest level subchapter.
-      "chapter_search" = "c<C-f>";
+      #"chapter_search" = "c<C-f>";
       "chapter_search" = "c/";
 
       # Goto the next search item. Can be prefixed with a number which is the same as performing the command n times
@@ -185,7 +185,7 @@
       # ---------- HIGHLIGHTS ----------
       # You can select a piece of text and press the `add_highlight` shortcut followed by a symbol (a character from a-z) to highlight
       # the text
-      "add_highlight" = "h";
+      "add_highlight" = "ah";
       # Goto highlights of current document
       "goto_highlight" = "gh";
       # Goto highlights of all documents
@@ -231,12 +231,12 @@
       "delete_portal" = "dp";
 
       # Goto the position of the portal with the closest source to current location
-      "goto_portal" = "gp";
+      #"goto_portal" = "gp";
       "goto_portal" = "<tab>";
 
       # Similar to goto_portal, except when prev_state is called, the destination of the portal is update to be the state
       # on which prev_state is called
-      "edit_portal" = "P";
+      #"edit_portal" = "P";
       "edit_portal" = "<S-<tab>>";
 
       # Open/Close the helper window for portals
@@ -285,7 +285,7 @@
       "toggle_visual_scroll" = "<f7>";
 
       # In visual scroll mode, create an overview to/go to/portal to the definition in highlighted line
-      "overview_definition" = "l";
+      "overview_definition" = "[";
       "goto_definition" = "<C-]>";
       "portal_to_definition" = "]";
 
