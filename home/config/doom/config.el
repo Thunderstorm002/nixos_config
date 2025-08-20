@@ -292,11 +292,11 @@
           ("f" "ref" plain
            ,(format "#+title: ${title}\n%%[%s/template/ref.org]" org-roam-directory)
            :target (file "ref/%<%Y%m%d%H%M%S>-${slug}.org")
-           :unnarrowed t))
+           :unnarrowed t)
           ("i" "invoice" plain
            ,(format "#+title: %%<%%Y%%m%%d>-${title}\n%%[%s/template/invoice.org]" org-roam-directory)
            :target (file "invoice/%<%Y%m%d>-${slug}.org")
-           :unnarrowed t)
+           :unnarrowed t))
         ;; Use human readable dates for dailies titles
         org-roam-dailies-capture-templates
         `(("d" "default" plain ""
