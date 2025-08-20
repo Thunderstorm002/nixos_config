@@ -21,6 +21,8 @@
     inputs.nvf.homeManagerModules.default
     ./config/fuzzel.nix
     ./config/gammastep.nix
+    ./config/sioyek/sioyek.nix
+    ./config/sioyek/keys.nix
   ];
 
   # User Packages
@@ -141,6 +143,9 @@
     hunspellDicts.en_US
 
     gammastep
+
+    # PDF viewer
+    sioyek
   ];
 
   fonts.fontconfig.enable = true;
