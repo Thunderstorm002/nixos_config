@@ -281,22 +281,22 @@
            ,(format "#+title: ${title}\n%%[%s/template/books.org]" org-roam-directory)
            :target (file "book/%<%Y%m%d%H%M%S>-${slug}.org")
            :unnarrowed t)
-          ("c" "contact" plain
-           ,(format "#+title: ${title}\n%%[%s/template/contact.org]" org-roam-directory)
-           :target (file "contact/%<%Y%m%d%H%M%S>-${slug}.org")
+          ("t" "tags" plain
+           ,(format "#+title: ${title}\n%%[%s/template/tags.org]" org-roam-directory)
+           :target (file "tags/%<%Y%m%d%H%M%S>-${slug}.org")
            :unnarrowed t)
           ("p" "project" plain
            ,(format "#+title: ${title}\n%%[%s/template/project.org]" org-roam-directory)
            :target (file "project/%<%Y%m%d>-${slug}.org")
            :unnarrowed t)
-          ("i" "invoice" plain
-           ,(format "#+title: %%<%%Y%%m%%d>-${title}\n%%[%s/template/invoice.org]" org-roam-directory)
-           :target (file "invoice/%<%Y%m%d>-${slug}.org")
-           :unnarrowed t)
           ("f" "ref" plain
            ,(format "#+title: ${title}\n%%[%s/template/ref.org]" org-roam-directory)
            :target (file "ref/%<%Y%m%d%H%M%S>-${slug}.org")
            :unnarrowed t))
+          ("i" "invoice" plain
+           ,(format "#+title: %%<%%Y%%m%%d>-${title}\n%%[%s/template/invoice.org]" org-roam-directory)
+           :target (file "invoice/%<%Y%m%d>-${slug}.org")
+           :unnarrowed t)
         ;; Use human readable dates for dailies titles
         org-roam-dailies-capture-templates
         `(("d" "default" plain ""
