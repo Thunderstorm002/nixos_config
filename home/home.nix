@@ -149,6 +149,8 @@
 
     # PDF viewer
     sioyek
+
+    vlc
   ];
 
   fonts.fontconfig.enable = true;
