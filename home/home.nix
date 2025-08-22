@@ -35,6 +35,11 @@
     kitty
     fish
 
+    # TUI Apps
+    yazi
+    lazygit
+    gitui
+
     psmisc
     procps
 
@@ -110,14 +115,12 @@
 
     # nix lsp
     alejandra
-    nixfmt
+    #nixfmt
     nil
 
     # Emacs
-    #emacs
     emacsclient-commands
-    #emacs-pgtk
-    findutils 
+    findutils
     marksman
     shellcheck
     gnumake
