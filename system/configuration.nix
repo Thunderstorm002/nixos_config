@@ -149,6 +149,7 @@
 
     tor
     deluge
+    privoxy
     lsof
 
     #vpn
@@ -353,6 +354,13 @@
       daemon_port = 58846; # Default Deluge daemon port
     };
     web.enable = true; # Enable web interface if needed
+  };
+
+  services.privoxy = {
+  enable = true;
+  settings = {
+    forward-socks5t = "/ 127.0.0.1:9150 ."; # Forward to Tor’s SOCKS port
+    listen-address = "127.0.0.1:8118"; # Privoxy’s default port
   };
 
   system.stateVersion = "25.05";
