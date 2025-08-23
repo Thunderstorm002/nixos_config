@@ -329,7 +329,7 @@
       SOCKSPort = [
       {
         addr = "127.0.0.1";
-        port = 9050;
+        port = 9150;
         flags = [ "IsolateDestAddr" ]; # Specify flags as a list
       }
       {
