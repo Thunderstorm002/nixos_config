@@ -320,7 +320,7 @@
   };
 
   services.tor = {
-    enable = false;
+    enable = true;
     client = {
       enable = true;
     };
@@ -344,7 +344,7 @@
   };
 
   services.deluge = {
-    enable = false;
+    enable = true;
     openFilesLimit = 4096; # Adjust as needed
     config = {
       download_location = "/home/roshan/downloads/x/"; # Set your download path
