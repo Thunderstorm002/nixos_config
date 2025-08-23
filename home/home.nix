@@ -73,6 +73,8 @@
     tor
     tor-browser
 
+    deluge
+
     #Communication
     telegram-desktop
 
@@ -210,4 +212,33 @@
       size = 24;
     };
   };
+
+  services.tor = {
+    enable = true;
+    client = {
+      enable = true;
+    };
+    torsocks.enable = true; # Enables torsocks for proxying applications
+    settings = {
+      SOCKSPort = [
+        "127.0.0.1:9050 IsolateDestAddr" # Slow SOCKS port for general use
+        "127.0.0.1:9063" # Fast SOCKS port for browser-like applications
+      ];
+      SafeSocks = 1; # Rejects unsafe SOCKS configurations
+      CookieAuthentication = true;
+      AvoidDiskWrites = 1; # Improves performance
+    };
+  };
+
+  services.deluge = {
+    enable = true;
+    openFilesLimit = 4096; # Adjust as needed
+    config = {
+      download_location = "/home/roshan/downloads/x/"; # Set your download path
+      allow_remote = true; # Optional, for remote access
+      daemon_port = 58846; # Default Deluge daemon port
+    };
+    web.enable = true; # Enable web interface if needed
+  };
+
 }
