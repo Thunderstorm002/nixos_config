@@ -247,6 +247,8 @@
       80
       443
       853
+      9050
+      9063
     ];
   };
 
@@ -318,7 +320,7 @@
   };
 
   services.tor = {
-    enable = true;
+    enable = false;
     client = {
       enable = true;
     };
@@ -342,7 +344,7 @@
   };
 
   services.deluge = {
-    enable = true;
+    enable = false;
     openFilesLimit = 4096; # Adjust as needed
     config = {
       download_location = "/home/roshan/downloads/x/"; # Set your download path
