@@ -339,7 +339,7 @@
           port = 9063;
         }
       ];
-      SafeSocks = 1; # Rejects unsafe SOCKS configurations
+      SafeSocks = 0; # Rejects unsafe SOCKS configurations
       CookieAuthentication = true;
       AvoidDiskWrites = 1; # Improves performance
     };
