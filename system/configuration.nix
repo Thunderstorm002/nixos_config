@@ -149,6 +149,7 @@
 
     tor
     deluge
+    lsof
 
     #vpn
     tailscale
