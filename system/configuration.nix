@@ -344,7 +344,7 @@
   };
 
   services.deluge = {
-    enable = true;
+    enable = false;
     openFilesLimit = 4096; # Adjust as needed
     config = {
       download_location = "/home/roshan/downloads/x/"; # Set your download path
