@@ -325,9 +325,16 @@
     torsocks.enable = true; # Enables torsocks for proxying applications
     settings = {
       SOCKSPort = [
-        "127.0.0.1:9050 IsolateDestAddr" # Slow SOCKS port for general use
-        "127.0.0.1:9063" # Fast SOCKS port for browser-like applications
-      ];
+      {
+        addr = "127.0.0.1";
+        port = 9050;
+        flags = [ "IsolateDestAddr" ]; # Specify flags as a list
+      }
+      {
+        addr = "127.0.0.1";
+        port = 9063;
+      }
+    ];
       SafeSocks = 1; # Rejects unsafe SOCKS configurations
       CookieAuthentication = true;
       AvoidDiskWrites = 1; # Improves performance
