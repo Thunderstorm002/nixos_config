@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
@@ -35,7 +36,7 @@
   };
 
   # Graphics Drivers (Corrected)
-   hardware = {
+  hardware = {
     graphics = {
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
@@ -43,12 +44,12 @@
       enable32Bit = true;
     };
     amdgpu.amdvlk = {
-        enable = true;
-        support32Bit.enable = true;
+      enable = true;
+      support32Bit.enable = true;
     };
   };
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"]; # Or "nvidia", "amdgpu"
+  services.xserver.videoDrivers = [ "amdgpu" ]; # Or "nvidia", "amdgpu"
 
   # Nix Settings
   nix = {
@@ -149,7 +150,6 @@
 
     tor
     deluge
-    privoxy
     lsof
 
     #vpn
@@ -192,14 +192,14 @@
 
     (catppuccin-sddm.override {
       flavor = "mocha";
-      font  = "Noto Sans";
+      font = "Noto Sans";
       fontSize = "10";
       background = "${../modules/desktop/wallpaper/dark_galaxy.jpg}";
       loginBackground = true;
     })
     catppuccin-cursors.mochaDark
-    catppuccin-gtk  # GTK theme for Catppuccin
-    catppuccin-kvantum  # Qt/Kvantum theme
+    catppuccin-gtk # GTK theme for Catppuccin
+    catppuccin-kvantum # Qt/Kvantum theme
   ];
 
   # Disable the traditional sudo module
@@ -271,7 +271,7 @@
   '';
 
   # Ensure the uinput group exists
-  users.groups.uinput = {};
+  users.groups.uinput = { };
 
   # Add the Kanata service user to necessary groups
   systemd.services.kanata-internalKeyboard.serviceConfig = {
@@ -294,28 +294,28 @@
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
-         (defsrc
-           caps grv         i
-                       j    k    l
-           lsft rsft
-         )
-         
-         (deflayer default
-           @cap @grv        _
-                       _    _    _
-           _    _
-         )
-         
-         (deflayer arrows
-           _    _           up
-                       left down rght
-           _    _
-         )
-         
-         (defalias
-           cap (tap-hold-press 200 200 esc lctl)
-           grv (tap-hold-press 200 200 grv (layer-toggle arrows))
-         ) 
+          (defsrc
+            caps grv         i
+                        j    k    l
+            lsft rsft
+          )
+
+          (deflayer default
+            @cap @grv        _
+                        _    _    _
+            _    _
+          )
+
+          (deflayer arrows
+            _    _           up
+                        left down rght
+            _    _
+          )
+
+          (defalias
+            cap (tap-hold-press 200 200 esc lctl)
+            grv (tap-hold-press 200 200 grv (layer-toggle arrows))
+          )
         '';
       };
     };
@@ -329,16 +329,16 @@
     torsocks.enable = true; # Enables torsocks for proxying applications
     settings = {
       SOCKSPort = [
-      {
-        addr = "127.0.0.1";
-        port = 9150;
-        flags = [ "IsolateDestAddr" ]; # Specify flags as a list
-      }
-      {
-        addr = "127.0.0.1";
-        port = 9063;
-      }
-    ];
+        {
+          addr = "127.0.0.1";
+          port = 9150;
+          flags = [ "IsolateDestAddr" ]; # Specify flags as a list
+        }
+        {
+          addr = "127.0.0.1";
+          port = 9063;
+        }
+      ];
       SafeSocks = 1; # Rejects unsafe SOCKS configurations
       CookieAuthentication = true;
       AvoidDiskWrites = 1; # Improves performance
@@ -357,10 +357,11 @@
   };
 
   services.privoxy = {
-  enable = true;
-  settings = {
-    forward-socks5t = "/ 127.0.0.1:9150 ."; # Forward to Tor’s SOCKS port
-    listen-address = "127.0.0.1:8118"; # Privoxy’s default port
+    enable = true;
+    settings = {
+      forward-socks5t = "/ 127.0.0.1:9150 ."; # Forward to Tor’s SOCKS port
+      listen-address = "127.0.0.1:8118"; # Privoxy’s default port
+    };
   };
 
   system.stateVersion = "25.05";
