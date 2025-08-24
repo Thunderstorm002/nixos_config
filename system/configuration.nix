@@ -144,7 +144,8 @@
     #droidcam # Already included in home.nix, but can be added here for system-wide access
     #android-tools # For USB connection via adb  libinput
     jmtpfs
-    mtp-tools
+    mtpfs
+    go-mtpfs
 
     #battery Warning
     libnotify
