@@ -150,6 +150,17 @@
     sioyek
 
     vlc
+
+    # Gaming
+    lutris
+    # Performance monitoring
+    mangohud        # In-game performance overlay
+    goverlay        # GUI for MangoHud configuration
+    gamemode        # Automatic performance optimizations
+     # Wine & compatibility
+    wineWowPackages.stable
+    winetricks
+    dxvk            # DirectX to Vulkan translation
   ];
 
   fonts.fontconfig.enable = true;
@@ -209,5 +220,22 @@
       size = 24;
     };
   };
+
+  # Gaming
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+      gpu = {
+        apply_gpu_optimisations = "accept-responsibility";
+        gpu_device = 0;
+        amd_performance_level = "high";
+      };
+    };
+  };
+
+  programs.steam.gamescopeSession.enable = true;
 
 }
