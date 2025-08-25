@@ -191,6 +191,18 @@
     swayidle
     swaylock
 
+    # Gaming
+    steam
+    lutris
+    # Performance monitoring
+    mangohud        # In-game performance overlay
+    goverlay        # GUI for MangoHud configuration
+    gamemode        # Automatic performance optimizations
+     # Wine & compatibility
+    wineWowPackages.stable
+    winetricks
+    dxvk            # DirectX to Vulkan translation
+
     hunspell
     hunspellDicts.en_US
 
@@ -367,6 +379,23 @@
       listen-address = "127.0.0.1:8118"; # Privoxy’s default port
     };
   };
+
+   # Gaming
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+      gpu = {
+        apply_gpu_optimisations = "accept-responsibility";
+        gpu_device = 0;
+        amd_performance_level = "high";
+      };
+    };
+  };
+
+  programs.steam.gamescopeSession.enable = true;
 
   system.stateVersion = "25.05";
 }
