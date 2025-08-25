@@ -21,6 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
     # Make v4l2loopback kernel module available to NixOS.
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback
