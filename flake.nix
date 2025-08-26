@@ -84,7 +84,10 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = {
+                inherit inputs;
+                inherit pkgs-stable;
+              };
               users.roshan = {
                 imports = [
                   ./home/home.nix
