@@ -235,7 +235,7 @@
               (add-hook 'before-save-hook 'nix-format-buffer nil t)))
 
   ;; Optional: Enable company completion
-  (add-hook 'nix-mode-hook #'company-mode))
+  (add-hook 'nix-mode-hook #'corfu-mode))
 
 ;; LSP configuration for nil
 (after! lsp-mode
