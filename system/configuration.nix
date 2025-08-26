@@ -22,18 +22,6 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    # Make v4l2loopback kernel module available to NixOS.
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
-    # Activate kernel module(s).
-    kernelModules = [
-      # Virtual camera.
-      "uinput"
-      "v4l2loopback"
-      # Virtual Microphone. Custom DroidCam v4l2loopback driver needed for audio.
-      #    "snd-aloop"
-    ];
   };
 
   # Graphics Drivers (Corrected)
