@@ -223,9 +223,6 @@
 
 ;; Nix configuration
 (after! nix-mode
-  ;; Enable LSP for nix-mode
-  (add-hook 'nix-mode-hook #'lsp!)
-
   ;; Optional: Configure formatting
   (setq nix-nixfmt-bin "alejandra") ; or "nixfmt" or "alejandra"
 
@@ -234,22 +231,6 @@
             (lambda ()
               (add-hook 'before-save-hook 'nix-format-buffer nil t)))
 )
-
-
-;; LSP configuration for nil
-(after! lsp-mode
-;;  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
-;;
-;;  ;; Configure nil LSP server
-;;  (lsp-register-client
-;;   (make-lsp-client
-;;    :new-connection (lsp-stdio-connection "nil")
-;;    :major-modes '(nix-mode)
-;;    :server-id 'nil-ls
-;;    :priority 0))
-
-  (setq lsp-nix-nil-formatter ["alejandra"])
-  )
 
 ;; Optional: Configure additional nix tools
 (setq nix-indent-function 'nix-indent-line)
