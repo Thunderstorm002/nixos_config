@@ -43,6 +43,9 @@
   # Nix Settings
   nix = {
     package = pkgs.nixVersions.stable;
+    settings = {
+      allowed-users = [ "@wheel" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -78,8 +81,16 @@
   # Fish Shell (Corrected)
   programs.fish.enable = true;
 
+  services.userborn = {
+    enable = true;
+    # Only needed if `/etc` is immutable
+    # passwordFilesLocation = "/var/lib/nixos/userborn"
+  };
+
   # User Account
   users.users.roshan = {
+    homeMode = "755";
+    uid = 1000;
     isNormalUser = true;
     extraGroups = [
       "wheel"
@@ -87,6 +98,7 @@
       "video"
     ];
     shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
   };
 
   nix.settings.substituters = [
@@ -183,13 +195,13 @@
     steam
     lutris
     # Performance monitoring
-    mangohud        # In-game performance overlay
-    goverlay        # GUI for MangoHud configuration
-    gamemode        # Automatic performance optimizations
-     # Wine & compatibility
+    mangohud # In-game performance overlay
+    goverlay # GUI for MangoHud configuration
+    gamemode # Automatic performance optimizations
+    # Wine & compatibility
     wineWowPackages.stable
     winetricks
-    dxvk            # DirectX to Vulkan translation
+    dxvk # DirectX to Vulkan translation
 
     hunspell
     hunspellDicts.en_US
@@ -328,6 +340,7 @@
 
   services.tor = {
     enable = true;
+    openFirewall = true;
     client = {
       enable = true;
     };
@@ -369,7 +382,7 @@
     };
   };
 
-   # Gaming
+  # Gaming
   programs.gamemode = {
     enable = true;
     settings = {
@@ -385,6 +398,8 @@
   };
 
   programs.steam.gamescopeSession.enable = true;
+
+  users.mutableUsers = false;
 
   system.stateVersion = "25.05";
 }

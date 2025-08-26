@@ -55,7 +55,7 @@
         #        "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
-        layout = "hyprscrolling";
+        layout = "scrolling";
       };
 
       decoration = {
@@ -207,26 +207,24 @@
         "$Mod, mouse_down, workspace, e+1"
         "$Mod, mouse_up, workspace, e-1"
         "$Mod, Tab, workspace, previous"
-        #", Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
-        #", Super_L, exec, pkill -SIGUSR1 waybar"
-        #"$Mod, Super_L, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$Mod SHIFT, W, exec, ${config.xdg.configHome}/waybar/launch.sh"
-        #"$Mod, W, exec, ${config.xdg.configHome}/waybar/toggle.sh"
         "$Mod, W, exec, pkill -SIGUSR1 waybar"
         "$Mod, T, hy3:makegroup, tab"
         "$Mod SHIFT, U, hy3:makegroup, h"
-        "$Mod, A, hy3:movefocus, l"
-        "$Mod, S, hy3:movefocus, r"
-        "$Mod SHIFT, A, hy3:movewindow, l, once"
-        "$Mod SHIFT, S, hy3:movewindow, r, once"
         "$Mod, Escape, exec, ${config.home.homeDirectory}/nixos_config/bin/fuzzel-power-menu"
         "$Mod, X, exec, ${config.home.homeDirectory}/nixos_config/bin/fuzzel-workspace-apps"
 
+        # bind for hy3
+        #"$Mod, A, hy3:movefocus, l"
+        #"$Mod, S, hy3:movefocus, r"
+        #"$Mod SHIFT, A, hy3:movewindow, l, once"
+        #"$Mod SHIFT, S, hy3:movewindow, r, once"
+
         # bind for hyprscrolling
-        # "$Mod, S, layoutmsg, move +col"
-        # "$Mod, A, layoutmsg, move -col"
-        # "$Mod SHIFT, S, layoutmsg, movewindowto r"
-        # "$Mod SHIFT, A, layoutmsg, movewindowto l"
+         "$Mod, S, layoutmsg, move +col"
+         "$Mod, A, layoutmsg, move -col"
+         "$Mod SHIFT, S, layoutmsg, movewindowto r"
+         "$Mod SHIFT, A, layoutmsg, movewindowto l"
       ];
       bindm = [
         "$Mod, mouse:272, movewindow"

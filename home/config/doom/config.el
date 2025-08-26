@@ -171,7 +171,6 @@
 (setq +format-on-save-enabled-modes '(not emacs-lisp-mode))
 
 (after! lsp-mode
-  (setq lsp-nix-nil-formatter ["alejandra"])
   ;; make Doom use LSP for formatting if available
   (setq +format-with-lsp t))
 
@@ -219,6 +218,42 @@
                          (magit-pull "--rebase" "--autostash")
                          (magit-revert "--autostash")))
 
+
+;;; :lang nix
+
+;; Nix configuration
+(after! nix-mode
+  ;; Enable LSP for nix-mode
+  (add-hook 'nix-mode-hook #'lsp!)
+
+  ;; Optional: Configure formatting
+  (setq nix-nixfmt-bin "alejandra") ; or "nixfmt" or "alejandra"
+
+  ;; Enable format on save (optional)
+  (add-hook 'nix-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'nix-format-buffer nil t)))
+
+  ;; Optional: Enable company completion
+  (add-hook 'nix-mode-hook #'company-mode))
+
+;; LSP configuration for nil
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+
+  ;; Configure nil LSP server
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection "nil")
+    :major-modes '(nix-mode)
+    :server-id 'nil-ls
+    :priority 0))
+
+  (setq lsp-nix-nil-formatter ["alejandra"])
+  )
+
+;; Optional: Configure additional nix tools
+(setq nix-indent-function 'nix-indent-line)
 
 ;;; :lang org
 (setq org-directory "~/Documents/org/"
