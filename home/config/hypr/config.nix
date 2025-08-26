@@ -40,7 +40,7 @@
         "${pkgs.bash}/bin/bash /home/roshan/.config/waybar/launch.sh"
         #"waybar -c /home/roshan/.config/waybar/config-hyprland.json -s /home/roshan/.config/waybar/style-hyprland.css"
         "hyprctl setcursor catppuccin-mocha-dark-cursors 24"
-        #"hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
+        "hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
       ];
 
       cursor = {
@@ -55,7 +55,7 @@
         #        "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
-        layout = "hy3";
+        layout = "hyprscrolling";
       };
 
       decoration = {
