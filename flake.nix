@@ -56,6 +56,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
       hyprland,
       hy3,
