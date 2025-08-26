@@ -233,6 +233,7 @@
   (add-hook 'nix-mode-hook
             (lambda ()
               (add-hook 'before-save-hook 'nix-format-buffer nil t)))
+)
 
 
 ;; LSP configuration for nil
