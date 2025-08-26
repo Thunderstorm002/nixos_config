@@ -74,7 +74,7 @@
        latex
        (lua +fennel)
        markdown
-       nix
+       (nix +lsp +tree-sitter)
        (org +dragndrop +roam2 +pretty)
        ;;php
        ;;plantuml

@@ -234,20 +234,18 @@
             (lambda ()
               (add-hook 'before-save-hook 'nix-format-buffer nil t)))
 
-  ;; Optional: Enable company completion
-  (add-hook 'nix-mode-hook #'corfu-mode))
 
 ;; LSP configuration for nil
 (after! lsp-mode
-  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
-
-  ;; Configure nil LSP server
-  (lsp-register-client
-   (make-lsp-client
-    :new-connection (lsp-stdio-connection "nil")
-    :major-modes '(nix-mode)
-    :server-id 'nil-ls
-    :priority 0))
+;;  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+;;
+;;  ;; Configure nil LSP server
+;;  (lsp-register-client
+;;   (make-lsp-client
+;;    :new-connection (lsp-stdio-connection "nil")
+;;    :major-modes '(nix-mode)
+;;    :server-id 'nil-ls
+;;    :priority 0))
 
   (setq lsp-nix-nil-formatter ["alejandra"])
   )
