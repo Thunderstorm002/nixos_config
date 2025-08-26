@@ -27,135 +27,138 @@
   ];
 
   # User Packages
-  home.packages = with pkgs; [
-    # Terminal & Shell
-    wezterm
-    ghostty
-    alacritty
-    alacritty-theme
-    kitty
-    fish
+  home.packages =
+    with pkgs;
+    [
+      # Terminal & Shell
+      wezterm
+      ghostty
+      alacritty
+      alacritty-theme
+      kitty
+      fish
 
-    # TUI Apps
-    yazi
-    lazygit
-    #gitui
+      # TUI Apps
+      yazi
+      lazygit
+      #gitui
 
-    psmisc
-    procps
+      psmisc
+      procps
 
-    # GUI Apps
-    xfce.thunar
-    mako # notification client
-    cliphist
-    blueman
-    inputs.zen-browser.packages.${pkgs.system}.default
-    librewolf
-    calibre
-    neovide
-    networkmanagerapplet
-    pavucontrol
+      # GUI Apps
+      xfce.thunar
+      mako # notification client
+      cliphist
+      blueman
+      inputs.zen-browser.packages.${pkgs.system}.default
+      librewolf
+      calibre
+      neovide
+      networkmanagerapplet
+      pavucontrol
 
-    # Utilities
-    brightnessctl
-    grim
-    slurp
-    mpc-cli # For controlling MPD
-    power-profiles-daemon
-    wireplumber
-    keepassxc
-    hyprsunset
+      # Utilities
+      brightnessctl
+      grim
+      slurp
+      mpc-cli # For controlling MPD
+      power-profiles-daemon
+      wireplumber
+      keepassxc
+      hyprsunset
 
-    #Camera
-    droidcam
-    android-tools # For USB connection via adb  libinput
+      #Camera
+      droidcam
+      android-tools # For USB connection via adb  libinput
 
-    #Browsers
-    tor-browser
+      #Browsers
+      tor-browser
 
-    #Communication
-    telegram-desktop
+      #Communication
+      telegram-desktop
 
-    # Fonts
-    font-awesome
-    roboto
-    noto-fonts-color-emoji
-    noto-fonts-emoji
-    nerd-fonts.fira-code
-    nerd-fonts._0xproto
-    nerd-fonts.noto
-    nerd-fonts.droid-sans-mono
-    nerd-fonts.symbols-only
-    jetbrains-mono
-    papirus-icon-theme
-    source-sans-pro
-    source-serif-pro
-    source-code-pro
-    inter
+      # Fonts
+      font-awesome
+      roboto
+      noto-fonts-color-emoji
+      noto-fonts-emoji
+      nerd-fonts.fira-code
+      nerd-fonts._0xproto
+      nerd-fonts.noto
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.symbols-only
+      jetbrains-mono
+      papirus-icon-theme
+      source-sans-pro
+      source-serif-pro
+      source-code-pro
+      inter
 
-    # theme
-    catppuccin-cursors.mochaDark
-    hyprcursor
+      # theme
+      catppuccin-cursors.mochaDark
+      hyprcursor
 
-    #Rust utilities
-    ripgrep
-    fd
-    zoxide
+      #Rust utilities
+      ripgrep
+      fd
+      zoxide
 
-    #LATEX
-    texlive.combined.scheme-full
-    texstudio
+      #LATEX
+      texlive.combined.scheme-full
+      texstudio
 
-    adw-gtk3
-    adwaita-qt
+      adw-gtk3
+      adwaita-qt
 
-    # git replacement
-    jujutsu
-    syncthing
+      # git replacement
+      jujutsu
+      syncthing
 
-    # nix lsp
-    alejandra
-    #nixfmt
-    nil
+      # nix lsp
+      alejandra
+      #nixfmt
+      nil
 
-    # Emacs
-    emacsclient-commands
-    findutils
-    marksman
-    shellcheck
-    gnumake
-    cmake
-    aspell
-    direnv
-    sqlite
-    nodejs
-    nixfmt
-    maim
-    rust-analyzer
-    shfmt
-    pandoc
-    graphviz
-    imagemagick
-    isync
-    mu
-    clang-tools
-    gdtoolkit_4
-    libvterm
+      # Emacs
+      emacsclient-commands
+      findutils
+      marksman
+      shellcheck
+      gnumake
+      cmake
+      aspell
+      direnv
+      sqlite
+      nodejs
+      nixfmt
+      maim
+      rust-analyzer
+      shfmt
+      pandoc
+      graphviz
+      imagemagick
+      isync
+      mu
+      clang-tools
+      libvterm
 
-    hunspell
-    hunspellDicts.en_US
+      hunspell
+      hunspellDicts.en_US
 
-    gammastep
+      gammastep
 
-    # PDF viewer
-    sioyek
+      # PDF viewer
+      sioyek
 
-    vlc
+      vlc
 
-  ] ++ (with pkgs-stable; [
-  # stable packages
-  gitui  # use stable version if unstable is broken
-]);
+    ]
+    ++ (with pkgs-stable; [
+      # stable packages
+      gitui
+      gdtoolkit_4
+    ]);
 
   fonts.fontconfig.enable = true;
 
