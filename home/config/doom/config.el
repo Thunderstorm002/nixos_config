@@ -201,7 +201,8 @@
   (defun lsp-booster--advice-final-command (old-fn cmd &rest args)
     (let ((result (apply old-fn cmd args)))
       (if (and lsp-use-plists
-               (executable-find "emacs-lsp-booster"))
+               (executable-find "emacs-lsp-booster")
+               (not (string= (car result) "nil")))
           (cons "emacs-lsp-booster" result)
         result)))
   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
