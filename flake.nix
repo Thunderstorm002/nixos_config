@@ -46,9 +46,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-    };
+#    niri = {
+#      url = "github:sodiboo/niri-flake";
+#    };
 
   };
 
@@ -63,7 +63,7 @@
       agenix,
       stylix,
       nvf,
-      niri,
+#      niri,
       ...
     }@inputs:
     let
@@ -98,7 +98,7 @@
           agenix.nixosModules.default
           stylix.nixosModules.stylix
           nvf.nixosModules.default
-          niri.nixosModules.niri
+          #niri.nixosModules.niri
           ./system/configuration.nix
         ];
       };

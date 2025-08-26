@@ -18,7 +18,7 @@
     ./config/waybar/waybar_hypr.nix
     ./config/fish.nix
     ./config/emacs/emacs.nix
-    ./config/niri/config.nix
+    #./config/niri/config.nix
     inputs.nvf.homeManagerModules.default
     ./config/fuzzel.nix
     ./config/gammastep.nix

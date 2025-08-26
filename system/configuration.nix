@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
     ../modules/desktop/hyprland.nix
     ../modules/desktop/sddm.nix
-    ../modules/desktop/niri.nix
+    #../modules/desktop/niri.nix
     ../modules/system/bluetooth.nix
     ../modules/network/dnscrypt.nix
     ../modules/network/crab-hole.nix

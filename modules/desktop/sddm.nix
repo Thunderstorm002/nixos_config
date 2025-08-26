@@ -4,7 +4,7 @@
   #services.xserver.enable = true;
   services.displayManager.sessionPackages = with pkgs; [
     hyprland
-    niri
+    #niri
   ];
   # Ensure SDDM is configured to handle Wayland sessions
   services.displayManager.sddm = {
