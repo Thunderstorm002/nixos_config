@@ -177,11 +177,16 @@
 ;; emacs-lsp-booster
 ;; This tells lsp-mode to use plists for deserialization, which is
 ;; a prerequisite for lsp-booster.
-(setq lsp-use-plists t)
-(setenv "LSP_USE_PLISTS" "true")
+;;(setq lsp-use-plists t)
+;;(setenv "LSP_USE_PLISTS" "true")
 
 ;; Use `after!` to ensure this code runs after the lsp module is loaded.
 (after! lsp-mode
+
+  (advice-remove 'json-parse-buffer #'lsp-booster--advice-json-parse)
+  (advice-remove 'json-read #'lsp-booster--advice-json-parse)
+  (advice-remove 'lsp-resolve-final-command #'lsp-booster--advice-final-command)
+
   (defun lsp-booster--advice-json-parse (old-fn &rest args)
     "Try to parse bytecode instead of json."
     (or
