@@ -88,10 +88,15 @@
   };
 
   # User Account
+  users.users.root = {
+    hashedPassword = "$6$E/YURDXmdQm1/gEe$j8GID6E3j8RLrnmDFafK2XWCXwtrP6xLwaMSbmjXNdufSAgbHP1xm9U4N2JDgLH1tIWS/CQScDEoK0j5q.ZiR1";
+  };
+
   users.users.roshan = {
     homeMode = "755";
     uid = 1000;
     isNormalUser = true;
+    hashedPassword = "$6$gNftHqB3I0TWUkyA$T59csws3NZN9KeqWr2dbYILSJQpGmrmgD.I2U2piPULfwm9PjEY1r85c85caO5EKII.IK0cMUFi74XqLQutJz/";
     extraGroups = [
       "wheel"
       "networkmanager"
