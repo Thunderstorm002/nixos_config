@@ -170,7 +170,7 @@
 
     # NiriWM
     fuzzel
-    xwayland-satellite-unstable
+    #xwayland-satellite-unstable
     wayland-utils
     libsecret
     cage
