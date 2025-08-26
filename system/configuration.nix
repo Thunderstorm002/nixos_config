@@ -216,6 +216,7 @@
     catppuccin-cursors.mochaDark
     catppuccin-gtk # GTK theme for Catppuccin
     catppuccin-kvantum # Qt/Kvantum theme
+
   ];
 
   # Disable the traditional sudo module

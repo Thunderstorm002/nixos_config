@@ -38,7 +38,7 @@
     # TUI Apps
     yazi
     lazygit
-    gitui
+    #gitui
 
     psmisc
     procps
@@ -151,7 +151,10 @@
 
     vlc
 
-  ];
+  ] ++ (with pkgs-stable; [
+  # stable packages
+  gitui  # use stable version if unstable is broken
+]);
 
   fonts.fontconfig.enable = true;
 
