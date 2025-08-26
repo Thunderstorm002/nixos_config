@@ -23,18 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot = {
-    # Make v4l2loopback kernel module available to NixOS.
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
-    # Activate kernel module(s).
-    kernelModules = [
-      # Virtual camera.
-      "uinput"
-      "v4l2loopback"
-      # Virtual Microphone. Custom DroidCam v4l2loopback driver needed for audio.
-      #    "snd-aloop"
-    ];
+    kernelPackages = pkgs.linuxPackages_hardened;
   };
 
   fileSystems."/mnt" = {
@@ -57,6 +46,9 @@
   # Nix Settings
   nix = {
     package = pkgs.nixVersions.stable;
+    settings = {
+      allowed-users = [ "@wheel" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -128,9 +120,21 @@
   # Fish Shell (Corrected)
   programs.fish.enable = true;
 
+  services.userborn = {
+    enable = true;
+    # Only needed if `/etc` is immutable
+    # passwordFilesLocation = "/var/lib/nixos/userborn"
+  };
+
   # User Account
+  users.users.root = {
+    hashedPassword = "$6$fp9O1LmfQbte.Ih2$s7i0r2GuT0g7.2HR9UT6YgdBrpujNlPK8LGDsfgFZd/0hyYyqlhKuGTYwJMxTFRVbn7VgkSuAJYpDYygPCCpw/";
+  };
   users.users.roshan = {
+    homeMode = "755";
+    uid = 1000;
     isNormalUser = true;
+    hashedPassword = "$6$qoG3N8KtkfNydPl4$8Q5oTcpdtjyXf5xejrma.LkDbLSbmArlCbm79HNQUENE5KMj160mg3TBBEOvc8SEMZzQeKA89XGobGZGxJ/I0/";
     extraGroups = [
       "wheel"
       "podman"
@@ -138,6 +142,7 @@
       "video"
     ];
     shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
   };
 
   nixpkgs.overlays = [
@@ -407,6 +412,8 @@
       };
     };
   };
+
+  users.mutableUsers = false;
 
   system.stateVersion = "25.05";
 }
